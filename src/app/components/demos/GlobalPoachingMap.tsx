@@ -27,37 +27,37 @@ const incidents: Incident[] = [
     detectionMethod: "Satellite + Dark Web Monitoring",
     status: "alert",
     date: "March 21, 2026",
-    coordinates: { x: 70, y: 35 }
+    coordinates: { x: 52, y: 44 }
   },
   {
     id: "2",
-    location: "Madagascar",
-    species: "Pachypodium (rare variant)",
+    location: "Mekong River Crossing",
+    species: "Pachypodium (regional variant)",
     specimenCount: 89,
-    detectionMethod: "Illegal Nursery Network Detection",
+    detectionMethod: "Illegal Crossing Point Sensor",
     status: "recovered",
     date: "March 22, 2026",
-    coordinates: { x: 55, y: 60 }
+    coordinates: { x: 38, y: 32 }
   },
   {
     id: "3",
-    location: "Peru (Amazon)",
-    species: "Medicinal plant variant",
+    location: "Border Jungle Outpost",
+    species: "Orchid variant rescued",
     specimenCount: 203,
-    detectionMethod: "GPS Camera + Ranger Reports",
+    detectionMethod: "Patrol Drone Auto-Alert",
     status: "in-progress",
     date: "March 20, 2026",
-    coordinates: { x: 25, y: 55 }
+    coordinates: { x: 74, y: 76 }
   },
   {
     id: "4",
-    location: "Madagascar (North)",
-    species: "Rare orchid variant",
+    location: "Vientiane Checkpoint",
+    species: "Intercepted Rare Seeds",
     specimenCount: 56,
-    detectionMethod: "Customs Intercept",
+    detectionMethod: "Thermal Imaging Scanners",
     status: "intercepted",
     date: "March 21, 2026",
-    coordinates: { x: 55, y: 50 }
+    coordinates: { x: 25, y: 22 }
   }
 ];
 
@@ -194,13 +194,21 @@ export function GlobalPoachingMap() {
             </div>
 
             {/* Simplified World Map Visualization */}
-            <div className="relative w-full bg-[#E6E8EC] rounded-3xl overflow-hidden" style={{ height: '400px' }}>
-              {/* Continents (simplified shapes) */}
-              <svg className="absolute inset-0 w-full h-full opacity-20">
-                <path d="M 100 150 Q 150 120 200 140 T 300 160 Q 350 180 300 220 T 200 240 Q 150 220 100 200 Z" fill="#075D44" />
-                <path d="M 350 100 Q 400 80 450 100 T 550 120 Q 600 140 550 180 T 450 200 Q 400 180 350 160 Z" fill="#075D44" />
-                <path d="M 150 280 Q 200 260 250 280 T 350 300 Q 400 320 350 360 T 250 380 Q 200 360 150 340 Z" fill="#075D44" />
-              </svg>
+            <div className="relative w-full bg-[#151515] rounded-3xl overflow-hidden" style={{ height: '400px' }}>
+              {/* Interactive Google Map Background */}
+              <div className="absolute inset-0 grayscale contrast-[1.2] brightness-[0.7] invert-[0.9] hue-rotate-[180deg]">
+                <iframe
+                  title="Thailand/Laos Border Map"
+                  width="100%"
+                  height="100%"
+                  frameBorder="0"
+                  scrolling="no"
+                  marginHeight={0}
+                  marginWidth={0}
+                  src="https://maps.google.com/maps?q=Mekong%20River%20Thailand%20Laos%20Border&t=k&z=9&ie=UTF8&iwloc=&output=embed"
+                  style={{ border: 0, opacity: 0.6 }}
+                />
+              </div>
 
               {/* Incident Markers */}
               <AnimatePresence>
@@ -261,43 +269,6 @@ export function GlobalPoachingMap() {
                   </motion.div>
                 ))}
               </AnimatePresence>
-
-              {/* Selected Incident Popup */}
-              <AnimatePresence>
-                {selectedIncident && (
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.8 }}
-                    className="absolute bottom-4 left-4 right-4 bg-white p-4 rounded-3xl shadow-xl"
-                    style={{ borderLeft: `4px solid ${getStatusColor(selectedIncident.status)}` }}
-                  >
-                    <div className="flex items-start justify-between mb-2">
-                      <div className="flex items-center gap-2">
-                        <MapPin className="w-4 h-4 text-primary" />
-                        <span className="font-semibold">{selectedIncident.location}</span>
-                      </div>
-                      <Badge 
-                        className="text-xs"
-                        style={{ 
-                          backgroundColor: getStatusColor(selectedIncident.status),
-                          color: getStatusTextColor(selectedIncident.status)
-                        }}
-                      >
-                        {selectedIncident.status.toUpperCase()}
-                      </Badge>
-                    </div>
-                    <p className="text-sm mb-1"><strong>{selectedIncident.species}</strong></p>
-                    <p className="text-lg font-bold text-[#075D44] mb-2">
-                      {selectedIncident.specimenCount} plants detected
-                    </p>
-                    <div className="text-xs text-muted-foreground space-y-1">
-                      <p>Detection: {selectedIncident.detectionMethod}</p>
-                      <p>Date: {selectedIncident.date}</p>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
             </div>
 
             {/* Legend */}
@@ -357,60 +328,9 @@ export function GlobalPoachingMap() {
 
         {/* Right Sidebar - Statistics */}
         <div className="space-y-4">
-          {/* Monthly Statistics */}
-          <Card className="p-5 space-y-4 rounded-3xl">
-            <h3 className="font-semibold font-['Dela_Gothic_One']">Global Report - March 2026</h3>
-            
-            <div className="space-y-4">
-              <div>
-                <p className="text-sm text-muted-foreground mb-1">Incidents Detected</p>
-                <p className="text-4xl font-bold text-[#b091eb]">{stats.incidents}</p>
-              </div>
-              
-              <div>
-                <p className="text-sm text-muted-foreground mb-1">Plants Recovered</p>
-                <p className="text-4xl font-bold text-[#075D44]">{stats.plantsRecovered}</p>
-              </div>
-              
-              <div>
-                <p className="text-sm text-muted-foreground mb-1">Legal Actions</p>
-                <p className="text-4xl font-bold text-primary">{stats.legalActions}</p>
-              </div>
-              
-              <div>
-                <p className="text-sm text-muted-foreground mb-1">Success Rate</p>
-                <div className="flex items-baseline gap-2">
-                  <p className="text-4xl font-bold text-[#D0F17A]">{stats.successRate}%</p>
-                  <TrendingDown className="w-5 h-5 text-[#D0F17A]" />
-                </div>
-                <p className="text-xs text-muted-foreground mt-1">Poaching declining month-over-month</p>
-              </div>
-            </div>
-          </Card>
-
-          {/* Most Targeted Species */}
-          <Card className="p-5 rounded-3xl">
-            <h3 className="font-semibold mb-3 font-['Dela_Gothic_One']">Most Targeted Species</h3>
-            <div className="space-y-3">
-              {[
-                { name: "Rare Orchid species", count: 412 },
-                { name: "Succulent species", count: 203 },
-                { name: "Medicinal plants", count: 156 },
-                { name: "Cycad species", count: 76 }
-              ].map((species, index) => (
-                <div key={index} className="flex items-center justify-between">
-                  <span className="text-sm">{species.name}</span>
-                  <Badge variant="outline" className="font-semibold">
-                    {species.count}
-                  </Badge>
-                </div>
-              ))}
-            </div>
-          </Card>
-
-          {/* Recent Incident Cards */}
+          {/* Recent Incident Card (Top Priority) */}
           <div className="space-y-3">
-            {visibleIncidents.slice(0, 2).map((incident) => (
+            {visibleIncidents.slice(0, 1).map((incident) => (
               <motion.div
                 key={incident.id}
                 initial={{ opacity: 0, y: 20 }}
@@ -420,6 +340,35 @@ export function GlobalPoachingMap() {
               </motion.div>
             ))}
           </div>
+
+          {/* Monthly Statistics */}
+          <Card className="p-5 space-y-4 rounded-3xl">
+            <div className="space-y-4">
+              <div>
+                <p className="text-sm text-muted-foreground mb-1">Incidents Detected</p>
+                <p className="text-4xl font-bold text-[#b091eb] font-['Dela_Gothic_One']">{stats.incidents}</p>
+              </div>
+              
+              <div>
+                <p className="text-sm text-muted-foreground mb-1">Plants Recovered</p>
+                <p className="text-4xl font-bold text-[#075D44] font-['Dela_Gothic_One']">{stats.plantsRecovered}</p>
+              </div>
+              
+              <div>
+                <p className="text-sm text-muted-foreground mb-1">Legal Actions</p>
+                <p className="text-4xl font-bold text-primary font-['Dela_Gothic_One']">{stats.legalActions}</p>
+              </div>
+              
+              <div>
+                <p className="text-sm text-muted-foreground mb-1">Success Rate</p>
+                <div className="flex items-baseline gap-2">
+                  <p className="text-4xl font-bold text-[#D0F17A] font-['Dela_Gothic_One']">{stats.successRate}%</p>
+                  <TrendingDown className="w-5 h-5 text-[#D0F17A]" />
+                </div>
+                <p className="text-xs text-muted-foreground mt-1">Poaching declining month-over-month</p>
+              </div>
+            </div>
+          </Card>
         </div>
       </div>
     </div>
