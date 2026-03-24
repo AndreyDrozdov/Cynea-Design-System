@@ -141,16 +141,16 @@ export function ServicesSection() {
           >
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 w-full min-h-[120px] py-4 sm:py-0">
               <div className="flex flex-col justify-between h-full border-b border-[#D0F17A]/10 pb-4 sm:border-0 sm:pb-0">
-                <p className="text-5xl text-[#D0F17A] font-['Dela_Gothic_One'] leading-none">847</p>
-                <p className="text-sm text-[#D0F17A]/80 font-['Plus_Jakarta_Sans']">Species monitored around the clock</p>
+                <p className="text-5xl text-[#075D44] font-['Dela_Gothic_One'] leading-none">847</p>
+                <p className="text-sm text-[#075D44]/80 font-['Plus_Jakarta_Sans']">Species monitored around the clock</p>
               </div>
               <div className="flex flex-col justify-between h-full border-b border-[#D0F17A]/10 pb-4 sm:border-0 sm:pb-0">
-                <p className="text-5xl text-[#D0F17A] font-['Dela_Gothic_One'] leading-none">76</p>
-                <p className="text-sm text-[#D0F17A]/80 font-['Plus_Jakarta_Sans']">Partner institutions coordinated globally</p>
+                <p className="text-5xl text-[#075D44] font-['Dela_Gothic_One'] leading-none">76</p>
+                <p className="text-sm text-[#075D44]/80 font-['Plus_Jakarta_Sans']">Partner institutions coordinated globally</p>
               </div>
               <div className="flex flex-col justify-between h-full">
-                <p className="text-5xl text-[#D0F17A] font-['Dela_Gothic_One'] leading-none">64%</p>
-                <p className="text-sm text-[#D0F17A]/80 font-['Plus_Jakarta_Sans']">Poaching prevention success rate</p>
+                <p className="text-5xl text-[#075D44] font-['Dela_Gothic_One'] leading-none">64%</p>
+                <p className="text-sm text-[#075D44]/80 font-['Plus_Jakarta_Sans']">Poaching prevention success rate</p>
               </div>
             </div>
           </motion.div>

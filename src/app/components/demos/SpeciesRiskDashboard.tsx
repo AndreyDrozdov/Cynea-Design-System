@@ -190,19 +190,19 @@ export function SpeciesRiskDashboard() {
             <div className="space-y-3">
               <div>
                 <p className="text-sm text-muted-foreground">Total Species at Risk</p>
-                <p className="text-3xl font-bold text-primary font-['Dela_Gothic_One']">{stats.totalSpecies}</p>
+                <p className="text-3xl font-bold text-[#075D44] font-['Dela_Gothic_One']">{stats.totalSpecies}</p>
               </div>
               <div>
                 <p className="text-sm text-muted-foreground">Critical Priority Cases</p>
-                <p className="text-3xl font-bold text-[#c0a7ef] font-['Dela_Gothic_One']">{stats.criticalCases}</p>
+                <p className="text-3xl font-bold text-[#075D44] font-['Dela_Gothic_One']">{stats.criticalCases}</p>
               </div>
               <div>
                 <p className="text-sm text-muted-foreground">Active Breeding Programs</p>
-                <p className="text-3xl font-bold text-[#D0F17A] font-['Dela_Gothic_One']">{stats.breedingPrograms}</p>
+                <p className="text-3xl font-bold text-[#075D44] font-['Dela_Gothic_One']">{stats.breedingPrograms}</p>
               </div>
               <div>
                 <p className="text-sm text-muted-foreground">Network Institutions</p>
-                <p className="text-3xl font-bold font-['Dela_Gothic_One']">{stats.institutions}</p>
+                <p className="text-3xl font-bold text-[#075D44] font-['Dela_Gothic_One']">{stats.institutions}</p>
               </div>
             </div>
           </Card>
