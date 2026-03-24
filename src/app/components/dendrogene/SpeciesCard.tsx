@@ -54,9 +54,7 @@ export function SpeciesCard({
         <div className="flex flex-col sm:flex-row items-start justify-between gap-3 sm:gap-4">
           <div className="space-y-1 flex-1">
               <h3 className="text-lg font-['Dela_Gothic_One']">{commonName}</h3>
-
           </div>
-
         </div>
 
         <ExtinctionRiskIndicator risk={extinctionRisk} timeline={timeline} />

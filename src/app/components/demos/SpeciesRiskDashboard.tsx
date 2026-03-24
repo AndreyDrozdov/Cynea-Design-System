@@ -38,26 +38,6 @@ const speciesData: SpeciesData[] = [
     recommendation: "Establish anti-poaching patrols and increase habitat protection",
     status: "endangered",
   },
-  {
-    id: "3",
-    commonName: "Corpse Flower",
-    scientificName: "Rafflesia arnoldii",
-    extinctionRisk: 58,
-    timeline: "15-20 years",
-    wildPopulation: "~500 plants declining",
-    recommendation: "Plan population relocation due to climate change impact",
-    status: "endangered",
-  },
-  {
-    id: "4",
-    commonName: "Western Prairie Fringed Orchid",
-    scientificName: "Platanthera praeclara",
-    extinctionRisk: 45,
-    timeline: "25-30 years",
-    wildPopulation: "2,000+ plants",
-    recommendation: "Monitor habitat suitability under climate scenarios",
-    status: "at-risk",
-  },
 ];
 
 const networkActivity = [
@@ -118,94 +98,117 @@ export function SpeciesRiskDashboard() {
         </div>
       </div>
 
-      {/* Alert Banner */}
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="bg-[#c0a7ef]/30 text-[#151515] p-6 rounded-3xl"
-      >
-        <div className="flex flex-col sm:flex-row items-center gap-4">
-          <div className="text-center sm:text-left">
-            <p className="text-xl font-['Dela_Gothic_One'] text-[#46014f] leading-none mb-1">
-              {criticalCount} Species at Critical Risk
-            </p>
-            <p className="text-sm font-['Plus_Jakarta_Sans'] font-medium text-[#46014f]/70">
-              Immediate intervention required to prevent extinction
-            </p>
-          </div>
-        </div>
-      </motion.div>
+      <div className="grid lg:grid-cols-2 gap-6">
+        {/* Main Content - Species Monitoring (Left) */}
+        <div className="space-y-6">
+          {/* Alert Banner */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.98 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="p-4 border border-[#c0a7ef]/30 bg-transparent rounded-3xl"
+          >
+            <div className="flex items-center gap-3">
+              <div className="w-2.5 h-2.5 bg-[#c0a7ef] rounded-full animate-pulse flex-shrink-0" />
+              <p className="text-sm font-['Plus_Jakarta_Sans'] leading-tight">
+                <strong className="font-bold text-[#151515]">4 Species at Critical Risk:</strong>
+                <span className="text-muted-foreground ml-1.5">Immediate intervention required to prevent extinction</span>
+              </p>
+            </div>
+          </motion.div>
 
-      <div className="grid lg:grid-cols-3 gap-6">
-        {/* Main Content - Species List */}
-        <div className="lg:col-span-2 space-y-4">
-          <h3 className="text-xl font-semibold font-['Dela_Gothic_One']">Priority Species</h3>
           <div className="space-y-4">
             <AnimatePresence mode="popLayout">
               {visibleSpecies.map((species, index) => (
                 <motion.div
                   key={species.id}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.05 }}
-                  className="mb-4"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
                 >
-                  <SpeciesCard {...species} />
+                  <SpeciesCard 
+                    {...species} 
+                    className="bg-transparent border-none shadow-none p-0"
+                  />
                 </motion.div>
               ))}
             </AnimatePresence>
           </div>
         </div>
 
-        {/* Sidebar */}
+        {/* Intelligence Grid - Bento Layout (Right) */}
         <div className="space-y-4">
-          <Card className="p-5 space-y-4 rounded-3xl">
-            <h3 className="font-semibold font-['Dela_Gothic_One'] tracking-tight">
-              Network Statistics
-            </h3>
-            <div className="space-y-3">
-              <div>
-                <p className="text-sm text-muted-foreground">Total Species at Risk</p>
-                <p className="text-3xl font-bold text-[#075D44] font-['Dela_Gothic_One']">{stats.totalSpecies}</p>
-              </div>
-              <div>
-                <p className="text-sm text-muted-foreground">Critical Priority Cases</p>
-                <p className="text-3xl font-bold text-[#075D44] font-['Dela_Gothic_One']">{stats.criticalCases}</p>
-              </div>
-              <div>
-                <p className="text-sm text-muted-foreground">Active Breeding Programs</p>
-                <p className="text-3xl font-bold text-[#075D44] font-['Dela_Gothic_One']">{stats.breedingPrograms}</p>
-              </div>
-              <div>
-                <p className="text-sm text-muted-foreground">Network Institutions</p>
-                <p className="text-3xl font-bold text-[#075D44] font-['Dela_Gothic_One']">{stats.institutions}</p>
-              </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {/* Top Primary Stats - Green */}
+            <div className="md:col-span-2">
+              <Card className="p-6 space-y-5 rounded-[32px] border border-[#D0F17A]/30 bg-[#D0F17A]/15 h-full">
+                <h3 className="font-semibold font-['Dela_Gothic_One'] tracking-tight text-[#075D44]">
+                  Network Pulse
+                </h3>
+                <div className="grid grid-cols-2 gap-y-6 gap-x-4">
+                  <div>
+                    <p className="text-[10px] uppercase tracking-widest text-[#075D44]/60 font-medium mb-1">Risk Coverage</p>
+                    <p className="text-2xl font-bold text-[#151515] font-['Dela_Gothic_One']">{stats.totalSpecies}</p>
+                  </div>
+                  <div>
+                    <p className="text-[10px] uppercase tracking-widest text-[#075D44]/60 font-medium mb-1">Critically Low</p>
+                    <p className="text-2xl font-bold text-[#151515] font-['Dela_Gothic_One']">{stats.criticalCases}</p>
+                  </div>
+                  <div>
+                    <p className="text-[10px] uppercase tracking-widest text-[#075D44]/60 font-medium mb-1">Active Labs</p>
+                    <p className="text-2xl font-bold text-[#151515] font-['Dela_Gothic_One']">{stats.breedingPrograms}</p>
+                  </div>
+                  <div>
+                    <p className="text-[10px] uppercase tracking-widest text-[#075D44]/60 font-medium mb-1">Institutions</p>
+                    <p className="text-2xl font-bold text-[#151515] font-['Dela_Gothic_One']">{stats.institutions}</p>
+                  </div>
+                </div>
+              </Card>
             </div>
-          </Card>
 
-          <Card className="p-5 space-y-3 rounded-3xl">
-            <h3 className="font-semibold font-['Dela_Gothic_One'] tracking-tight">
-              Recent Network Activity
-            </h3>
-            <div className="space-y-2">
-              <AnimatePresence>
-                {activities.map((activity, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: "auto" }}
-                    exit={{ opacity: 0, height: 0 }}
-                    className="text-sm p-2 bg-[#E6E8EC]/30 rounded-3xl"
-                  >
-                    {activity}
-                  </motion.div>
-                ))}
-              </AnimatePresence>
-              {activities.length === 0 && (
-                <p className="text-sm text-muted-foreground">Loading activity...</p>
-              )}
-            </div>
-          </Card>
+            {/* Bottom Left Activity - Purple */}
+            <Card className="p-5 space-y-4 rounded-[32px] border border-[#b091eb]/30 bg-[#b091eb]/15 h-full">
+              <h3 className="font-semibold font-['Dela_Gothic_One'] tracking-tight text-[#46014f] text-sm">
+                Live Monitoring
+              </h3>
+              <div className="space-y-3">
+                <AnimatePresence mode="popLayout">
+                  {activities.slice(0, 2).map((activity, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      className="text-[11px] p-2.5 bg-[#151515]/5 rounded-2xl leading-relaxed"
+                    >
+                      {activity}
+                    </motion.div>
+                  ))}
+                </AnimatePresence>
+              </div>
+            </Card>
+
+            {/* Bottom Right System Info - Gray */}
+            <Card className="p-5 space-y-4 rounded-[32px] border border-[#E6E8EC]/40 bg-[#E6E8EC]/20 h-full flex flex-col justify-between">
+              <h3 className="font-semibold font-['Dela_Gothic_One'] tracking-tight text-[#151515] text-sm">
+                System Status
+              </h3>
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <span className="text-[9px] uppercase tracking-widest font-bold text-muted-foreground">Connectivity</span>
+                  <span className="text-[10px] font-bold text-[#075D44]">SECURE</span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-[9px] uppercase tracking-widest font-bold text-muted-foreground">Encryption</span>
+                  <span className="text-[10px] font-bold text-[#075D44]">AES-256</span>
+                </div>
+                <div className="pt-2 border-t border-[#151515]/10">
+                   <div className="flex items-center gap-2">
+                     <div className="w-2 h-2 rounded-full bg-[#075D44] animate-pulse" />
+                     <span className="text-[10px] font-bold uppercase tracking-widest text-[#075D44]">Optimal Performance</span>
+                   </div>
+                </div>
+              </div>
+            </Card>
+          </div>
         </div>
       </div>
     </div>

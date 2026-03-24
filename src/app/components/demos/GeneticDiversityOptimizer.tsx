@@ -69,7 +69,7 @@ export function GeneticDiversityOptimizer() {
             historicalAlleleCount={47}
           />
 
-          <Card className="p-5 space-y-3 bg-[#b091eb]/30 rounded-3xl">
+          <Card className="p-5 space-y-3 border border-[#b091eb]/30 bg-transparent rounded-3xl">
             <div className="flex items-center gap-2">
               <div className="w-3 h-3 bg-[#b091eb] rounded-full animate-pulse" />
               <p className="font-semibold text-[#151515]">GENETIC COLLAPSE RISK</p>
