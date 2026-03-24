@@ -141,18 +141,6 @@ export function GeneticDiversityOptimizer() {
                 timeline="3-year breeding program"
               />
 
-              <BreedingRecommendationCard
-                specimen1="Specimen #12"
-                specimen2="Specimen #31"
-                institution1="Royal Botanic Gardens, Kew"
-                institution2="Singapore Botanic Gardens"
-                allelesGain={15}
-                diversityImprovement={{ from: 42, to: 54, percentage: 29 }}
-                inbreedingReduction={{ from: 32, to: 26 }}
-                successProbability={89}
-                timeline="3-year breeding program"
-              />
-
               {/* Multi-Institution Strategy */}
               <Card className="p-5 space-y-3 bg-[#D0F17A]/30 rounded-3xl">
                 <h4 className="font-semibold text-primary font-['Dela_Gothic_One']">Genetic Rescue via Outcrossing</h4>
