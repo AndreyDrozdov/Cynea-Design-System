@@ -74,12 +74,12 @@ function MiniBar({ label, value, max, color, textColor }: { label: string; value
         <span className={`text-sm font-['Plus_Jakarta_Sans'] ${textColor}`}>{label}</span>
         <span className={`text-sm font-['Dela_Gothic_One'] ${textColor} opacity-80`}>{value}</span>
       </div>
-      <div className="h-1.5 rounded-full overflow-hidden" style={{ backgroundColor: "rgba(0,0,0,0.1)" }}>
+      <div className="h-3.5 rounded-full overflow-hidden" style={{ backgroundColor: "rgba(0,0,0,0.1)" }}>
         <motion.div
           className="h-full rounded-full"
           style={{ backgroundColor: color }}
           initial={{ width: 0 }}
-          animate={{ width: hovered ? `${Math.min(pct + 5, 100)}%` : `${pct}%` }}
+          animate={{ width: hovered ? `${Math.min(pct + 4, 100)}%` : `${pct}%` }}
           transition={{ duration: hovered ? 0.2 : 1.2, ease: "easeOut" }}
         />
       </div>
