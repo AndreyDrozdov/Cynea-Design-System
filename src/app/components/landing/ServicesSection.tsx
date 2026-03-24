@@ -9,29 +9,11 @@ const services = [
     title: "Species<br/>Rescue",
     subtitle: "Risk Prediction & Early Detection",
     description:
-      "AI analyzes 847 plant species continuously, predicting extinction risk 2–3 years before it becomes inevitable. Real-time monitoring of population trends, genetic health, habitat suitability, and poaching pressure.",
+      "AI predicts extinction risk 2–3 years before it becomes inevitable, analyzing population trends and habitat suitability in real-time.",
     features: [
       "Extinction timeline prediction",
       "Critical intervention windows",
       "Multi-factor risk analysis",
-      "Automated priority ranking",
-    ],
-    bg: "bg-[#075D44]",
-    titleColor: "text-[#cfedcc]",
-    subtitleColor: "text-[#cfedcc]/60",
-    textColor: "text-[#cfedcc]/80",
-    dotColor: "bg-[#D0F17A]",
-  },
-  {
-    title: "Genetic<br/>Optimization",
-    subtitle: "Breeding Program Coordination",
-    description:
-      "Machine learning optimizes breeding pairs to maximize genetic diversity recovery. Coordinates breeding programs across 76 institutions, preventing inbreeding and restoring gene pools from collapse.",
-    features: [
-      "40–60% diversity increase",
-      "Outcrossing recommendations",
-      "Multi-generation planning",
-      "Global coordination",
     ],
     bg: "bg-[#D0F17A]",
     titleColor: "text-[#075D44]",
@@ -40,21 +22,36 @@ const services = [
     dotColor: "bg-[#075D44]",
   },
   {
+    title: "Genetic<br/>Optimization",
+    subtitle: "Breeding Program Coordination",
+    description:
+      "Machine learning optimizes breeding pairs across 76 global institutions to maximize genetic diversity and prevent gene pool collapse.",
+    features: [
+      "40–60% diversity increase",
+      "Outcrossing recommendations",
+      "Multi-generation planning",
+    ],
+    bg: "bg-[#075D44]",
+    titleColor: "text-[#cfedcc]",
+    subtitleColor: "text-[#cfedcc]/60",
+    textColor: "text-[#cfedcc]/80",
+    dotColor: "bg-[#D0F17A]",
+  },
+  {
     title: "Poaching<br/>Prevention",
     subtitle: "Global Monitoring & Law Enforcement",
     description:
-      "AI monitors satellite imagery, dark web marketplaces, and ranger reports to detect illegal plant harvesting within days. Coordinates with customs and law enforcement for rapid recovery.",
+      "AI detects illegal plant harvesting via satellite and web monitoring, coordinating rapid recovery with local law enforcement.",
     features: [
       "Satellite monitoring",
       "Marketplace AI detection",
       "64% prevention success rate",
-      "DNA barcode matching",
     ],
-    bg: "bg-[#b091eb]",
-    titleColor: "text-[#46014f]",
-    subtitleColor: "text-[#46014f]/60",
-    textColor: "text-[#46014f]/70",
-    dotColor: "bg-[#46014f]",
+    bg: "bg-[#151515]",
+    titleColor: "text-[#D0F17A]",
+    subtitleColor: "text-[#D0F17A]/60",
+    textColor: "text-[#D0F17A]/70",
+    dotColor: "bg-[#D0F17A]",
   },
 ];
 
@@ -137,20 +134,29 @@ export function ServicesSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
-            className="md:col-span-2 bg-[#151515] rounded-3xl p-8 flex flex-col md:flex-row items-start md:items-end justify-between gap-6 h-full"
+            className="md:col-span-2 bg-[#b091eb] rounded-3xl p-8 flex flex-col md:flex-row items-start md:items-end justify-between gap-6 h-full"
           >
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 w-full min-h-[120px] py-4 sm:py-0">
-              <div className="flex flex-col justify-between h-full border-b border-[#D0F17A]/10 pb-4 sm:border-0 sm:pb-0">
-                <p className="text-5xl text-[#075D44] font-['Dela_Gothic_One'] leading-none">847</p>
-                <p className="text-sm text-[#075D44]/80 font-['Plus_Jakarta_Sans']">Species monitored around the clock</p>
+              <div className="flex flex-col justify-between h-full border-b border-[#46014f]/10 pb-4 sm:border-0 sm:pb-0">
+                <p className="text-5xl text-[#46014f] font-['Dela_Gothic_One'] leading-none">847</p>
+                <div className="space-y-0.5">
+                  <p className="text-sm text-[#46014f] font-['Plus_Jakarta_Sans'] font-medium">Species monitored around the clock</p>
+                  <p className="text-sm text-[#46014f] font-['Plus_Jakarta_Sans'] opacity-80">Real-time detection across 12 corridors</p>
+                </div>
               </div>
-              <div className="flex flex-col justify-between h-full border-b border-[#D0F17A]/10 pb-4 sm:border-0 sm:pb-0">
-                <p className="text-5xl text-[#075D44] font-['Dela_Gothic_One'] leading-none">76</p>
-                <p className="text-sm text-[#075D44]/80 font-['Plus_Jakarta_Sans']">Partner institutions coordinated globally</p>
+              <div className="flex flex-col justify-between h-full border-b border-[#46014f]/10 pb-4 sm:border-0 sm:pb-0">
+                <p className="text-5xl text-[#46014f] font-['Dela_Gothic_One'] leading-none">76</p>
+                <div className="space-y-0.5">
+                  <p className="text-sm text-[#46014f] font-['Plus_Jakarta_Sans'] font-medium">Partner institutions coordinated globally</p>
+                  <p className="text-sm text-[#46014f] font-['Plus_Jakarta_Sans'] opacity-80">Bridging research with on-ground action</p>
+                </div>
               </div>
               <div className="flex flex-col justify-between h-full">
-                <p className="text-5xl text-[#075D44] font-['Dela_Gothic_One'] leading-none">64%</p>
-                <p className="text-sm text-[#075D44]/80 font-['Plus_Jakarta_Sans']">Poaching prevention success rate</p>
+                <p className="text-5xl text-[#46014f] font-['Dela_Gothic_One'] leading-none">64%</p>
+                <div className="space-y-0.5">
+                  <p className="text-sm text-[#46014f] font-['Plus_Jakarta_Sans'] font-medium">Poaching prevention success rate</p>
+                  <p className="text-sm text-[#46014f] font-['Plus_Jakarta_Sans'] opacity-80">Calculated via predictive neural modeling</p>
+                </div>
               </div>
             </div>
           </motion.div>

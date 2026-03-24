@@ -348,9 +348,9 @@ function InstitutionsCard({ active }: { active: boolean }) {
 const impactImage2 = "https://images.unsplash.com/photo-1767183751048-16cf3ca3eb26?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800";
 
 const impactSlides = [
-  { src: "https://images.unsplash.com/photo-1708432331136-4b121bf5111c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxib3VnYWludmlsbGVhJTIwcGluayUyMGZsb3dlcnMlMjBwbGFudHxlbnwxfHx8fDE3NzQzNDA5NDZ8MA&ixlib=rb-4.1.0&q=80&w=1080", alt: "Bougainvillea spectabilis", label: "Bougainvillea spectabilis" },
-  { src: "https://images.unsplash.com/photo-1759579726362-f0cde07d9e22?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080", alt: "Rare tropical plant", label: "Heliconia psittacorum" },
-  { src: "https://images.unsplash.com/photo-1765988757705-0a58ce1481df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080", alt: "Tropical rainforest biodiversity", label: "Monstera deliciosa" },
+  { src: "https://images.unsplash.com/photo-1765988757705-0a58ce1481df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080", alt: "Monstera deliciosa", label: "Monstera deliciosa" },
+  { src: "https://images.unsplash.com/photo-1765988757705-0a58ce1481df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080", alt: "Monstera deliciosa", label: "Monstera deliciosa" },
+  { src: "https://images.unsplash.com/photo-1765988757705-0a58ce1481df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080", alt: "Monstera deliciosa", label: "Monstera deliciosa" },
 ];
 
 export function ImpactSection() {
@@ -430,7 +430,7 @@ export function ImpactSection() {
                   className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#151515]/60 backdrop-blur-sm rounded-3xl"
                 >
                   <Leaf className="w-3 h-3 text-[#D0F17A]" />
-                  <span className="text-[#E6E8EC] text-xs font-['Plus_Jakarta_Sans'] italic">
+                  <span className="text-[#E6E8EC] text-xs font-['Plus_Jakarta_Sans']">
                     {impactSlides[slideIndex].label}
                   </span>
                 </motion.div>
