@@ -139,93 +139,93 @@ function SpeciesCard({ active }: { active: boolean }) {
         <p className="text-sm text-[#075D44]/70 font-['Plus_Jakarta_Sans'] mt-1">Species rescued &amp; rehabilitated</p>
       </div>
 
-      {/* Tabs */}
-      <div className="flex gap-1 bg-[#075D44]/10 rounded-2xl p-1">
-        {tabs.map(({ key, label, icon: Icon }) => (
-          <button
-            key={key}
-            onClick={() => setActiveTab(key)}
-            className={`flex-1 flex items-center justify-center gap-1 py-1.5 rounded-xl text-xs font-['Plus_Jakarta_Sans'] font-semibold transition-all duration-200 ${
-              activeTab === key
-                ? "bg-[#075D44] text-[#cfedcc]"
-                : "text-[#075D44]/60 hover:text-[#075D44]"
-            }`}
-          >
-            <Icon className="w-3 h-3" />
-            {label}
-          </button>
-        ))}
-      </div>
+      <div className="flex flex-col gap-4">
+        {/* Tabs */}
+        <div className="flex gap-1 bg-[#075D44]/10 rounded-2xl p-1">
+          {tabs.map(({ key, label, icon: Icon }) => (
+            <button
+              key={key}
+              onClick={() => setActiveTab(key)}
+              className={`flex-1 flex items-center justify-center gap-1 py-1.5 rounded-xl text-xs font-['Plus_Jakarta_Sans'] font-semibold transition-all duration-200 ${
+                activeTab === key
+                  ? "bg-[#075D44] text-[#cfedcc]"
+                  : "text-[#075D44]/60 hover:text-[#075D44]"
+              }`}
+            >
+              <Icon className="w-3 h-3" />
+              {label}
+            </button>
+          ))}
+        </div>
 
-      {/* Bars */}
-      <div className="space-y-2.5">
-        {tabData[activeTab].map((item) => (
-          <MiniBar
-            key={item.label}
-            label={item.label}
-            value={item.value}
-            max={item.max}
-            color="#075D44"
-            textColor="text-[#075D44]"
-          />
-        ))}
+        {/* Bars */}
+        <div className="space-y-2.5">
+          {tabData[activeTab].map((item) => (
+            <MiniBar
+              key={item.label}
+              label={item.label}
+              value={item.value}
+              max={item.max}
+              color="#075D44"
+              textColor="text-[#075D44]"
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
 }
 
-// --- Radial Arc Chart ---
 function RadialArcChart({ regions, metricIdx }: {
   regions: { label: string; values: number[]; maxes: number[] }[];
   metricIdx: number;
 }) {
-  const size = 160;
-  const cx = size / 2;
-  const cy = size / 2;
-  const arcColors = ["#46014f", "rgba(70,1,79,0.62)", "rgba(70,1,79,0.38)", "rgba(70,1,79,0.20)"];
-  const radii = [70, 55, 40, 25];
-  const stroke = 9;
-  const GAP_DEG = 36;
-  const SWEEP_DEG = 360 - GAP_DEG;
-
+  const width = 360;
+  const height = 150;
+  const cx = width / 2;
+  const cy = height; 
+  const arcColors = ["#46014f", "rgba(70,1,79,0.65)", "rgba(70,1,79,0.42)", "rgba(70,1,79,0.22)"];
+  const radii = [105, 82, 60, 38];
+  const stroke = 14;
+  
   return (
-    <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
-      {regions.map((region, i) => {
-        const r = radii[i];
-        const circ = 2 * Math.PI * r;
-        const totalArcLen = circ * (SWEEP_DEG / 360);
-        const pct = Math.min(region.values[metricIdx] / region.maxes[metricIdx], 1);
-        const filledLen = pct * totalArcLen;
-        // Start from bottom-left, sweep clockwise; offset pushes arc start
-        const offsetDeg = 90 + GAP_DEG / 2;
-        const dashOffset = -circ * (offsetDeg / 360);
-        return (
-          <g key={region.label}>
-            <circle
-              cx={cx} cy={cy} r={r}
-              fill="none"
-              stroke="rgba(70,1,79,0.10)"
-              strokeWidth={stroke}
-              strokeLinecap="round"
-              strokeDasharray={`${totalArcLen} ${circ}`}
-              strokeDashoffset={dashOffset}
-            />
-            <motion.circle
-              cx={cx} cy={cy} r={r}
-              fill="none"
-              stroke={arcColors[i]}
-              strokeWidth={stroke}
-              strokeLinecap="round"
-              strokeDashoffset={dashOffset}
-              animate={{ strokeDasharray: `${filledLen} ${circ}` }}
-              initial={{ strokeDasharray: `0 ${circ}` }}
-              transition={{ duration: 0.85, ease: "easeInOut" }}
-            />
-          </g>
-        );
-      })}
-      {/* Center dot */}
-      <circle cx={cx} cy={cy} r={5} fill="#46014f" opacity={0.3} />
+    <svg width="100%" className="block max-w-full overflow-visible" viewBox={`0 0 ${width} ${height + stroke}`}>
+      <g transform={`rotate(180 ${cx} ${cy})`}>
+        {regions.map((region, i) => {
+          const r = radii[i];
+          const circ = 2 * Math.PI * r;
+          const totalArcLen = circ / 2;
+          const pct = Math.min(region.values[metricIdx] / region.maxes[metricIdx], 1);
+          const filledLen = pct * totalArcLen;
+
+          return (
+            <g key={region.label}>
+              {/* Track */}
+              <circle
+                cx={cx} cy={cy} r={r}
+                fill="none"
+                stroke="rgba(70,1,79,0.08)"
+                strokeWidth={stroke}
+                strokeLinecap="round"
+                strokeDasharray={`${totalArcLen} ${circ}`}
+              />
+              {/* Fill */}
+              <motion.circle
+                cx={cx} cy={cy} r={r}
+                fill="none"
+                stroke={arcColors[i]}
+                strokeWidth={stroke}
+                strokeLinecap="round"
+                initial={{ strokeDasharray: `0 ${circ}` }}
+                animate={{ strokeDasharray: `${filledLen} ${circ}` }}
+                transition={{ duration: 1.4, ease: [0.34, 1.56, 0.64, 1] }}
+              />
+            </g>
+          );
+        })}
+      </g>
+      {/* Center dot at baseline */}
+      <circle cx={cx} cy={cy} r={stroke / 2} fill="#46014f" opacity={0.6} />
     </svg>
   );
 }
