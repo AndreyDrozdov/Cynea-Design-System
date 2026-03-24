@@ -69,46 +69,21 @@ const networkActivity = [
 ];
 
 export function SpeciesRiskDashboard() {
-  const [criticalCount, setCriticalCount] = useState(1);
-  const [visibleSpecies, setVisibleSpecies] = useState<SpeciesData[]>([]);
+  const [criticalCount, setCriticalCount] = useState(4);
+  const [visibleSpecies, setVisibleSpecies] = useState<SpeciesData[]>(speciesData);
   const [stats, setStats] = useState({
-    totalSpecies: 0,
-    criticalCases: 0,
-    breedingPrograms: 0,
+    totalSpecies: 847,
+    criticalCases: 4,
+    breedingPrograms: 312,
     institutions: 76,
   });
-  const [activities, setActivities] = useState<string[]>([]);
+  const [activities, setActivities] = useState<string[]>(networkActivity.slice(0, 3));
   const [lastUpdate, setLastUpdate] = useState(new Date());
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
     let isMounted = true;
-
-    const showSpecies = async () => {
-      for (let i = 0; i < speciesData.length; i++) {
-        await new Promise((resolve) => setTimeout(resolve, 500));
-        if (isMounted) {
-          setVisibleSpecies((prev) => {
-            // Check if species already exists to avoid duplicates in strict mode
-            if (prev.find(s => s.id === speciesData[i].id)) return prev;
-            return [...prev, speciesData[i]];
-          });
-        }
-      }
-    };
-
-    const countInterval = setInterval(() => {
-      setCriticalCount((prev) => (prev < 4 ? prev + 1 : prev));
-    }, 1500);
-
-    let currentStats = { totalSpecies: 0, criticalCases: 0, breedingPrograms: 0, institutions: 76 };
-    const statsInterval = setInterval(() => {
-      if (currentStats.totalSpecies < 847) currentStats.totalSpecies = Math.min(847, currentStats.totalSpecies + 42);
-      if (currentStats.criticalCases < 4) currentStats.criticalCases = Math.min(4, currentStats.criticalCases + 1);
-      if (currentStats.breedingPrograms < 312) currentStats.breedingPrograms = Math.min(312, currentStats.breedingPrograms + 16);
-      setStats({ ...currentStats });
-    }, 100);
 
     const activityInterval = setInterval(() => {
       const randomActivity = networkActivity[Math.floor(Math.random() * networkActivity.length)];
@@ -122,12 +97,8 @@ export function SpeciesRiskDashboard() {
       if (isMounted) setLastUpdate(new Date());
     }, 30000);
 
-    showSpecies();
-
     return () => {
       isMounted = false;
-      clearInterval(countInterval);
-      clearInterval(statsInterval);
       clearInterval(activityInterval);
       clearInterval(refreshInterval);
     };
@@ -137,7 +108,7 @@ export function SpeciesRiskDashboard() {
     <div className="space-y-6">
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-        <div>
+        <div className="space-y-2">
           <h2 className="text-2xl md:text-3xl font-bold">Species Risk Dashboard</h2>
           <p className="text-muted-foreground text-sm md:text-base">Real-time extinction risk monitoring</p>
         </div>
@@ -171,12 +142,13 @@ export function SpeciesRiskDashboard() {
           <h3 className="text-xl font-semibold font-['Dela_Gothic_One']">Priority Species</h3>
           <div className="space-y-4">
             <AnimatePresence mode="popLayout">
-              {visibleSpecies.slice(0, 2).map((species, index) => (
+              {visibleSpecies.map((species, index) => (
                 <motion.div
                   key={species.id}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.05 }}
+                  className="mb-4"
                 >
                   <SpeciesCard {...species} />
                 </motion.div>

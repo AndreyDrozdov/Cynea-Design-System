@@ -3,11 +3,11 @@
 :root {
   --font-size: 16px;
   --background: #ffffff;
-  --foreground: #1A1A1A;
+  --foreground: #151515;
   --card: #ffffff;
-  --card-foreground: #1A1A1A;
+  --card-foreground: #151515;
   --popover: #ffffff;
-  --popover-foreground: #1A1A1A;
+  --popover-foreground: #151515;
   
   /* Updated primary colors */
   --primary: #075D44;
@@ -32,12 +32,12 @@
   --ring: #71A888;
   
   /* Cyanea Brand Colors */
-  --deep-forest: #075D44;
-  --fresh-meadow: #D0F17A;
-  --wild-orchid: #c0a7ef;
-  --soft-mist: #E6E8EC;
-  --forest-sage: #71A888;
-  --onyx: #151515;
+  --brand-primary: #075D44;
+  --brand-secondary: #D0F17A;
+  --brand-accent: #c0a7ef;
+  --brand-muted: #E6E8EC;
+  --brand-subtle: #71A888;
+  --brand-dark: #151515;
   
   /* Status Colors */
   --status-critical: #d4183d;

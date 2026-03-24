@@ -36,9 +36,6 @@ export function GeneticHealthCard({
   return (
     <Card className={cn("p-4 space-y-4 rounded-3xl", className)}>
       <div className="flex items-center gap-2">
-        <div className="p-2 bg-[#075D44]/30 rounded-3xl">
-          <Dna className="w-5 h-5 text-[#075D44]" />
-        </div>
         <h3 className="font-semibold font-['Dela_Gothic_One']">Genetic Health</h3>
       </div>
 
@@ -63,11 +60,6 @@ export function GeneticHealthCard({
             <span className="text-2xl font-bold font-['Dela_Gothic_One']">{alleleCount}</span>
             {historicalAlleleCount && (
               <div className="flex items-center gap-1 text-sm">
-                {alleleChange < 0 ? (
-                  <TrendingDown className="w-4 h-4 text-[#075D44]" />
-                ) : (
-                  <TrendingUp className="w-4 h-4 text-[#075D44]" />
-                )}
                 <span className="text-muted-foreground font-['Plus_Jakarta_Sans']">
                   from {historicalAlleleCount}
                 </span>

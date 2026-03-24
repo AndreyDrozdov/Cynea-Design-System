@@ -50,7 +50,7 @@ export function DemosSection() {
             </TabsTrigger>
           </TabsList>
 
-          <div className="bg-white rounded-3xl p-4 md:p-8">
+          <div className="bg-white rounded-3xl p-4 md:p-8 h-[890px] overflow-y-auto relative custom-scrollbar">
             <TabsContent value="species-risk" className="mt-0">
               <SpeciesRiskDashboard />
             </TabsContent>

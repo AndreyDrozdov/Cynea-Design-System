@@ -29,11 +29,8 @@ export function BreedingRecommendationCard({
   className
 }: BreedingRecommendationCardProps) {
   return (
-    <Card className={cn("p-4 space-y-4 hover:shadow-md transition-all rounded-3xl", className)}>
+    <div className={cn("p-4 space-y-4 rounded-3xl", className)}>
       <div className="flex items-center gap-2">
-        <div className="p-2 bg-[#D0F17A]/30 rounded-3xl">
-          <GitBranch className="w-5 h-5 text-[#075D44]" />
-        </div>
         <div className="flex-1">
           <p className="font-semibold font-['Dela_Gothic_One']">{specimen1} × {specimen2}</p>
           {institution1 && institution2 && (
@@ -47,16 +44,14 @@ export function BreedingRecommendationCard({
       <div className="grid grid-cols-2 gap-3">
         <div className="space-y-1">
           <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
-            <Target className="w-3 h-3" />
-            <span className="font-['Plus_Jakarta_Sans']">Alleles Gain</span>
+            <span className="font-['Plus_Jakarta_Sans'] uppercase tracking-widest opacity-60">Alleles Gain</span>
           </div>
           <p className="text-xl font-bold text-[#075D44] font-['Dela_Gothic_One']">+{allelesGain}</p>
         </div>
 
         <div className="space-y-1">
           <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
-            <TrendingUp className="w-3 h-3" />
-            <span className="font-['Plus_Jakarta_Sans']">Diversity</span>
+            <span className="font-['Plus_Jakarta_Sans'] uppercase tracking-widest opacity-60">Diversity</span>
           </div>
           <p className="text-xl font-bold font-['Dela_Gothic_One']">
             {diversityImprovement.from} → {diversityImprovement.to}
@@ -82,13 +77,12 @@ export function BreedingRecommendationCard({
       </div>
 
       <div className="flex items-center gap-2 text-sm">
-        <Clock className="w-4 h-4 text-muted-foreground" />
-        <span className="text-muted-foreground font-['Plus_Jakarta_Sans']">{timeline}</span>
+        <span className="text-muted-foreground font-['Plus_Jakarta_Sans'] uppercase tracking-widest text-[10px] opacity-60">{timeline}</span>
       </div>
 
       <Button className="w-full bg-[#075D44] hover:bg-[#075D44]/90 text-[#E6E8EC] rounded-3xl" size="sm">
         Schedule Cross
       </Button>
-    </Card>
+    </div>
   );
 }

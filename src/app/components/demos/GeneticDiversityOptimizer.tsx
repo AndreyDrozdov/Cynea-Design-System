@@ -19,7 +19,7 @@ export function GeneticDiversityOptimizer() {
     inbreedingCoefficient: 0,
     alleleCount: 0
   });
-  const [showRecommendations, setShowRecommendations] = useState(false);
+  const [showRecommendations, setShowRecommendations] = useState(true);
 
   useEffect(() => {
     const animateMetrics = async () => {
@@ -42,8 +42,6 @@ export function GeneticDiversityOptimizer() {
           alleleCount: Math.round(targetMetrics.alleleCount * progress)
         });
       }
-
-      setTimeout(() => setShowRecommendations(true), 500);
     };
 
     animateMetrics();
@@ -52,7 +50,7 @@ export function GeneticDiversityOptimizer() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div>
+      <div className="space-y-2">
         <h2 className="text-3xl font-bold">Genetic Diversity Recovery Optimizer</h2>
         <p className="text-muted-foreground">AI-powered breeding strategy for Middlemist Red Camellia</p>
       </div>
@@ -61,7 +59,6 @@ export function GeneticDiversityOptimizer() {
         {/* Left Panel - Current Genetic Status */}
         <div className="space-y-4">
           <h3 className="text-xl font-semibold flex items-center gap-2">
-            <Dna className="w-5 h-5 text-primary" />
             Current Population Genetics
           </h3>
 
@@ -119,7 +116,6 @@ export function GeneticDiversityOptimizer() {
         {/* Right Panel - AI Recommendations */}
         <div className="space-y-4">
           <h3 className="text-xl font-semibold flex items-center gap-2">
-            <TrendingUp className="w-5 h-5 text-[#075D44]" />
             Recommended Breeding Pairs
           </h3>
 
@@ -127,43 +123,53 @@ export function GeneticDiversityOptimizer() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="space-y-3"
+              className="grid grid-cols-1 md:grid-cols-2 gap-4"
             >
-              <BreedingRecommendationCard
-                specimen1="Specimen #47"
-                specimen2="Specimen #19"
-                institution1="Singapore Botanic Gardens"
-                institution2="Sydney Royal Botanic Garden"
-                allelesGain={18}
-                diversityImprovement={{ from: 42, to: 58, percentage: 38 }}
-                inbreedingReduction={{ from: 32, to: 24 }}
-                successProbability={94}
-                timeline="3-year breeding program"
-              />
+              <div className="md:col-span-2">
+                <BreedingRecommendationCard
+                  specimen1="Specimen #47"
+                  specimen2="Specimen #19"
+                  institution1="Singapore Botanic Gardens"
+                  institution2="Sydney Royal Botanic Garden"
+                  allelesGain={18}
+                  diversityImprovement={{ from: 42, to: 58, percentage: 38 }}
+                  inbreedingReduction={{ from: 32, to: 24 }}
+                  successProbability={94}
+                  timeline="3-year breeding program"
+                  className="bg-[#D0F17A]/30"
+                />
+              </div>
 
-              {/* Multi-Institution Strategy */}
-              <Card className="p-5 space-y-3 bg-[#D0F17A]/30 rounded-3xl">
-                <h4 className="font-semibold text-primary font-['Dela_Gothic_One']">Genetic Rescue via Outcrossing</h4>
-                <p className="text-sm">
-                  <strong>Maximum recovery strategy:</strong> Outbreed with related Camellia 
-                  population at Kew Gardens
+              <Card className="p-5 space-y-3 bg-[#b091eb]/15 rounded-3xl border-none shadow-none">
+                <h4 className="font-semibold text-[#151515]">Rescue Strategy</h4>
+                <p className="text-xs">
+                  <strong>Outbreed:</strong> Kew Gardens Related Population
                 </p>
-                <div className="space-y-2 text-sm">
+                <div className="space-y-1.5 text-[10px] uppercase tracking-wider font-semibold opacity-70">
                   <div className="flex justify-between">
-                    <span className="text-muted-foreground">Expected Alleles Gain:</span>
-                    <span className="font-semibold text-[#075D44]">+23 alleles</span>
+                    <span>Target Gain:</span>
+                    <span className="text-[#075D44]">+23 AI-Alleles</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-muted-foreground">Diversity Recovery:</span>
-                    <span className="font-semibold">42 → 72 (+71%)</span>
+                    <span>Est. Recovery:</span>
+                    <span>71%</span>
+                  </div>
+                </div>
+              </Card>
+
+              <Card className="p-5 space-y-3 bg-[#075D44]/10 rounded-3xl border-none shadow-none">
+                <h4 className="font-semibold text-primary">System Analysis</h4>
+                <p className="text-xs">
+                  <strong>Deep Ancestry:</strong> Predictive Verification (v2.1)
+                </p>
+                <div className="space-y-1.5 text-[10px] uppercase tracking-wider font-semibold opacity-70">
+                  <div className="flex justify-between">
+                    <span>Confidence:</span>
+                    <span className="text-primary group-hover:text-white">99.4% Accuracy</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-muted-foreground">Complexity:</span>
-                    <span className="font-semibold">3-institution coordination</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-muted-foreground">Timeline:</span>
-                    <span className="font-semibold">5-year multi-generation program</span>
+                    <span>Status:</span>
+                    <span>Optimized</span>
                   </div>
                 </div>
               </Card>

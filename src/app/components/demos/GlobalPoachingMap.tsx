@@ -20,26 +20,6 @@ interface Incident {
 
 const incidents: Incident[] = [
   {
-    id: "1",
-    location: "Vientiane Border",
-    species: "Paphiopedilum rothschildianum",
-    specimenCount: 127,
-    detectionMethod: "Satellite + Dark Web Monitoring",
-    status: "alert",
-    date: "March 21, 2026",
-    coordinates: { x: 52, y: 44 }
-  },
-  {
-    id: "2",
-    location: "Chiang Rai",
-    species: "Dalbergia species",
-    specimenCount: 89,
-    detectionMethod: "Illegal Crossing Point Sensor",
-    status: "in-progress",
-    date: "March 22, 2026",
-    coordinates: { x: 38, y: 32 }
-  },
-  {
     id: "3",
     location: "Mekong Basin",
     species: "Medicinal ginger specimens",
@@ -47,50 +27,21 @@ const incidents: Incident[] = [
     detectionMethod: "Patrol Drone Auto-Alert",
     status: "recovered",
     date: "March 20, 2026",
-    coordinates: { x: 74, y: 76 }
+    coordinates: { x: 58, y: 72 }
   },
   {
-    id: "4",
-    location: "Luang Prabang",
-    species: "Native orchid variant",
-    specimenCount: 56,
-    detectionMethod: "Thermal Imaging Scanners",
-    status: "intercepted",
-    date: "March 19, 2026",
-    coordinates: { x: 25, y: 22 }
+    id: "1",
+    location: "Khao Yai North",
+    species: "Thai Rosewood (Dalbergia)",
+    specimenCount: 14,
+    detectionMethod: "Acoustic Sensor #47A",
+    status: "alert",
+    date: "March 18, 2026",
+    coordinates: { x: 42, y: 35 }
   }
 ];
 
-const recoveryTimeline = [
-  {
-    id: "1",
-    date: "March 21, 9am",
-    event: "127 Paphiopedilum detected - Vientiane Border",
-    status: "alert",
-    location: "Authorities notified, cross-border coordination in progress"
-  },
-  {
-    id: "2",
-    date: "March 22, 2pm",
-    event: "89 Dalbergia species tracking - Chiang Rai",
-    status: "in-progress",
-    location: "Continuous sensor monitoring at regional crossing point"
-  },
-  {
-    id: "3",
-    date: "March 20, 11am",
-    event: "203 medicinal ginger specimens rescued - Mekong Basin",
-    status: "recovered",
-    location: "Recovery team successfully transfered plants to sanctuary"
-  },
-  {
-    id: "4",
-    date: "March 19, 4pm",
-    event: "56 native orchids intercepted - Luang Prabang",
-    status: "intercepted",
-    location: "Customs recovery - transfer to regional conservation center"
-  }
-];
+const recoveryTimeline: Incident[] = incidents;
 
 export function GlobalPoachingMap() {
   const [visibleIncidents, setVisibleIncidents] = useState<Incident[]>([]);
@@ -103,76 +54,18 @@ export function GlobalPoachingMap() {
   const [selectedIncident, setSelectedIncident] = useState<Incident | null>(null);
   const [activeIncidentIndex, setActiveIncidentIndex] = useState(0);
 
-  // Auto-cycling logic
   useEffect(() => {
-    if (visibleIncidents.length < 4) return;
+    // Set initial data and select first incident
+    setVisibleIncidents(incidents);
+    setSelectedIncident(incidents[0]);
 
-    const interval = setInterval(() => {
-      setActiveIncidentIndex((prev) => (prev + 1) % incidents.length);
-    }, 6000);
-
-    return () => clearInterval(interval);
-  }, [visibleIncidents]);
-
-  useEffect(() => {
-    if (visibleIncidents.length > 0) {
-      setSelectedIncident(incidents[activeIncidentIndex]);
-    }
-  }, [activeIncidentIndex, visibleIncidents]);
-
-  useEffect(() => {
-    let isMounted = true;
-    
-    // Animate incidents appearing on map
-    const showIncidents = async () => {
-      for (let i = 0; i < incidents.length; i++) {
-        await new Promise(resolve => setTimeout(resolve, 800));
-        if (isMounted) {
-          setVisibleIncidents(prev => {
-            if (prev.find(inc => inc.id === incidents[i].id)) return prev;
-            return [...prev, incidents[i]];
-          });
-        }
-      }
-    };
-
-    // Animate statistics
-    const animateStats = () => {
-      const targetStats = {
-        incidents: 18,
-        plantsRecovered: 847,
-        legalActions: 12,
-        successRate: 64
-      };
-
-      const steps = 40;
-      const delay = 50;
-
-      let currentStep = 0;
-      const interval = setInterval(() => {
-        if (currentStep >= steps) {
-          clearInterval(interval);
-          return;
-        }
-
-        const progress = currentStep / steps;
-        setStats({
-          incidents: Math.round(targetStats.incidents * progress),
-          plantsRecovered: Math.round(targetStats.plantsRecovered * progress),
-          legalActions: Math.round(targetStats.legalActions * progress),
-          successRate: Math.round(targetStats.successRate * progress)
-        });
-
-        currentStep++;
-      }, delay);
-    };
-
-    showIncidents();
-    animateStats();
-
-    return () => {
-      isMounted = false;
-    };
+    // Set statistics immediately (no animation)
+    setStats({
+      incidents: 18,
+      plantsRecovered: 847,
+      legalActions: 12,
+      successRate: 64
+    });
   }, []);
 
   const getStatusColor = (status: string) => {
@@ -198,7 +91,7 @@ export function GlobalPoachingMap() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div>
+      <div className="space-y-2">
         <h2 className="text-3xl font-bold">Regional Poaching Detection</h2>
         <p className="text-muted-foreground">Live AI-driven monitoring of Southeast Asian wildlife corridors</p>
       </div>
@@ -206,14 +99,7 @@ export function GlobalPoachingMap() {
       <div className="grid lg:grid-cols-3 gap-6">
         {/* Map Visualization */}
         <div className="lg:col-span-2 space-y-4">
-          <Card className="p-6">
-            <div className="mb-4 flex items-center justify-between">
-              <h3 className="font-semibold">Active Incidents - March 2026</h3>
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <Activity className="w-4 h-4 animate-pulse text-[#b091eb]" />
-                <span>Live Monitoring</span>
-              </div>
-            </div>
+          <Card className="p-0 overflow-hidden relative border-none bg-transparent">
 
             {/* Simplified World Map Visualization */}
             <div className="relative w-full bg-[#151515] rounded-3xl overflow-hidden" style={{ height: '400px' }}>
@@ -344,7 +230,7 @@ export function GlobalPoachingMap() {
                     </div>
                     <div className="flex-1">
                       <p className={`font-bold text-base mb-0.5 transition-colors ${isActive ? "text-[#151515]" : "text-muted-foreground"}`}>
-                        {item.event}
+                        {item.species}
                       </p>
                       <p className="text-sm text-muted-foreground/80">{item.location}</p>
                     </div>
@@ -352,14 +238,12 @@ export function GlobalPoachingMap() {
                       <span className="text-[10px] font-bold uppercase tracking-widest opacity-40 px-2 py-1 rounded bg-black/5">
                         {item.status}
                       </span>
-                      {isActive && (
-                        <motion.div
-                          animate={{ scale: [0.8, 1.2, 0.8] }}
-                          transition={{ duration: 1.5, repeat: Infinity }}
-                        >
-                          <div className="w-2 h-2 rounded-full bg-[#b091eb]" />
-                        </motion.div>
-                      )}
+                      <motion.div
+                        animate={isActive ? { scale: [0.8, 1.2, 0.8] } : { scale: 1 }}
+                        transition={isActive ? { duration: 1.5, repeat: Infinity } : { duration: 0.2 }}
+                      >
+                        <div className={`w-2 h-2 rounded-full ${isActive ? 'bg-[#b091eb]' : 'bg-[#b091eb]/30'}`} />
+                      </motion.div>
                     </div>
                   </motion.div>
                 );
@@ -368,8 +252,14 @@ export function GlobalPoachingMap() {
           </Card>
         </div>
 
-        {/* Right Sidebar - Statistics */}
         <div className="space-y-4">
+          <div className="flex items-center justify-between gap-3">
+            <h3 className="text-xl font-semibold font-['Dela_Gothic_One'] tracking-tight">Active Incidents</h3>
+            <div className="flex items-center gap-1.5 px-2 py-1 bg-[#b091eb]/5 border border-[#b091eb]/20 rounded-full">
+              <Activity className="w-3 h-3 animate-pulse text-[#b091eb]" />
+              <span className="text-[10px] uppercase tracking-widest font-bold text-[#b091eb]">Live</span>
+            </div>
+          </div>
           {/* Incident Detail (Dynamic) */}
           <div className="relative min-h-[220px]">
             <AnimatePresence mode="wait">
