@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useState } from "react";
 import { Card } from "../ui/card";
 import { SpeciesCard } from "../dendrogene/SpeciesCard";
@@ -77,12 +79,22 @@ export function SpeciesRiskDashboard() {
   });
   const [activities, setActivities] = useState<string[]>([]);
   const [lastUpdate, setLastUpdate] = useState(new Date());
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
+    let isMounted = true;
+
     const showSpecies = async () => {
       for (let i = 0; i < speciesData.length; i++) {
         await new Promise((resolve) => setTimeout(resolve, 500));
-        setVisibleSpecies((prev) => [...prev, speciesData[i]]);
+        if (isMounted) {
+          setVisibleSpecies((prev) => {
+            // Check if species already exists to avoid duplicates in strict mode
+            if (prev.find(s => s.id === speciesData[i].id)) return prev;
+            return [...prev, speciesData[i]];
+          });
+        }
       }
     };
 
@@ -101,14 +113,19 @@ export function SpeciesRiskDashboard() {
     const activityInterval = setInterval(() => {
       const randomActivity = networkActivity[Math.floor(Math.random() * networkActivity.length)];
       const timeAgo = `${Math.floor(Math.random() * 12) + 1} hours ago`;
-      setActivities((prev) => [`${randomActivity} (${timeAgo})`, ...prev.slice(0, 4)]);
+      if (isMounted) {
+        setActivities((prev) => [`${randomActivity} (${timeAgo})`, ...prev.slice(0, 4)]);
+      }
     }, 5000);
 
-    const refreshInterval = setInterval(() => setLastUpdate(new Date()), 30000);
+    const refreshInterval = setInterval(() => {
+      if (isMounted) setLastUpdate(new Date());
+    }, 30000);
 
     showSpecies();
 
     return () => {
+      isMounted = false;
       clearInterval(countInterval);
       clearInterval(statsInterval);
       clearInterval(activityInterval);
@@ -126,7 +143,7 @@ export function SpeciesRiskDashboard() {
         </div>
         <div className="flex items-center gap-2 text-sm text-muted-foreground">
           <RefreshCw className="w-4 h-4 animate-spin" />
-          <span>Last updated: {lastUpdate.toLocaleTimeString()}</span>
+          <span>Last updated: {mounted ? lastUpdate.toLocaleTimeString() : "Loading..."}</span>
         </div>
       </div>
 
@@ -134,7 +151,7 @@ export function SpeciesRiskDashboard() {
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="bg-[#FFC5EE]/30 text-[#151515] p-6 rounded-3xl"
+        className="bg-[#c0a7ef]/30 text-[#151515] p-6 rounded-3xl"
       >
         <div className="flex items-center gap-3">
           <Activity className="w-8 h-8 animate-pulse" />
@@ -177,7 +194,7 @@ export function SpeciesRiskDashboard() {
               </div>
               <div>
                 <p className="text-sm text-muted-foreground">Critical Priority Cases</p>
-                <p className="text-3xl font-bold text-[#FFC5EE] font-['Dela_Gothic_One']">{stats.criticalCases}</p>
+                <p className="text-3xl font-bold text-[#c0a7ef] font-['Dela_Gothic_One']">{stats.criticalCases}</p>
               </div>
               <div>
                 <p className="text-sm text-muted-foreground">Active Breeding Programs</p>

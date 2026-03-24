@@ -26,7 +26,7 @@ export function StatCard({
     primary: "bg-[#075D44] text-[#E6E8EC]",
     accent: "bg-[#D0F17A] text-[#075D44]",
     sage: "bg-[#71A888] text-[#E6E8EC]",
-    orchid: "bg-[#FFC5EE] text-[#075D44]"
+    orchid: "bg-[#b091eb] text-[#075D44]"
   };
 
   const iconBgClasses = {

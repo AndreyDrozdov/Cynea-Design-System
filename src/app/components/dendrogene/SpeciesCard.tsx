@@ -29,7 +29,7 @@ export function SpeciesCard({
   imageUrl
 }: SpeciesCardProps) {
   const statusColors = {
-    critical: "bg-[#FFC5EE]/30 text-[#151515]",
+    critical: "bg-[#b091eb]/30 text-[#151515]",
     endangered: "bg-[#D0F17A]/30 text-[#075D44]",
     "at-risk": "bg-[#075D44]/30 text-[#075D44]",
     stable: "bg-[#075D44]/30 text-[#075D44]"

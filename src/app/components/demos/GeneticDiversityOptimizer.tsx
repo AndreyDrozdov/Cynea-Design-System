@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useState } from "react";
 import { Card } from "../ui/card";
 import { GeneticHealthCard } from "../dendrogene/GeneticHealthCard";
@@ -70,9 +72,9 @@ export function GeneticDiversityOptimizer() {
             historicalAlleleCount={47}
           />
 
-          <Card className="p-5 space-y-3 bg-[#FFC5EE]/30 rounded-3xl">
+          <Card className="p-5 space-y-3 bg-[#b091eb]/30 rounded-3xl">
             <div className="flex items-center gap-2">
-              <div className="w-3 h-3 bg-[#FFC5EE] rounded-full animate-pulse" />
+              <div className="w-3 h-3 bg-[#b091eb] rounded-full animate-pulse" />
               <p className="font-semibold text-[#151515]">GENETIC COLLAPSE RISK</p>
             </div>
             <p className="text-sm">
@@ -89,7 +91,7 @@ export function GeneticDiversityOptimizer() {
               <div className="flex justify-between items-center">
                 <span className="text-sm text-muted-foreground">Allele Count</span>
                 <div className="flex items-center gap-2">
-                  <span className="text-[#FFC5EE] font-semibold">14</span>
+                  <span className="text-[#b091eb] font-semibold">14</span>
                   <span className="text-muted-foreground">vs</span>
                   <span className="text-muted-foreground">47 historical</span>
                 </div>
@@ -97,7 +99,7 @@ export function GeneticDiversityOptimizer() {
               <div className="flex justify-between items-center">
                 <span className="text-sm text-muted-foreground">Inbreeding</span>
                 <div className="flex items-center gap-2">
-                  <span className="text-[#FFC5EE] font-semibold">32%</span>
+                  <span className="text-[#b091eb] font-semibold">32%</span>
                   <span className="text-muted-foreground">vs</span>
                   <span className="text-muted-foreground">2% historical</span>
                 </div>
@@ -105,7 +107,7 @@ export function GeneticDiversityOptimizer() {
               <div className="flex justify-between items-center">
                 <span className="text-sm text-muted-foreground">Effective Pop Size</span>
                 <div className="flex items-center gap-2">
-                  <span className="text-[#FFC5EE] font-semibold">4 plants</span>
+                  <span className="text-[#b091eb] font-semibold">4 plants</span>
                   <span className="text-muted-foreground">vs</span>
                   <span className="text-muted-foreground">200+ historical</span>
                 </div>

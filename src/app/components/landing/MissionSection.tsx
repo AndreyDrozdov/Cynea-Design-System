@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from "motion/react";
 
 const missionImages = {
@@ -11,9 +13,9 @@ const steps = [
     title: "Rescue Mission",
     description: "Our AI monitors 847 plant species around the clock, flagging those in danger and coordinating rapid-response conservation teams.",
     bg: "bg-[#075D44]",
-    numColor: "text-[#D0F17A]",
-    titleColor: "text-[#E6E8EC]",
-    textColor: "text-[#E6E8EC]/60",
+    numColor: "text-[#cfedcc]",
+    titleColor: "text-[#cfedcc]",
+    textColor: "text-[#cfedcc]/60",
   },
   {
     number: "02",
@@ -29,18 +31,18 @@ const steps = [
     title: "Relocation",
     description: "Endangered specimens are carefully relocated to protected botanical gardens and seed banks to provide a safe environment for recovery.",
     bg: "bg-[#151515]",
-    numColor: "text-[#E6E8EC]",
-    titleColor: "text-[#E6E8EC]",
-    textColor: "text-[#E6E8EC]/50",
+    numColor: "text-[#D0F17A]",
+    titleColor: "text-[#D0F17A]",
+    textColor: "text-[#D0F17A]/60",
   },
   {
     number: "04",
     title: "Safe Future",
     description: "Plants are returned to restored habitats once populations reach viable thresholds through AI-guided programs.",
-    bg: "bg-[#FFC5EE]",
-    numColor: "text-[#151515]",
-    titleColor: "text-[#151515]",
-    textColor: "text-[#151515]/60",
+    bg: "bg-[#b091eb]",
+    numColor: "text-[#46014f]",
+    titleColor: "text-[#46014f]",
+    textColor: "text-[#46014f]/60",
   },
 ];
 
@@ -67,13 +69,13 @@ export function MissionSection() {
         </motion.div>
 
         {/* Row 1: wide image + 2 step cards */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.05 }}
-            className="col-span-2 rounded-3xl overflow-hidden h-52 lg:h-64"
+            className="rounded-3xl overflow-hidden h-64 lg:h-72"
           >
             <img
               src={missionImages.nursery}
@@ -82,61 +84,65 @@ export function MissionSection() {
             />
           </motion.div>
 
-          {steps.slice(0, 2).map((step, i) => (
-            <motion.div
-              key={step.number}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 + i * 0.07 }}
-              className={`${step.bg} rounded-3xl p-6 flex flex-col justify-between h-52 lg:h-64`}
-            >
-              <span className={`text-5xl ${step.numColor} font-['Dela_Gothic_One'] leading-none`}>
-                {step.number}
-              </span>
-              <div>
-                <h3 className={`text-base ${step.titleColor} font-['Dela_Gothic_One'] uppercase tracking-wide mb-1`}>
-                  {step.title}
-                </h3>
+          <div className="grid grid-cols-2 gap-4">
+            {steps.slice(0, 2).map((step, i) => (
+              <motion.div
+                key={step.number}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 + i * 0.07 }}
+                className={`${step.bg} rounded-3xl p-8 flex flex-col justify-between h-64 lg:h-72`}
+              >
+                <div className="space-y-4">
+                  <span className={`text-5xl ${step.numColor} font-['Dela_Gothic_One'] leading-none block`}>
+                    {step.number}
+                  </span>
+                  <h3 className={`text-base ${step.titleColor} font-['Dela_Gothic_One'] uppercase tracking-wide`}>
+                    {step.title}
+                  </h3>
+                </div>
                 <p className={`text-xs ${step.textColor} font-['Plus_Jakarta_Sans'] leading-relaxed`}>
                   {step.description}
                 </p>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
+          </div>
         </div>
 
         {/* Row 2: 2 step cards + wide image */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-4">
-          {steps.slice(2).map((step, i) => (
-            <motion.div
-              key={step.number}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 + i * 0.07 }}
-              className={`${step.bg} rounded-3xl p-6 flex flex-col justify-between h-52 lg:h-64`}
-            >
-              <span className={`text-5xl ${step.numColor} font-['Dela_Gothic_One'] leading-none`}>
-                {step.number}
-              </span>
-              <div>
-                <h3 className={`text-base ${step.titleColor} font-['Dela_Gothic_One'] uppercase tracking-wide mb-1`}>
-                  {step.title}
-                </h3>
+        <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-4 mt-4">
+          <div className="grid grid-cols-2 gap-4">
+            {steps.slice(2).map((step, i) => (
+              <motion.div
+                key={step.number}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 + i * 0.07 }}
+                className={`${step.bg} rounded-3xl p-8 flex flex-col justify-between h-64 lg:h-72`}
+              >
+                <div className="space-y-4">
+                  <span className={`text-5xl ${step.numColor} font-['Dela_Gothic_One'] leading-none block`}>
+                    {step.number}
+                  </span>
+                  <h3 className={`text-base ${step.titleColor} font-['Dela_Gothic_One'] uppercase tracking-wide`}>
+                    {step.title}
+                  </h3>
+                </div>
                 <p className={`text-xs ${step.textColor} font-['Plus_Jakarta_Sans'] leading-relaxed`}>
                   {step.description}
                 </p>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
+          </div>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.32 }}
-            className="col-span-2 rounded-3xl overflow-hidden h-52 lg:h-64"
+            className="rounded-3xl overflow-hidden h-64 lg:h-72"
           >
             <img
               src={missionImages.lab}

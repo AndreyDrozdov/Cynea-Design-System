@@ -13,7 +13,7 @@ export function ExtinctionRiskIndicator({
   className 
 }: ExtinctionRiskIndicatorProps) {
   const getRiskColor = (risk: number) => {
-    if (risk >= 70) return "bg-[#FFC5EE]/30 text-[#151515]";
+    if (risk >= 70) return "bg-[#b091eb]/30 text-[#151515]";
     if (risk >= 50) return "bg-[#D0F17A]/30 text-[#075D44]";
     if (risk >= 30) return "bg-[#075D44]/30 text-[#075D44]";
     return "bg-[#075D44]/30 text-[#075D44]";

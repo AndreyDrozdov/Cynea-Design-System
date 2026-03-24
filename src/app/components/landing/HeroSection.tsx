@@ -1,3 +1,5 @@
+"use client";
+
 import { useState, useEffect } from "react";
 import { Button } from "../ui/button";
 import { Leaf, ArrowRight } from "lucide-react";
@@ -32,9 +34,9 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section className="bg-[#E6E8EC] h-screen flex flex-col overflow-hidden">
-      <div className="flex-1 container mx-auto px-6 pt-20 pb-6 flex flex-col min-h-0">
-        <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-4 flex-1 min-h-0">
+    <section className="bg-[#E6E8EC] py-8 lg:py-16">
+      <div className="container mx-auto px-6 pt-12 lg:pt-16 flex flex-col">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-4">
 
           {/* Left: text card */}
           <motion.div
@@ -51,12 +53,12 @@ export function HeroSection() {
                 </span>
               </div>
 
-              <h1 className="text-4xl md:text-5xl text-[#E6E8EC] leading-tight">
-                Protecting Rare Plants,<br />
+              <h1 className="text-3xl md:text-5xl text-[#cfedcc] leading-tight">
+                Protecting Rare Plants,<br className="hidden md:block" />
                 Restoring Biodiversity
               </h1>
 
-              <p className="text-base text-[#E6E8EC]/70 leading-relaxed font-['Plus_Jakarta_Sans']">
+              <p className="text-base text-[#cfedcc]/70 leading-relaxed font-['Plus_Jakarta_Sans']">
                 AI-powered software that prevents plant extinction through predictive risk analysis,
                 genetic optimization, poaching detection, and global conservation coordination.
               </p>
@@ -73,24 +75,24 @@ export function HeroSection() {
                 </Button>
                 <Button
                   size="lg"
-                  className="bg-[#E6E8EC] text-[#075D44] rounded-3xl px-8 hover:bg-[#E6E8EC]/90"
+                  className="bg-[#E6E8EC] text-[#46014f] rounded-3xl px-8 hover:bg-[#E6E8EC]/90"
                 >
                   Learn More
                 </Button>
               </div>
 
-              <div className="flex gap-8 font-['Plus_Jakarta_Sans']">
+              <div className="grid grid-cols-2 md:flex md:gap-8 gap-y-4 font-['Plus_Jakarta_Sans']">
                 <div>
-                  <p className="text-3xl text-[#D0F17A] font-['Dela_Gothic_One']">847</p>
-                  <p className="text-sm text-[#E6E8EC]/60">Species Monitored</p>
+                  <p className="text-2xl md:text-3xl text-[#cfedcc] font-['Dela_Gothic_One']">847</p>
+                  <p className="text-[10px] md:text-sm text-[#cfedcc]/60 uppercase tracking-widest">Species Monitored</p>
                 </div>
                 <div>
-                  <p className="text-3xl text-[#D0F17A] font-['Dela_Gothic_One']">76</p>
-                  <p className="text-sm text-[#E6E8EC]/60">Partner Institutions</p>
+                  <p className="text-2xl md:text-3xl text-[#cfedcc] font-['Dela_Gothic_One']">76</p>
+                  <p className="text-[10px] md:text-sm text-[#cfedcc]/60 uppercase tracking-widest">Partner Institutions</p>
                 </div>
-                <div>
-                  <p className="text-3xl text-[#D0F17A] font-['Dela_Gothic_One']">60-70%</p>
-                  <p className="text-sm text-[#E6E8EC]/60">Cost Reduction</p>
+                <div className="col-span-2 md:col-span-1 border-t border-[#cfedcc]/10 pt-4 md:pt-0 md:border-0">
+                  <p className="text-2xl md:text-3xl text-[#cfedcc] font-['Dela_Gothic_One']">64%</p>
+                  <p className="text-[10px] md:text-sm text-[#cfedcc]/60 uppercase tracking-widest">Recovery Rate</p>
                 </div>
               </div>
             </div>
@@ -157,10 +159,10 @@ export function HeroSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.3 }}
-                className="bg-[#D0F17A] rounded-3xl p-6 flex flex-col justify-end h-36"
+                className="bg-[#D0F17A] rounded-3xl p-8 flex flex-col justify-between h-40 lg:h-48"
               >
-                <p className="text-4xl text-[#075D44] font-['Dela_Gothic_One'] mb-1">2,400+</p>
-                <p className="text-sm text-[#075D44]/70 font-['Plus_Jakarta_Sans']">
+                <p className="text-5xl text-[#075D44] font-['Dela_Gothic_One'] leading-none">2,400+</p>
+                <p className="text-xs text-[#075D44]/70 font-['Plus_Jakarta_Sans'] leading-relaxed">
                   Genetic Samples Stored
                 </p>
               </motion.div>
@@ -169,10 +171,10 @@ export function HeroSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.45 }}
-                className="bg-[#FFC5EE] rounded-3xl p-6 flex flex-col justify-end h-36"
+                className="bg-[#c0a7ef] rounded-3xl p-8 flex flex-col justify-between h-40 lg:h-48"
               >
-                <p className="text-4xl text-[#151515] font-['Dela_Gothic_One'] mb-1">312</p>
-                <p className="text-sm text-[#151515]/70 font-['Plus_Jakarta_Sans']">
+                <p className="text-5xl text-[#46014f] font-['Dela_Gothic_One'] leading-none">312</p>
+                <p className="text-xs text-[#46014f]/70 font-['Plus_Jakarta_Sans'] leading-relaxed">
                   Active Breeding Programs
                 </p>
               </motion.div>

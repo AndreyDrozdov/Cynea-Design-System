@@ -24,7 +24,7 @@ export function PoachingIncidentCard({
 }: PoachingIncidentCardProps) {
   const statusConfig = {
     alert: {
-      color: "bg-[#FFC5EE] text-[#151515]",
+      color: "bg-[#b091eb] text-[#151515]",
       icon: AlertCircle,
       label: "ALERT SENT"
     },

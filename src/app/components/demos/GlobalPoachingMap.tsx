@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useState } from "react";
 import { Card } from "../ui/card";
 import { PoachingIncidentCard } from "../dendrogene/PoachingIncidentCard";
@@ -97,11 +99,18 @@ export function GlobalPoachingMap() {
   const [selectedIncident, setSelectedIncident] = useState<Incident | null>(null);
 
   useEffect(() => {
+    let isMounted = true;
+    
     // Animate incidents appearing on map
     const showIncidents = async () => {
       for (let i = 0; i < incidents.length; i++) {
         await new Promise(resolve => setTimeout(resolve, 800));
-        setVisibleIncidents(prev => [...prev, incidents[i]]);
+        if (isMounted) {
+          setVisibleIncidents(prev => {
+            if (prev.find(inc => inc.id === incidents[i].id)) return prev;
+            return [...prev, incidents[i]];
+          });
+        }
       }
     };
 
@@ -138,11 +147,15 @@ export function GlobalPoachingMap() {
 
     showIncidents();
     animateStats();
+
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case "alert": return "#FFC5EE";
+      case "alert": return "#b091eb";
       case "in-progress": return "#D0F17A";
       case "recovered": return "#075D44";
       case "intercepted": return "#E6E8EC";
@@ -175,7 +188,7 @@ export function GlobalPoachingMap() {
             <div className="mb-4 flex items-center justify-between">
               <h3 className="font-semibold">Active Incidents - March 2026</h3>
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <Activity className="w-4 h-4 animate-pulse text-[#FFC5EE]" />
+                <Activity className="w-4 h-4 animate-pulse text-[#b091eb]" />
                 <span>Live Monitoring</span>
               </div>
             </div>
@@ -290,7 +303,7 @@ export function GlobalPoachingMap() {
             {/* Legend */}
             <div className="mt-4 flex flex-wrap items-center gap-4 text-sm">
               <div className="flex items-center gap-2">
-                <div className="w-4 h-4 rounded-full bg-[#FFC5EE]" />
+                <div className="w-4 h-4 rounded-full bg-[#b091eb]" />
                 <span>Critical Alert</span>
               </div>
               <div className="flex items-center gap-2">
@@ -334,7 +347,7 @@ export function GlobalPoachingMap() {
                     {item.status === "recovered" && <CheckCircle2 className="w-5 h-5 text-[#075D44]" />}
                     {item.status === "intercepted" && <CheckCircle2 className="w-5 h-5 text-[#151515]" />}
                     {item.status === "in-progress" && <Activity className="w-5 h-5 text-[#D0F17A]" />}
-                    {item.status === "alert" && <AlertCircle className="w-5 h-5 text-[#FFC5EE]" />}
+                    {item.status === "alert" && <AlertCircle className="w-5 h-5 text-[#b091eb]" />}
                   </div>
                 </motion.div>
               ))}
@@ -351,7 +364,7 @@ export function GlobalPoachingMap() {
             <div className="space-y-4">
               <div>
                 <p className="text-sm text-muted-foreground mb-1">Incidents Detected</p>
-                <p className="text-4xl font-bold text-[#FFC5EE]">{stats.incidents}</p>
+                <p className="text-4xl font-bold text-[#b091eb]">{stats.incidents}</p>
               </div>
               
               <div>

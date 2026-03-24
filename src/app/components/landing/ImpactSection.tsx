@@ -1,3 +1,5 @@
+"use client";
+
 import { useState, useEffect, useRef } from "react";
 import { motion, useInView, AnimatePresence } from "motion/react";
 import { Leaf, Globe, TrendingUp, Dna, Shield, TreePine } from "lucide-react";
@@ -147,7 +149,7 @@ function SpeciesCard({ active }: { active: boolean }) {
             onClick={() => setActiveTab(key)}
             className={`flex-1 flex items-center justify-center gap-1 py-1.5 rounded-xl text-xs font-['Plus_Jakarta_Sans'] font-semibold transition-all duration-200 ${
               activeTab === key
-                ? "bg-[#075D44] text-[#D0F17A]"
+                ? "bg-[#075D44] text-[#cfedcc]"
                 : "text-[#075D44]/60 hover:text-[#075D44]"
             }`}
           >
@@ -182,7 +184,7 @@ function RadialArcChart({ regions, metricIdx }: {
   const size = 160;
   const cx = size / 2;
   const cy = size / 2;
-  const arcColors = ["#075D44", "rgba(7,93,68,0.62)", "rgba(7,93,68,0.38)", "rgba(7,93,68,0.20)"];
+  const arcColors = ["#46014f", "rgba(70,1,79,0.62)", "rgba(70,1,79,0.38)", "rgba(70,1,79,0.20)"];
   const radii = [70, 55, 40, 25];
   const stroke = 9;
   const GAP_DEG = 36;
@@ -204,7 +206,7 @@ function RadialArcChart({ regions, metricIdx }: {
             <circle
               cx={cx} cy={cy} r={r}
               fill="none"
-              stroke="rgba(7,93,68,0.10)"
+              stroke="rgba(70,1,79,0.10)"
               strokeWidth={stroke}
               strokeLinecap="round"
               strokeDasharray={`${totalArcLen} ${circ}`}
@@ -225,7 +227,7 @@ function RadialArcChart({ regions, metricIdx }: {
         );
       })}
       {/* Center dot */}
-      <circle cx={cx} cy={cy} r={5} fill="#075D44" opacity={0.3} />
+      <circle cx={cx} cy={cy} r={5} fill="#46014f" opacity={0.3} />
     </svg>
   );
 }
@@ -268,7 +270,7 @@ function InstitutionsCard({ active }: { active: boolean }) {
     },
   ];
 
-  const arcColors = ["#075D44", "rgba(7,93,68,0.62)", "rgba(7,93,68,0.38)", "rgba(7,93,68,0.20)"];
+  const arcColors = ["#46014f", "rgba(70,1,79,0.62)", "rgba(70,1,79,0.38)", "rgba(70,1,79,0.20)"];
 
   // Auto-cycle metrics
   useEffect(() => {
@@ -279,12 +281,12 @@ function InstitutionsCard({ active }: { active: boolean }) {
   }, []);
 
   return (
-    <div className="bg-[#FFC5EE] rounded-3xl p-6 flex flex-col justify-between h-full gap-3">
+    <div className="bg-[#c0a7ef] rounded-3xl p-6 flex flex-col justify-between h-full gap-3">
       {/* Top: counter + ring */}
       <div className="flex items-center gap-4">
         <div>
-          <p className="text-7xl text-[#075D44] font-['Dela_Gothic_One'] leading-none">{count}+</p>
-          <p className="text-sm text-[#075D44]/70 font-['Plus_Jakarta_Sans'] mt-1">Institutions supporting the network</p>
+          <p className="text-7xl text-[#46014f] font-['Dela_Gothic_One'] leading-none">{count}+</p>
+          <p className="text-sm text-[#46014f]/70 font-['Plus_Jakarta_Sans'] mt-1">Institutions supporting the network</p>
         </div>
       </div>
 
@@ -298,8 +300,8 @@ function InstitutionsCard({ active }: { active: boolean }) {
               onClick={() => setMetricIdx(i)}
               className={`flex items-center gap-1 px-2.5 py-1 rounded-xl text-[10px] font-['Plus_Jakarta_Sans'] font-semibold transition-all duration-200 ${
                 metricIdx === i
-                  ? "bg-[#075D44] text-[#FFC5EE]"
-                  : "bg-[#075D44]/10 text-[#075D44]/60 hover:text-[#075D44]"
+                  ? "bg-[#46014f] text-[#c0a7ef]"
+                  : "bg-[#46014f]/10 text-[#46014f]/60 hover:text-[#46014f]"
               }`}
             >
               <Icon className="w-3 h-3" />
@@ -326,13 +328,13 @@ function InstitutionsCard({ active }: { active: boolean }) {
                   className="w-2 h-2 rounded-full flex-shrink-0"
                   style={{ backgroundColor: arcColors[i] }}
                 />
-                <span className="text-[10px] text-[#075D44] font-['Plus_Jakarta_Sans'] flex-1 leading-tight truncate">{r.label}</span>
+                <span className="text-[10px] text-[#46014f] font-['Plus_Jakarta_Sans'] flex-1 leading-tight truncate">{r.label}</span>
                 <motion.span
                   key={`${r.label}-${metricIdx}`}
                   initial={{ opacity: 0, y: 5 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3 }}
-                  className="text-xs text-[#075D44] font-['Dela_Gothic_One'] flex-shrink-0"
+                  className="text-xs text-[#46014f] font-['Dela_Gothic_One'] flex-shrink-0"
                 >
                   {val}{suffix} <span className="opacity-50 text-[9px]">{pct}%</span>
                 </motion.span>
@@ -469,8 +471,8 @@ export function ImpactSection() {
             transition={{ delay: 0.2 }}
             className="bg-[#151515] rounded-3xl p-8 flex flex-col justify-between min-h-[200px]"
           >
-            <p className="text-7xl text-[#E6E8EC] font-['Dela_Gothic_One'] leading-none">18</p>
-            <p className="text-sm text-[#E6E8EC]/70 font-['Plus_Jakarta_Sans']">
+            <p className="text-7xl text-[#D0F17A] font-['Dela_Gothic_One'] leading-none">18</p>
+            <p className="text-sm text-[#D0F17A]/70 font-['Plus_Jakarta_Sans']">
               Successful rescue operations
             </p>
           </motion.div>
@@ -483,8 +485,8 @@ export function ImpactSection() {
             className="col-span-2 bg-[#075D44] rounded-3xl p-8 flex items-start justify-between min-h-[200px]"
           >
             <div className="flex flex-col justify-between h-full">
-              <p className="text-7xl text-[#D0F17A] font-['Dela_Gothic_One'] leading-none">$2.3M</p>
-              <p className="text-sm text-[#E6E8EC]/70 font-['Plus_Jakarta_Sans']">
+              <p className="text-7xl text-[#cfedcc] font-['Dela_Gothic_One'] leading-none">$2.3M</p>
+              <p className="text-sm text-[#cfedcc]/70 font-['Plus_Jakarta_Sans']">
                 Annual funding raised globally
               </p>
             </div>
@@ -495,30 +497,30 @@ export function ImpactSection() {
         </div>
 
         {/* Additional stats row */}
-        <div className="grid grid-cols-3 gap-4 mt-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
-            className="col-span-2 bg-[#E6E8EC] rounded-3xl p-8"
+            className="col-span-2 bg-[#E6E8EC] rounded-3xl p-8 flex flex-col justify-between h-full"
           >
-            <div className="grid grid-cols-3 gap-6">
-              <div className="flex flex-col justify-between h-full">
-                <p className="text-4xl text-[#075D44] font-['Dela_Gothic_One']">571</p>
-                <p className="text-sm text-[#151515]/60 mt-1 font-['Plus_Jakarta_Sans']">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 h-full py-4 sm:py-0">
+              <div className="flex flex-col justify-between h-full border-b border-[#46014f]/10 pb-4 sm:border-0 sm:pb-0">
+                <p className="text-5xl text-[#46014f] font-['Dela_Gothic_One'] leading-none">571</p>
+                <p className="text-xs text-[#46014f]/60 mt-1 font-['Plus_Jakarta_Sans'] leading-relaxed">
                   Plant species extinct in last 250 years — each an irreplaceable gene pool
                 </p>
               </div>
-              <div className="flex flex-col justify-between h-full">
-                <p className="text-4xl text-[#075D44] font-['Dela_Gothic_One']">3–5×</p>
-                <p className="text-sm text-[#151515]/60 mt-1 font-['Plus_Jakarta_Sans']">
+              <div className="flex flex-col justify-between h-full border-b border-[#46014f]/10 pb-4 sm:border-0 sm:pb-0">
+                <p className="text-5xl text-[#46014f] font-['Dela_Gothic_One'] leading-none">3–5×</p>
+                <p className="text-xs text-[#46014f]/60 mt-1 font-['Plus_Jakarta_Sans'] leading-relaxed">
                   More species saved with the same budget through AI-driven prioritization
                 </p>
               </div>
               <div className="flex flex-col justify-between h-full">
-                <p className="text-4xl text-[#075D44] font-['Dela_Gothic_One']">60-70%</p>
-                <p className="text-sm text-[#151515]/60 mt-1 font-['Plus_Jakarta_Sans']">
+                <p className="text-5xl text-[#46014f] font-['Dela_Gothic_One'] leading-none">60-70%</p>
+                <p className="text-xs text-[#46014f]/60 mt-1 font-['Plus_Jakarta_Sans'] leading-relaxed">
                   Reduction in conservation costs through automated monitoring
                 </p>
               </div>
@@ -530,10 +532,10 @@ export function ImpactSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.35 }}
-            className="bg-[#D0F17A] rounded-3xl p-8 flex flex-col justify-between"
+            className="bg-[#D0F17A] rounded-3xl p-8 flex flex-col justify-between h-full"
           >
             <p className="text-[#075D44] font-['Dela_Gothic_One'] text-2xl">Measurable Conservation Success</p>
-            <p className="text-sm text-[#075D44]/80 font-['Plus_Jakarta_Sans'] mt-3">
+            <p className="text-xs text-[#075D44]/70 font-['Plus_Jakarta_Sans'] mt-3 leading-relaxed">
               Verified outcomes across 76 partner institutions worldwide.
             </p>
           </motion.div>

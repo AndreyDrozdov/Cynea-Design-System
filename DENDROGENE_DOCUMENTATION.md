@@ -10,7 +10,7 @@ Colors extracted from branding guidelines:
 
 - **Deep Forest** (#075D44) - Primary brand color, used for headers, CTAs
 - **Fresh Meadow** (#D0F17A) - Accent color for highlights and success states
-- **Wild Orchid** (#FFC5EE) - Secondary accent for diversity
+- **Wild Orchid** (#b091eb) - Secondary accent for diversity
 - **Soft Mist** (#E6E8EC) - Background and subtle elements
 - **Forest Sage** (#71A888) - Medium green for secondary elements
 - **Onyx** (#1A1A1A) - Dark text and strong contrast

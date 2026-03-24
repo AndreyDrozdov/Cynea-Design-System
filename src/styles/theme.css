@@ -14,8 +14,8 @@
   --primary-foreground: #E6E8EC;
   --secondary: #D0F17A;
   --secondary-foreground: #075D44;
-  --tertiary: #FFC5EE;
-  --tertiary-foreground: #075D44;
+  --tertiary: #c0a7ef;
+  --tertiary-foreground: #46014f;
   
   --muted: #E6E8EC;
   --muted-foreground: #717182;
@@ -34,7 +34,7 @@
   /* Cyanea Brand Colors */
   --deep-forest: #075D44;
   --fresh-meadow: #D0F17A;
-  --wild-orchid: #FFC5EE;
+  --wild-orchid: #c0a7ef;
   --soft-mist: #E6E8EC;
   --forest-sage: #71A888;
   --onyx: #151515;
@@ -49,7 +49,7 @@
   --chart-1: #075D44;
   --chart-2: #71A888;
   --chart-3: #D0F17A;
-  --chart-4: #FFC5EE;
+  --chart-4: #c0a7ef;
   --chart-5: #E6E8EC;
   
   /* Increased border radius */
@@ -206,5 +206,11 @@
     font-size: var(--text-base);
     font-weight: var(--font-weight-normal);
     line-height: 1.5;
+  }
+}
+
+@layer utilities {
+  .pt-20 {
+    padding-top: calc(var(--spacing) * 24);
   }
 }

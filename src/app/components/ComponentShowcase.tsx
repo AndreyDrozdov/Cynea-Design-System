@@ -55,7 +55,7 @@ export function ComponentShowcase() {
             {[
               { name: "Deep Forest", color: "#075D44", text: "white" },
               { name: "Fresh Meadow", color: "#D0F17A", text: "#075D44" },
-              { name: "Wild Orchid", color: "#FFC5EE", text: "#1A1A1A" },
+              { name: "Wild Orchid", color: "#b091eb", text: "#1A1A1A" },
               { name: "Soft Mist", color: "#E6E8EC", text: "#1A1A1A" },
               { name: "Forest Sage", color: "#71A888", text: "white" },
               { name: "Onyx", color: "#1A1A1A", text: "white" }
