@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Card } from "../ui/card";
 import { GeneticHealthCard } from "../dendrogene/GeneticHealthCard";
 import { BreedingRecommendationCard } from "../dendrogene/BreedingRecommendationCard";
+import { RescueStrategyCard, SystemAnalysisCard } from "../dendrogene/IntelligenceUnits";
 import { motion } from "motion/react";
 import { Dna, TrendingUp } from "lucide-react";
 
@@ -69,11 +70,8 @@ export function GeneticDiversityOptimizer() {
             historicalAlleleCount={47}
           />
 
-          <Card className="p-5 space-y-3 border border-[#b091eb]/30 bg-transparent rounded-3xl">
-            <div className="flex items-center gap-2">
-              <div className="w-3 h-3 bg-[#b091eb] rounded-full animate-pulse" />
-              <p className="font-semibold text-[#151515]">GENETIC COLLAPSE RISK</p>
-            </div>
+          <Card className="p-4 border border-[#b091eb]/30 bg-transparent rounded-3xl flex items-start gap-3">
+            <div className="w-3 h-3 bg-[#b091eb] rounded-full animate-pulse flex-shrink-0 mt-1" />
             <p className="text-sm">
               Species has lost <strong>70% of genetic diversity</strong> (47 → 14 alleles). 
               Effective population size is only <strong>4 genetically unique plants</strong>.
@@ -140,39 +138,8 @@ export function GeneticDiversityOptimizer() {
                 />
               </div>
 
-              <Card className="p-5 space-y-3 bg-[#b091eb]/15 rounded-3xl border-none shadow-none">
-                <h4 className="font-semibold text-[#151515]">Rescue Strategy</h4>
-                <p className="text-xs">
-                  <strong>Outbreed:</strong> Kew Gardens Related Population
-                </p>
-                <div className="space-y-1.5 text-[10px] uppercase tracking-wider font-semibold opacity-70">
-                  <div className="flex justify-between">
-                    <span>Target Gain:</span>
-                    <span className="text-[#075D44]">+23 AI-Alleles</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Est. Recovery:</span>
-                    <span>71%</span>
-                  </div>
-                </div>
-              </Card>
-
-              <Card className="p-5 space-y-3 bg-[#075D44]/10 rounded-3xl border-none shadow-none">
-                <h4 className="font-semibold text-primary">System Analysis</h4>
-                <p className="text-xs">
-                  <strong>Deep Ancestry:</strong> Predictive Verification (v2.1)
-                </p>
-                <div className="space-y-1.5 text-[10px] uppercase tracking-wider font-semibold opacity-70">
-                  <div className="flex justify-between">
-                    <span>Confidence:</span>
-                    <span className="text-primary group-hover:text-white">99.4% Accuracy</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Status:</span>
-                    <span>Optimized</span>
-                  </div>
-                </div>
-              </Card>
+              <RescueStrategyCard />
+              <SystemAnalysisCard />
             </motion.div>
           ) : (
             <Card className="p-8 flex items-center justify-center rounded-3xl">

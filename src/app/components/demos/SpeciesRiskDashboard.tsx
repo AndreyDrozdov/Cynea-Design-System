@@ -5,6 +5,7 @@ import { Card } from "../ui/card";
 import { SpeciesCard } from "../dendrogene/SpeciesCard";
 import { Activity, Database, Building2, RefreshCw, AlertTriangle } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
+import { RescueStrategyCard, SystemAnalysisCard } from "../dendrogene/IntelligenceUnits";
 
 interface SpeciesData {
   id: string;
@@ -137,78 +138,44 @@ export function SpeciesRiskDashboard() {
 
         {/* Intelligence Grid - Bento Layout (Right) */}
         <div className="space-y-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="grid grid-cols-1 md:grid-cols-2 gap-4"
+          >
             {/* Top Primary Stats - Green */}
             <div className="md:col-span-2">
-              <Card className="p-6 space-y-5 rounded-[32px] border border-[#D0F17A]/30 bg-[#D0F17A]/15 h-full">
-                <h3 className="font-semibold font-['Dela_Gothic_One'] tracking-tight text-[#075D44]">
+              <Card className="p-6 space-y-5 rounded-[32px] border-none bg-[#D0F17A]/30 h-full">
+                <h3 className="text-xl font-bold font-['Dela_Gothic_One'] tracking-tight text-[#151515]">
                   Network Pulse
                 </h3>
                 <div className="grid grid-cols-2 gap-y-6 gap-x-4">
                   <div>
-                    <p className="text-[10px] uppercase tracking-widest text-[#075D44]/60 font-medium mb-1">Risk Coverage</p>
-                    <p className="text-2xl font-bold text-[#151515] font-['Dela_Gothic_One']">{stats.totalSpecies}</p>
+                    <p className="text-xs uppercase tracking-widest text-muted-foreground opacity-60 font-medium mb-1">Risk Coverage</p>
+                    <p className="text-3xl font-bold text-[#075D44] font-['Dela_Gothic_One']">{stats.totalSpecies}</p>
                   </div>
                   <div>
-                    <p className="text-[10px] uppercase tracking-widest text-[#075D44]/60 font-medium mb-1">Critically Low</p>
-                    <p className="text-2xl font-bold text-[#151515] font-['Dela_Gothic_One']">{stats.criticalCases}</p>
+                    <p className="text-xs uppercase tracking-widest text-muted-foreground opacity-60 font-medium mb-1">Critically Low</p>
+                    <p className="text-3xl font-bold text-[#075D44] font-['Dela_Gothic_One']">{stats.criticalCases}</p>
                   </div>
                   <div>
-                    <p className="text-[10px] uppercase tracking-widest text-[#075D44]/60 font-medium mb-1">Active Labs</p>
-                    <p className="text-2xl font-bold text-[#151515] font-['Dela_Gothic_One']">{stats.breedingPrograms}</p>
+                    <p className="text-xs uppercase tracking-widest text-muted-foreground opacity-60 font-medium mb-1">Active Labs</p>
+                    <p className="text-3xl font-bold text-[#075D44] font-['Dela_Gothic_One']">{stats.breedingPrograms}</p>
                   </div>
                   <div>
-                    <p className="text-[10px] uppercase tracking-widest text-[#075D44]/60 font-medium mb-1">Institutions</p>
-                    <p className="text-2xl font-bold text-[#151515] font-['Dela_Gothic_One']">{stats.institutions}</p>
+                    <p className="text-xs uppercase tracking-widest text-muted-foreground opacity-60 font-medium mb-1">Institutions</p>
+                    <p className="text-3xl font-bold text-[#075D44] font-['Dela_Gothic_One']">{stats.institutions}</p>
                   </div>
                 </div>
               </Card>
             </div>
 
             {/* Bottom Left Activity - Purple */}
-            <Card className="p-5 space-y-4 rounded-[32px] border border-[#b091eb]/30 bg-[#b091eb]/15 h-full">
-              <h3 className="font-semibold font-['Dela_Gothic_One'] tracking-tight text-[#46014f] text-sm">
-                Live Monitoring
-              </h3>
-              <div className="space-y-3">
-                <AnimatePresence mode="popLayout">
-                  {activities.slice(0, 2).map((activity, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      className="text-[11px] p-2.5 bg-[#151515]/5 rounded-2xl leading-relaxed"
-                    >
-                      {activity}
-                    </motion.div>
-                  ))}
-                </AnimatePresence>
-              </div>
-            </Card>
+            <RescueStrategyCard />
 
             {/* Bottom Right System Info - Gray */}
-            <Card className="p-5 space-y-4 rounded-[32px] border border-[#E6E8EC]/40 bg-[#E6E8EC]/20 h-full flex flex-col justify-between">
-              <h3 className="font-semibold font-['Dela_Gothic_One'] tracking-tight text-[#151515] text-sm">
-                System Status
-              </h3>
-              <div className="space-y-4">
-                <div className="flex items-center justify-between">
-                  <span className="text-[9px] uppercase tracking-widest font-bold text-muted-foreground">Connectivity</span>
-                  <span className="text-[10px] font-bold text-[#075D44]">SECURE</span>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-[9px] uppercase tracking-widest font-bold text-muted-foreground">Encryption</span>
-                  <span className="text-[10px] font-bold text-[#075D44]">AES-256</span>
-                </div>
-                <div className="pt-2 border-t border-[#151515]/10">
-                   <div className="flex items-center gap-2">
-                     <div className="w-2 h-2 rounded-full bg-[#075D44] animate-pulse" />
-                     <span className="text-[10px] font-bold uppercase tracking-widest text-[#075D44]">Optimal Performance</span>
-                   </div>
-                </div>
-              </div>
-            </Card>
-          </div>
+            <SystemAnalysisCard />
+          </motion.div>
         </div>
       </div>
     </div>
