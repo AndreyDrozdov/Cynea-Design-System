@@ -2,11 +2,32 @@
 
 import { useState, useEffect } from "react";
 import { Button } from "../ui/button";
-import { Leaf, Menu, X } from "lucide-react";
-import { motion, AnimatePresence } from "motion/react";
+import { Leaf, Menu, X, ArrowUp } from "lucide-react";
+import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "motion/react";
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [showBackToTop, setShowBackToTop] = useState(false);
+  const { scrollY } = useScroll();
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const previous = scrollY.getPrevious() ?? 0;
+    
+    // Show/hide logic
+    if (latest > previous && latest > 150) {
+      setIsVisible(false);
+    } else {
+      setIsVisible(true);
+    }
+
+    // Back to top button visibility
+    if (latest > 500) {
+      setShowBackToTop(true);
+    } else {
+      setShowBackToTop(false);
+    }
+  });
 
   useEffect(() => {
     if (isOpen) {
@@ -19,6 +40,10 @@ export function Navigation() {
     };
   }, [isOpen]);
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   const navItems = [
     { label: "Platform", href: "#platform" },
     { label: "Demos", href: "#demos" },
@@ -28,7 +53,13 @@ export function Navigation() {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 pt-4">
+    <>
+    <motion.nav 
+      initial={{ y: 0 }}
+      animate={{ y: isVisible ? 0 : -100 }}
+      transition={{ duration: 0.35, ease: "easeInOut" }}
+      className="fixed top-0 left-0 right-0 z-50 pt-4"
+    >
       <div className="container mx-auto px-6">
         <div className="bg-white/95 backdrop-blur-md rounded-3xl shadow-sm px-6">
           <div className="flex items-center justify-between h-16">
@@ -125,7 +156,24 @@ export function Navigation() {
             </motion.div>
           )}
         </AnimatePresence>
+
       </div>
-    </nav>
+    </motion.nav>
+
+    {/* Back to top button */}
+    <AnimatePresence>
+      {showBackToTop && !isOpen && (
+        <motion.button
+          initial={{ opacity: 0, scale: 0.8, y: 20 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          exit={{ opacity: 0, scale: 0.8, y: 20 }}
+          onClick={scrollToTop}
+          className="fixed bottom-8 right-8 z-[60] p-4 bg-[#075D44] text-[#D0F17A] rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 group"
+        >
+          <ArrowUp className="w-6 h-6 group-hover:-translate-y-1 transition-transform" />
+        </motion.button>
+      )}
+    </AnimatePresence>
+  </>
   );
 }

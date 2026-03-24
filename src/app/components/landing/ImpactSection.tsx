@@ -74,7 +74,7 @@ function MiniBar({ label, value, max, color, textColor }: { label: string; value
         <span className={`text-sm font-['Plus_Jakarta_Sans'] ${textColor}`}>{label}</span>
         <span className={`text-sm font-['Dela_Gothic_One'] ${textColor} opacity-80`}>{value}</span>
       </div>
-      <div className="h-3.5 rounded-full overflow-hidden" style={{ backgroundColor: "rgba(0,0,0,0.1)" }}>
+      <div className="h-3 rounded-full overflow-hidden" style={{ backgroundColor: "rgba(0,0,0,0.1)" }}>
         <motion.div
           className="h-full rounded-full"
           style={{ backgroundColor: color }}
@@ -132,7 +132,7 @@ function SpeciesCard({ active }: { active: boolean }) {
   };
 
   return (
-    <div className="bg-[#D0F17A] rounded-3xl p-6 flex flex-col justify-between h-full gap-4">
+    <div className="bg-[#D0F17A] rounded-3xl p-6 flex flex-col justify-between h-full gap-4 min-h-[460px]">
       {/* Top: ring + counter */}
       <div className="flex flex-col justify-end">
         <p className="text-5xl text-[#075D44] font-['Dela_Gothic_One'] leading-none">{count}</p>
@@ -146,7 +146,7 @@ function SpeciesCard({ active }: { active: boolean }) {
             <button
               key={key}
               onClick={() => setActiveTab(key)}
-              className={`flex-1 flex items-center justify-center gap-1 py-1.5 rounded-xl text-xs font-['Plus_Jakarta_Sans'] font-semibold transition-all duration-200 ${
+              className={`flex-1 flex items-center justify-center gap-1 py-1.5 rounded-xl text-sm font-['Plus_Jakarta_Sans'] font-semibold transition-all duration-200 ${
                 activeTab === key
                   ? "bg-[#075D44] text-[#cfedcc]"
                   : "text-[#075D44]/60 hover:text-[#075D44]"
@@ -180,13 +180,13 @@ function RadialArcChart({ regions, metricIdx }: {
   regions: { label: string; values: number[]; maxes: number[] }[];
   metricIdx: number;
 }) {
-  const width = 360;
-  const height = 150;
+  const width = 340;
+  const height = 130;
   const cx = width / 2;
   const cy = height; 
   const arcColors = ["#46014f", "rgba(70,1,79,0.65)", "rgba(70,1,79,0.42)", "rgba(70,1,79,0.22)"];
   const radii = [105, 82, 60, 38];
-  const stroke = 14;
+  const stroke = 12;
   
   return (
     <svg width="100%" className="block max-w-full overflow-visible" viewBox={`0 0 ${width} ${height + stroke}`}>
@@ -279,7 +279,7 @@ function InstitutionsCard({ active }: { active: boolean }) {
   }, []);
 
   return (
-    <div className="bg-[#c0a7ef] rounded-3xl p-6 flex flex-col justify-between h-full gap-3">
+    <div className="bg-[#c0a7ef] rounded-3xl p-6 flex flex-col justify-between h-full gap-4 min-h-[460px]">
       {/* Top: counter + ring */}
       <div className="flex items-center gap-4">
         <div>
@@ -296,7 +296,7 @@ function InstitutionsCard({ active }: { active: boolean }) {
             <button
               key={m.label}
               onClick={() => setMetricIdx(i)}
-              className={`flex items-center gap-1 px-2.5 py-1 rounded-xl text-[10px] font-['Plus_Jakarta_Sans'] font-semibold transition-all duration-200 ${
+              className={`flex items-center gap-1 px-2.5 py-1 rounded-xl text-sm font-['Plus_Jakarta_Sans'] font-semibold transition-all duration-200 ${
                 metricIdx === i
                   ? "bg-[#46014f] text-[#c0a7ef]"
                   : "bg-[#46014f]/10 text-[#46014f]/60 hover:text-[#46014f]"
@@ -312,7 +312,7 @@ function InstitutionsCard({ active }: { active: boolean }) {
       {/* Radial arc chart + legend */}
       <div className="flex flex-col flex-1">
         {/* Radial Arc Chart - centered */}
-        <div className="flex justify-center items-center flex-1">
+        <div className="flex justify-center items-center flex-1 mb-8">
           <RadialArcChart regions={regions} metricIdx={metricIdx} />
         </div>
         {/* Legend - pinned to bottom */}

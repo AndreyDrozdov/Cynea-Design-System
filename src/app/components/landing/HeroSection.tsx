@@ -53,7 +53,7 @@ export function HeroSection() {
                 </span>
               </div>
 
-              <h1 className="text-3xl md:text-4xl xl:text-5xl text-[#cfedcc] leading-tight">
+              <h1 className="text-4xl md:text-6xl xl:text-7xl text-[#cfedcc] leading-tight">
                 Protecting Rare Plants, Restoring Biodiversity
               </h1>
 
