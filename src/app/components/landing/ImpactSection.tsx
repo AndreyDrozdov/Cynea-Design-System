@@ -134,11 +134,9 @@ function SpeciesCard({ active }: { active: boolean }) {
   return (
     <div className="bg-[#D0F17A] rounded-3xl p-6 flex flex-col justify-between h-full gap-4">
       {/* Top: ring + counter */}
-      <div className="flex items-center gap-4">
-        <div>
-          <p className="text-7xl text-[#075D44] font-['Dela_Gothic_One'] leading-none">{count}</p>
-          <p className="text-sm text-[#075D44]/70 font-['Plus_Jakarta_Sans'] mt-1">Species rescued &amp; rehabilitated</p>
-        </div>
+      <div className="flex flex-col justify-end">
+        <p className="text-5xl text-[#075D44] font-['Dela_Gothic_One'] leading-none">{count}</p>
+        <p className="text-sm text-[#075D44]/70 font-['Plus_Jakarta_Sans'] mt-1">Species rescued &amp; rehabilitated</p>
       </div>
 
       {/* Tabs */}
@@ -285,7 +283,7 @@ function InstitutionsCard({ active }: { active: boolean }) {
       {/* Top: counter + ring */}
       <div className="flex items-center gap-4">
         <div>
-          <p className="text-7xl text-[#46014f] font-['Dela_Gothic_One'] leading-none">{count}+</p>
+          <p className="text-5xl text-[#46014f] font-['Dela_Gothic_One'] leading-none">{count}+</p>
           <p className="text-sm text-[#46014f]/70 font-['Plus_Jakarta_Sans'] mt-1">Institutions supporting the network</p>
         </div>
       </div>
@@ -388,7 +386,7 @@ export function ImpactSection() {
         </motion.div>
 
         {/* Bento grid */}
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {/* Row 1 */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -471,7 +469,7 @@ export function ImpactSection() {
             transition={{ delay: 0.2 }}
             className="bg-[#151515] rounded-3xl p-8 flex flex-col justify-between min-h-[200px]"
           >
-            <p className="text-7xl text-[#D0F17A] font-['Dela_Gothic_One'] leading-none">18</p>
+            <p className="text-5xl text-[#D0F17A] font-['Dela_Gothic_One'] leading-none">18</p>
             <p className="text-sm text-[#D0F17A]/70 font-['Plus_Jakarta_Sans']">
               Successful rescue operations
             </p>
@@ -482,10 +480,10 @@ export function ImpactSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.25 }}
-            className="col-span-2 bg-[#075D44] rounded-3xl p-8 flex items-start justify-between min-h-[200px]"
+            className="md:col-span-1 lg:col-span-2 bg-[#075D44] rounded-3xl p-8 flex items-start justify-between min-h-[200px]"
           >
             <div className="flex flex-col justify-between h-full">
-              <p className="text-7xl text-[#cfedcc] font-['Dela_Gothic_One'] leading-none">$2.3M</p>
+              <p className="text-5xl text-[#cfedcc] font-['Dela_Gothic_One'] leading-none">$2.3M</p>
               <p className="text-sm text-[#cfedcc]/70 font-['Plus_Jakarta_Sans']">
                 Annual funding raised globally
               </p>
@@ -503,7 +501,7 @@ export function ImpactSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
-            className="col-span-2 bg-[#E6E8EC] rounded-3xl p-8 flex flex-col justify-between h-full"
+            className="md:col-span-2 bg-[#E6E8EC] rounded-3xl p-8 flex flex-col justify-between h-full"
           >
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 h-full py-4 sm:py-0">
               <div className="flex flex-col justify-between h-full border-b border-[#46014f]/10 pb-4 sm:border-0 sm:pb-0">

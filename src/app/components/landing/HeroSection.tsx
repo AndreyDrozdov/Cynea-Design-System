@@ -34,9 +34,9 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section className="bg-[#E6E8EC] py-8 lg:py-16">
-      <div className="container mx-auto px-6 pt-12 lg:pt-16 flex flex-col">
-        <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-4">
+    <section className="bg-[#E6E8EC] lg:min-h-screen lg:flex lg:flex-col lg:overflow-hidden">
+      <div className="lg:flex-1 container mx-auto px-6 pt-20 pb-8 lg:pt-20 xl:pt-28 flex flex-col lg:min-h-0">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-4 lg:flex-1 lg:min-h-0">
 
           {/* Left: text card */}
           <motion.div
@@ -53,9 +53,8 @@ export function HeroSection() {
                 </span>
               </div>
 
-              <h1 className="text-3xl md:text-5xl text-[#cfedcc] leading-tight">
-                Protecting Rare Plants,<br className="hidden md:block" />
-                Restoring Biodiversity
+              <h1 className="text-3xl md:text-4xl xl:text-5xl text-[#cfedcc] leading-tight">
+                Protecting Rare Plants, Restoring Biodiversity
               </h1>
 
               <p className="text-base text-[#cfedcc]/70 leading-relaxed font-['Plus_Jakarta_Sans']">
@@ -68,14 +67,14 @@ export function HeroSection() {
               <div className="flex flex-wrap gap-3">
                 <Button
                   size="lg"
-                  className="bg-[#D0F17A] text-[#075D44] rounded-3xl px-8 hover:bg-[#D0F17A]/90"
+                  className="bg-[#D0F17A] text-[#075D44] rounded-3xl px-6 xl:px-8 hover:bg-[#D0F17A]/90 h-10 xl:h-12"
                 >
                   Request Platform Demo
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
                 <Button
                   size="lg"
-                  className="bg-[#E6E8EC] text-[#46014f] rounded-3xl px-8 hover:bg-[#E6E8EC]/90"
+                  className="bg-[#E6E8EC] text-[#46014f] rounded-3xl px-6 xl:px-8 hover:bg-[#E6E8EC]/90 h-10 xl:h-12"
                 >
                   Learn More
                 </Button>
@@ -153,13 +152,13 @@ export function HeroSection() {
               </div>
             </motion.div>
 
-            {/* Bottom row — fixed height */}
-            <div className="grid grid-cols-2 gap-4 flex-shrink-0">
+            {/* Bottom row — stats */}
+            <div className="flex flex-col sm:flex-row gap-4 flex-shrink-0">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.3 }}
-                className="bg-[#D0F17A] rounded-3xl p-8 flex flex-col justify-between h-40 lg:h-48"
+                className="bg-[#D0F17A] w-full rounded-3xl p-6 sm:p-8 flex flex-col justify-between h-auto min-h-[140px] sm:h-40 lg:h-48"
               >
                 <p className="text-5xl text-[#075D44] font-['Dela_Gothic_One'] leading-none">2,400+</p>
                 <p className="text-xs text-[#075D44]/70 font-['Plus_Jakarta_Sans'] leading-relaxed">
@@ -171,7 +170,7 @@ export function HeroSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.45 }}
-                className="bg-[#c0a7ef] rounded-3xl p-8 flex flex-col justify-between h-40 lg:h-48"
+                className="bg-[#c0a7ef] w-full rounded-3xl p-6 sm:p-8 flex flex-col justify-between h-auto min-h-[140px] sm:h-40 lg:h-48"
               >
                 <p className="text-5xl text-[#46014f] font-['Dela_Gothic_One'] leading-none">312</p>
                 <p className="text-xs text-[#46014f]/70 font-['Plus_Jakarta_Sans'] leading-relaxed">

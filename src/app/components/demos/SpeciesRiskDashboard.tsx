@@ -136,10 +136,10 @@ export function SpeciesRiskDashboard() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
-          <h2 className="text-3xl font-bold">Species Risk Dashboard</h2>
-          <p className="text-muted-foreground">Real-time extinction risk monitoring</p>
+          <h2 className="text-2xl md:text-3xl font-bold">Species Risk Dashboard</h2>
+          <p className="text-muted-foreground text-sm md:text-base">Real-time extinction risk monitoring</p>
         </div>
         <div className="flex items-center gap-2 text-sm text-muted-foreground">
           <RefreshCw className="w-4 h-4 animate-spin" />
@@ -153,10 +153,10 @@ export function SpeciesRiskDashboard() {
         animate={{ opacity: 1, y: 0 }}
         className="bg-[#c0a7ef]/30 text-[#151515] p-6 rounded-3xl"
       >
-        <div className="flex items-center gap-3">
-          <Activity className="w-8 h-8 animate-pulse" />
+        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
+          <Activity className="w-8 h-8 animate-pulse shrink-0" />
           <div>
-            <p className="text-2xl font-bold">{criticalCount} Species at Critical Risk</p>
+            <p className="text-xl md:text-2xl font-bold">{criticalCount} Species at Critical Risk</p>
             <p className="text-sm opacity-90">Immediate intervention required to prevent extinction</p>
           </div>
         </div>

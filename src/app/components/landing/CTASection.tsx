@@ -22,7 +22,7 @@ export function CTASection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-[#D0F17A] rounded-3xl p-12"
+          className="bg-[#D0F17A] rounded-3xl p-8"
         >
           <p className="text-[#075D44] font-semibold mb-3 font-['Plus_Jakarta_Sans'] uppercase tracking-widest text-sm">
             Get Involved

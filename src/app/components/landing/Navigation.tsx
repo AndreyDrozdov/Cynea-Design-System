@@ -1,12 +1,23 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "../ui/button";
 import { Leaf, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isOpen]);
 
   const navItems = [
     { label: "Platform", href: "#platform" },
@@ -59,29 +70,57 @@ export function Navigation() {
           </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu Overlay */}
         <AnimatePresence>
           {isOpen && (
             <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              className="md:hidden bg-white rounded-b-3xl overflow-hidden mt-1"
+              initial={{ opacity: 0, y: -20, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -20, scale: 0.95 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+              className="fixed inset-0 z-[60] md:hidden bg-[#E6E8EC]/98 backdrop-blur-xl flex flex-col p-6"
             >
-              <div className="px-6 py-4 space-y-4">
-                {navItems.map((item) => (
-                  <a
+              {/* Menu Header */}
+              <div className="flex items-center justify-between mb-12">
+                <div className="flex items-center gap-2">
+                  <div className="p-2 bg-[#D0F17A] rounded-3xl">
+                    <Leaf className="w-5 h-5 text-[#151515]" />
+                  </div>
+                  <span className="text-xl text-[#151515] font-['Dela_Gothic_One']">Cyanea</span>
+                </div>
+                <button
+                  onClick={() => setIsOpen(false)}
+                  className="p-3 bg-white rounded-3xl shadow-sm"
+                >
+                  <X className="w-6 h-6 text-[#151515]" />
+                </button>
+              </div>
+
+              {/* Menu Links */}
+              <div className="flex flex-col gap-6 items-center justify-center flex-1">
+                {navItems.map((item, i) => (
+                  <motion.a
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.1 + i * 0.05 }}
                     key={item.label}
                     href={item.href}
-                    className="block text-sm font-medium text-gray-700 hover:text-[#075D44] transition-colors font-['Plus_Jakarta_Sans']"
+                    className="text-4xl text-[#151515] font-['Dela_Gothic_One'] hover:text-[#075D44] transition-colors text-center"
                     onClick={() => setIsOpen(false)}
                   >
                     {item.label}
-                  </a>
+                  </motion.a>
                 ))}
-                <Button className="w-full bg-[#075D44] hover:bg-[#075D44]/90 text-[#E6E8EC] rounded-3xl">
+              </div>
+
+              {/* Menu Footer */}
+              <div className="mt-auto space-y-6">
+                <Button className="w-full bg-[#075D44] text-[#E6E8EC] py-8 text-xl rounded-3xl font-['Dela_Gothic_One']">
                   Request Demo
                 </Button>
+                <p className="text-center text-sm text-[#151515]/60 font-['Plus_Jakarta_Sans']">
+                  © 2026 Cyanea Design. No plant left behind.
+                </p>
               </div>
             </motion.div>
           )}

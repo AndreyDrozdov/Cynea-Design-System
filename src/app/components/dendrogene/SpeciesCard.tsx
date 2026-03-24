@@ -51,15 +51,15 @@ export function SpeciesCard({
       )}
       
       <div className="p-5 space-y-4">
-        <div className="flex items-start justify-between">
+        <div className="flex flex-col sm:flex-row items-start justify-between gap-3 sm:gap-4">
           <div className="space-y-1 flex-1">
             <div className="flex items-center gap-2">
-              <Leaf className="w-4 h-4 text-primary" />
+              <Leaf className="w-4 h-4 text-primary shrink-0" />
               <h3 className="text-lg font-['Dela_Gothic_One']">{commonName}</h3>
             </div>
             <p className="text-sm italic text-muted-foreground font-['Plus_Jakarta_Sans']">{scientificName}</p>
           </div>
-          <Badge className={cn("uppercase text-xs font-['Plus_Jakarta_Sans']", statusColors[status])}>
+          <Badge className={cn("uppercase text-xs font-['Plus_Jakarta_Sans'] shrink-0", statusColors[status])}>
             {status.replace("-", " ")}
           </Badge>
         </div>
@@ -77,11 +77,11 @@ export function SpeciesCard({
           <p className="text-sm font-['Plus_Jakarta_Sans']">{recommendation}</p>
         </div>
 
-        <div className="flex gap-2 pt-2">
-          <Button variant="default" size="sm" className="flex-1 bg-[#075D44] hover:bg-[#075D44]/90 text-[#E6E8EC] rounded-3xl">
+        <div className="flex flex-col sm:flex-row gap-2 pt-2">
+          <Button variant="default" size="sm" className="flex-1 bg-[#075D44] hover:bg-[#075D44]/90 text-[#E6E8EC] rounded-3xl h-10 w-full sm:w-auto">
             View Full Analysis
           </Button>
-          <Button size="sm" className="flex-1 rounded-3xl bg-[#E6E8EC] text-[#075D44] hover:bg-[#E6E8EC]/80">
+          <Button size="sm" className="flex-1 rounded-3xl bg-[#E6E8EC] text-[#075D44] hover:bg-[#E6E8EC]/80 h-10 w-full sm:w-auto">
             Request Collaboration
           </Button>
         </div>

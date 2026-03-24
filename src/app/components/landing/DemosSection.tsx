@@ -29,28 +29,28 @@ export function DemosSection() {
         </motion.div>
 
         <Tabs defaultValue="species-risk" className="w-full">
-          <TabsList className="grid w-full max-w-2xl grid-cols-3 mb-8 h-auto p-1 bg-white rounded-3xl">
+          <TabsList className="flex w-full md:grid md:max-w-2xl md:grid-cols-3 mb-8 h-auto p-1 bg-white rounded-3xl">
             <TabsTrigger
               value="species-risk"
-              className="flex items-center justify-center py-3 rounded-3xl data-[state=active]:bg-[#075D44] data-[state=active]:text-[#E6E8EC]"
+              className="flex items-center justify-center py-3 px-2 md:px-0 rounded-3xl data-[state=active]:bg-[#075D44] data-[state=active]:text-[#E6E8EC] transition-all min-w-0 flex-1 data-[state=active]:flex-[2]"
             >
-              <div className="text-xs font-semibold">Species Risk</div>
+              <div className="text-[10px] md:text-xs font-semibold truncate w-full px-1">Species Risk</div>
             </TabsTrigger>
             <TabsTrigger
               value="genetic"
-              className="flex items-center justify-center py-3 rounded-3xl data-[state=active]:bg-[#075D44] data-[state=active]:text-[#E6E8EC]"
+              className="flex items-center justify-center py-3 px-2 md:px-0 rounded-3xl data-[state=active]:bg-[#075D44] data-[state=active]:text-[#E6E8EC] transition-all min-w-0 flex-1 data-[state=active]:flex-[2]"
             >
-              <div className="text-xs font-semibold">Genetic Optimizer</div>
+              <div className="text-[10px] md:text-xs font-semibold truncate w-full px-1">Genetic Optimizer</div>
             </TabsTrigger>
             <TabsTrigger
               value="poaching"
-              className="flex items-center justify-center py-3 rounded-3xl data-[state=active]:bg-[#075D44] data-[state=active]:text-[#E6E8EC]"
+              className="flex items-center justify-center py-3 px-2 md:px-0 rounded-3xl data-[state=active]:bg-[#075D44] data-[state=active]:text-[#E6E8EC] transition-all min-w-0 flex-1 data-[state=active]:flex-[2]"
             >
-              <div className="text-xs font-semibold">Poaching Map</div>
+              <div className="text-[10px] md:text-xs font-semibold truncate w-full px-1">Poaching Map</div>
             </TabsTrigger>
           </TabsList>
 
-          <div className="bg-white rounded-3xl p-8">
+          <div className="bg-white rounded-3xl p-4 md:p-8">
             <TabsContent value="species-risk" className="mt-0">
               <SpeciesRiskDashboard />
             </TabsContent>

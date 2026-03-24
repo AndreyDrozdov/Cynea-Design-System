@@ -27,14 +27,14 @@ export function ExtinctionRiskIndicator({
   };
 
   return (
-    <div className={cn("flex items-center gap-2", className)}>
+    <div className={cn("flex flex-wrap items-center gap-2", className)}>
       <div className={cn(
         "flex items-center gap-1.5 px-3 py-1.5 rounded-3xl transition-all",
         getRiskColor(risk)
       )}>
-        <AlertTriangle className="w-4 h-4" />
+        <AlertTriangle className="w-4 h-4 shrink-0" />
         <span className="font-semibold font-['Dela_Gothic_One']">{risk}%</span>
-        <span className="text-xs opacity-90 font-['Plus_Jakarta_Sans']">{getRiskLevel(risk)}</span>
+        <span className="text-xs opacity-90 font-['Plus_Jakarta_Sans'] whitespace-nowrap">{getRiskLevel(risk)}</span>
       </div>
       {timeline && (
         <span className="text-sm text-muted-foreground font-['Plus_Jakarta_Sans']">{timeline}</span>
