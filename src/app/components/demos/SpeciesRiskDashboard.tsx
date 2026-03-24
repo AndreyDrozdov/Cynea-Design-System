@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { Card } from "../ui/card";
 import { SpeciesCard } from "../dendrogene/SpeciesCard";
-import { Activity, Database, Building2, RefreshCw } from "lucide-react";
+import { Activity, Database, Building2, RefreshCw, AlertTriangle } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
 interface SpeciesData {
@@ -114,9 +114,9 @@ export function SpeciesRiskDashboard() {
       const randomActivity = networkActivity[Math.floor(Math.random() * networkActivity.length)];
       const timeAgo = `${Math.floor(Math.random() * 12) + 1} hours ago`;
       if (isMounted) {
-        setActivities((prev) => [`${randomActivity} (${timeAgo})`, ...prev.slice(0, 4)]);
+        setActivities((prev) => [`${randomActivity} (${timeAgo})`, ...prev.slice(0, 2)]);
       }
-    }, 5000);
+    }, 2500);
 
     const refreshInterval = setInterval(() => {
       if (isMounted) setLastUpdate(new Date());
@@ -153,11 +153,14 @@ export function SpeciesRiskDashboard() {
         animate={{ opacity: 1, y: 0 }}
         className="bg-[#c0a7ef]/30 text-[#151515] p-6 rounded-3xl"
       >
-        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
-          <Activity className="w-8 h-8 animate-pulse shrink-0" />
-          <div>
-            <p className="text-xl md:text-2xl font-bold">{criticalCount} Species at Critical Risk</p>
-            <p className="text-sm opacity-90">Immediate intervention required to prevent extinction</p>
+        <div className="flex flex-col sm:flex-row items-center gap-4">
+          <div className="text-center sm:text-left">
+            <p className="text-xl font-['Dela_Gothic_One'] text-[#46014f] leading-none mb-1">
+              {criticalCount} Species at Critical Risk
+            </p>
+            <p className="text-sm font-['Plus_Jakarta_Sans'] font-medium text-[#46014f]/70">
+              Immediate intervention required to prevent extinction
+            </p>
           </div>
         </div>
       </motion.div>
@@ -166,25 +169,26 @@ export function SpeciesRiskDashboard() {
         {/* Main Content - Species List */}
         <div className="lg:col-span-2 space-y-4">
           <h3 className="text-xl font-semibold font-['Dela_Gothic_One']">Priority Species</h3>
-          <AnimatePresence>
-            {visibleSpecies.map((species, index) => (
-              <motion.div
-                key={species.id}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: index * 0.1 }}
-              >
-                <SpeciesCard {...species} />
-              </motion.div>
-            ))}
-          </AnimatePresence>
+          <div className="space-y-4">
+            <AnimatePresence mode="popLayout">
+              {visibleSpecies.slice(0, 2).map((species, index) => (
+                <motion.div
+                  key={species.id}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.05 }}
+                >
+                  <SpeciesCard {...species} />
+                </motion.div>
+              ))}
+            </AnimatePresence>
+          </div>
         </div>
 
         {/* Sidebar */}
         <div className="space-y-4">
           <Card className="p-5 space-y-4 rounded-3xl">
-            <h3 className="font-semibold flex items-center gap-2 font-['Dela_Gothic_One']">
-              <Database className="w-4 h-4" />
+            <h3 className="font-semibold font-['Dela_Gothic_One'] tracking-tight">
               Network Statistics
             </h3>
             <div className="space-y-3">
@@ -208,8 +212,7 @@ export function SpeciesRiskDashboard() {
           </Card>
 
           <Card className="p-5 space-y-3 rounded-3xl">
-            <h3 className="font-semibold flex items-center gap-2 font-['Dela_Gothic_One']">
-              <Building2 className="w-4 h-4" />
+            <h3 className="font-semibold font-['Dela_Gothic_One'] tracking-tight">
               Recent Network Activity
             </h3>
             <div className="space-y-2">

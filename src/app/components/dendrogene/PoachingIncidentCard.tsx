@@ -49,7 +49,7 @@ export function PoachingIncidentCard({
   const StatusIcon = config.icon;
 
   return (
-    <Card className={cn("p-4 space-y-3 hover:shadow-md transition-all rounded-3xl", className)}>
+    <Card className={cn("p-4 space-y-3 transition-all rounded-3xl", className)}>
       <div className="flex items-start justify-between">
         <div className="flex items-center gap-2">
           <MapPin className="w-4 h-4 text-primary" />

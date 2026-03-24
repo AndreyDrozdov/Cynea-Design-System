@@ -673,6 +673,9 @@
   .max-h-\[300px\] {
     max-height: 300px;
   }
+  .max-h-\[820px\] {
+    max-height: 820px;
+  }
   .min-h-0 {
     min-height: calc(var(--spacing) * 0);
   }
@@ -1318,6 +1321,9 @@
   }
   .bg-\[\#c0a7ef\] {
     background-color: #c0a7ef;
+  }
+  .bg-\[\#c0a7ef\]\/10 {
+    background-color: color-mix(in oklab, #c0a7ef 10%, transparent);
   }
   .bg-\[\#c0a7ef\]\/30 {
     background-color: color-mix(in oklab, #c0a7ef 30%, transparent);

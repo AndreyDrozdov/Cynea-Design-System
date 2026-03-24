@@ -199,7 +199,7 @@ export function GlobalPoachingMap() {
     <div className="space-y-6">
       {/* Header */}
       <div>
-        <h2 className="text-3xl font-bold">Regional Poaching Detection: Thailand/Laos Border</h2>
+        <h2 className="text-3xl font-bold">Regional Poaching Detection</h2>
         <p className="text-muted-foreground">Live AI-driven monitoring of Southeast Asian wildlife corridors</p>
       </div>
 
@@ -258,13 +258,13 @@ export function GlobalPoachingMap() {
                     >
                       <motion.div
                         animate={isActive ? { 
-                          boxShadow: ["0 0 0 0px rgba(176, 145, 235, 0)", "0 0 0 15px rgba(176, 145, 235, 0.4)", "0 0 0 0px rgba(176, 145, 235, 0)"]
+                          opacity: [0.6, 1, 0.6]
                         } : {}}
                         transition={{ duration: 2, repeat: Infinity }}
                         className="relative"
                       >
                         <div 
-                          className="w-10 h-10 rounded-full flex items-center justify-center shadow-2xl transition-all duration-500"
+                          className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-500"
                           style={{ 
                             backgroundColor: getStatusColor(incident.status),
                             border: isActive ? '4px solid white' : '2px solid white',
@@ -337,7 +337,7 @@ export function GlobalPoachingMap() {
                       backgroundColor: isActive ? "rgba(176, 145, 235, 0.08)" : "transparent",
                       borderColor: isActive ? "rgba(176, 145, 235, 0.2)" : "transparent"
                     }}
-                    className={`flex items-center gap-6 p-4 rounded-2xl border transition-all duration-500 ${isActive ? "shadow-sm scale-[1.01]" : ""}`}
+                    className={`flex items-center gap-6 p-4 rounded-2xl transition-all duration-500 text-[#151515] ${isActive ? "bg-[#c0a7ef]/10 scale-[1.01]" : "bg-transparent opacity-60 hover:opacity-100"}`}
                   >
                     <div className="flex-shrink-0 w-28 text-xs font-semibold text-muted-foreground uppercase tracking-tight">
                       {item.date}
@@ -357,7 +357,7 @@ export function GlobalPoachingMap() {
                           animate={{ scale: [0.8, 1.2, 0.8] }}
                           transition={{ duration: 1.5, repeat: Infinity }}
                         >
-                          <div className="w-2 h-2 rounded-full bg-[#b091eb] shadow-[0_0_10px_#b091eb]" />
+                          <div className="w-2 h-2 rounded-full bg-[#b091eb]" />
                         </motion.div>
                       )}
                     </div>
@@ -392,23 +392,23 @@ export function GlobalPoachingMap() {
             <div className="space-y-4">
               <div>
                 <p className="text-sm text-muted-foreground mb-1">Incidents Detected</p>
-                <p className="text-4xl font-bold text-[#075D44] font-['Dela_Gothic_One']">{stats.incidents}</p>
+                <p className="text-3xl font-bold text-[#075D44] font-['Dela_Gothic_One']">{stats.incidents}</p>
               </div>
               
               <div>
                 <p className="text-sm text-muted-foreground mb-1">Plants Recovered</p>
-                <p className="text-4xl font-bold text-[#075D44] font-['Dela_Gothic_One']">{stats.plantsRecovered}</p>
+                <p className="text-3xl font-bold text-[#075D44] font-['Dela_Gothic_One']">{stats.plantsRecovered}</p>
               </div>
               
               <div>
                 <p className="text-sm text-muted-foreground mb-1">Legal Actions</p>
-                <p className="text-4xl font-bold text-[#075D44] font-['Dela_Gothic_One']">{stats.legalActions}</p>
+                <p className="text-3xl font-bold text-[#075D44] font-['Dela_Gothic_One']">{stats.legalActions}</p>
               </div>
               
               <div>
                 <p className="text-sm text-muted-foreground mb-1">Success Rate</p>
                 <div className="flex items-baseline gap-2">
-                  <p className="text-4xl font-bold text-[#075D44] font-['Dela_Gothic_One']">{stats.successRate}%</p>
+                  <p className="text-3xl font-bold text-[#075D44] font-['Dela_Gothic_One']">{stats.successRate}%</p>
                   <TrendingDown className="w-5 h-5 text-[#075D44]" />
                 </div>
                 <p className="text-xs text-muted-foreground mt-1">Poaching declining month-over-month</p>

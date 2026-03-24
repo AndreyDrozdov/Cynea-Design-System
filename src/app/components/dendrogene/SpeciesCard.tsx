@@ -53,15 +53,10 @@ export function SpeciesCard({
       <div className="p-5 space-y-4">
         <div className="flex flex-col sm:flex-row items-start justify-between gap-3 sm:gap-4">
           <div className="space-y-1 flex-1">
-            <div className="flex items-center gap-2">
-              <Leaf className="w-4 h-4 text-primary shrink-0" />
               <h3 className="text-lg font-['Dela_Gothic_One']">{commonName}</h3>
-            </div>
-            <p className="text-sm italic text-muted-foreground font-['Plus_Jakarta_Sans']">{scientificName}</p>
+
           </div>
-          <Badge className={cn("uppercase text-xs font-['Plus_Jakarta_Sans'] shrink-0", statusColors[status])}>
-            {status.replace("-", " ")}
-          </Badge>
+
         </div>
 
         <ExtinctionRiskIndicator risk={extinctionRisk} timeline={timeline} />
