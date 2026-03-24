@@ -131,7 +131,7 @@ export function HeroSection() {
                     className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#151515]/60 backdrop-blur-sm rounded-3xl"
                   >
                     <Leaf className="w-3 h-3 text-[#D0F17A]" />
-                    <span className="text-[#E6E8EC] text-xs font-['Plus_Jakarta_Sans'] italic">
+                    <span className="text-[#E6E8EC] text-sm font-['Plus_Jakarta_Sans'] italic">
                       {plantSlides[current].label}
                     </span>
                   </motion.div>
@@ -161,8 +161,8 @@ export function HeroSection() {
                 className="bg-[#D0F17A] w-full rounded-3xl p-6 sm:p-8 flex flex-col justify-between h-auto min-h-[140px] sm:h-40 lg:h-48"
               >
                 <p className="text-5xl text-[#075D44] font-['Dela_Gothic_One'] leading-none">2,400+</p>
-                <p className="text-xs text-[#075D44]/70 font-['Plus_Jakarta_Sans'] leading-relaxed">
-                  Genetic Samples Stored
+                <p className="text-sm text-[#075D44] font-['Plus_Jakarta_Sans'] leading-relaxed">
+                  Unique Genetic Samples Stored in Global Vaults
                 </p>
               </motion.div>
 
@@ -173,8 +173,8 @@ export function HeroSection() {
                 className="bg-[#c0a7ef] w-full rounded-3xl p-6 sm:p-8 flex flex-col justify-between h-auto min-h-[140px] sm:h-40 lg:h-48"
               >
                 <p className="text-5xl text-[#46014f] font-['Dela_Gothic_One'] leading-none">312</p>
-                <p className="text-xs text-[#46014f]/70 font-['Plus_Jakarta_Sans'] leading-relaxed">
-                  Active Breeding Programs
+                <p className="text-sm text-[#46014f] font-['Plus_Jakarta_Sans'] leading-relaxed">
+                  Active Global Breeding Programs Managed
                 </p>
               </motion.div>
             </div>

@@ -44,6 +44,7 @@
     --font-weight-medium: 500;
     --font-weight-semibold: 600;
     --font-weight-bold: 700;
+    --tracking-tighter: -0.05em;
     --tracking-tight: -0.025em;
     --tracking-wide: 0.025em;
     --tracking-widest: 0.1em;
@@ -1661,6 +1662,10 @@
     --tw-tracking: var(--tracking-tight);
     letter-spacing: var(--tracking-tight);
   }
+  .tracking-tighter {
+    --tw-tracking: var(--tracking-tighter);
+    letter-spacing: var(--tracking-tighter);
+  }
   .tracking-wide {
     --tw-tracking: var(--tracking-wide);
     letter-spacing: var(--tracking-wide);
@@ -1708,6 +1713,9 @@
   .text-\[\#46014f\]\/70 {
     color: color-mix(in oklab, #46014f 70%, transparent);
   }
+  .text-\[\#46014f\]\/80 {
+    color: color-mix(in oklab, #46014f 80%, transparent);
+  }
   .text-\[\#151515\] {
     color: #151515;
   }
@@ -1725,6 +1733,12 @@
   }
   .text-\[\#D0F17A\]\/70 {
     color: color-mix(in oklab, #D0F17A 70%, transparent);
+  }
+  .text-\[\#D0F17A\]\/76 {
+    color: color-mix(in oklab, #D0F17A 76%, transparent);
+  }
+  .text-\[\#D0F17A\]\/80 {
+    color: color-mix(in oklab, #D0F17A 80%, transparent);
   }
   .text-\[\#D0F17Aimplement\] {
     color: #D0F17Aimplement;

@@ -6,7 +6,7 @@ import { ArrowRight } from "lucide-react";
 
 const services = [
   {
-    title: "Species Rescue",
+    title: "Species<br/>Rescue",
     subtitle: "Risk Prediction & Early Detection",
     description:
       "AI analyzes 847 plant species continuously, predicting extinction risk 2–3 years before it becomes inevitable. Real-time monitoring of population trends, genetic health, habitat suitability, and poaching pressure.",
@@ -23,7 +23,7 @@ const services = [
     dotColor: "bg-[#D0F17A]",
   },
   {
-    title: "Genetic Optimization",
+    title: "Genetic<br/>Optimization",
     subtitle: "Breeding Program Coordination",
     description:
       "Machine learning optimizes breeding pairs to maximize genetic diversity recovery. Coordinates breeding programs across 76 institutions, preventing inbreeding and restoring gene pools from collapse.",
@@ -40,7 +40,7 @@ const services = [
     dotColor: "bg-[#075D44]",
   },
   {
-    title: "Poaching Prevention",
+    title: "Poaching<br/>Prevention",
     subtitle: "Global Monitoring & Law Enforcement",
     description:
       "AI monitors satellite imagery, dark web marketplaces, and ranger reports to detect illegal plant harvesting within days. Coordinates with customs and law enforcement for rapid recovery.",
@@ -103,10 +103,11 @@ export function ServicesSection() {
               className={`${service.bg} rounded-3xl p-8 flex flex-col justify-between min-h-[440px]`}
             >
               <div className="space-y-4">
-                <h3 className={`text-xl ${service.titleColor} font-['Dela_Gothic_One'] uppercase tracking-wide`}>
-                  {service.title}
-                </h3>
-                <p className={`text-xs ${service.subtitleColor} font-['Plus_Jakarta_Sans'] font-semibold uppercase tracking-wide`}>
+                <h3 
+                  className={`text-3xl md:text-4xl xl:text-5xl ${service.titleColor} font-['Dela_Gothic_One'] leading-none tracking-tighter`}
+                  dangerouslySetInnerHTML={{ __html: service.title }}
+                />
+                <p className={`text-sm ${service.subtitleColor} font-['Plus_Jakarta_Sans'] font-semibold uppercase tracking-widest`}>
                   {service.subtitle}
                 </p>
               </div>
@@ -141,15 +142,15 @@ export function ServicesSection() {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 w-full min-h-[120px] py-4 sm:py-0">
               <div className="flex flex-col justify-between h-full border-b border-[#D0F17A]/10 pb-4 sm:border-0 sm:pb-0">
                 <p className="text-5xl text-[#D0F17A] font-['Dela_Gothic_One'] leading-none">847</p>
-                <p className="text-xs text-[#D0F17A]/60 font-['Plus_Jakarta_Sans']">Species monitored around the clock</p>
+                <p className="text-sm text-[#D0F17A]/80 font-['Plus_Jakarta_Sans']">Species monitored around the clock</p>
               </div>
               <div className="flex flex-col justify-between h-full border-b border-[#D0F17A]/10 pb-4 sm:border-0 sm:pb-0">
                 <p className="text-5xl text-[#D0F17A] font-['Dela_Gothic_One'] leading-none">76</p>
-                <p className="text-xs text-[#D0F17A]/60 font-['Plus_Jakarta_Sans']">Partner institutions coordinated globally</p>
+                <p className="text-sm text-[#D0F17A]/80 font-['Plus_Jakarta_Sans']">Partner institutions coordinated globally</p>
               </div>
               <div className="flex flex-col justify-between h-full">
                 <p className="text-5xl text-[#D0F17A] font-['Dela_Gothic_One'] leading-none">64%</p>
-                <p className="text-xs text-[#D0F17A]/60 font-['Plus_Jakarta_Sans']">Poaching prevention success rate</p>
+                <p className="text-sm text-[#D0F17A]/80 font-['Plus_Jakarta_Sans']">Poaching prevention success rate</p>
               </div>
             </div>
           </motion.div>
