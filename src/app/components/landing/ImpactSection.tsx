@@ -345,7 +345,7 @@ function InstitutionsCard({ active }: { active: boolean }) {
   );
 }
 
-const impactImage2 = "https://images.unsplash.com/photo-1767183751048-16cf3ca3eb26?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800";
+const impactImage2 = "https://plus.unsplash.com/premium_photo-1661439931497-53bf017c249f?q=80&w=3272&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800";
 
 const impactSlides = [
   { src: "/assets/botanical/middlemist_red.png", alt: "Middlemist Red Camellia", label: "Middlemist Red Camellia" },

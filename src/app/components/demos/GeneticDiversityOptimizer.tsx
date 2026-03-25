@@ -58,14 +58,14 @@ export function GeneticDiversityOptimizer({ isVisible = true }: GeneticDiversity
   }, [isVisible]);
 
   return (
-    <div className="space-y-6 max-h-[calc(100vh-48px)] overflow-hidden">
+    <div className="space-y-6 lg:max-h-[calc(100vh-48px)] lg:overflow-hidden">
       {/* Header */}
       <div className="space-y-2">
         <h2 className="text-3xl font-bold">Genetic Diversity Optimizer</h2>
         <p className="text-muted-foreground">AI-powered breeding strategy for Middlemist Red Camellia</p>
       </div>
 
-      <div className="grid lg:grid-cols-2 gap-6 max-h-[calc(100vh-140px)] overflow-y-auto pr-2">
+      <div className="grid lg:grid-cols-2 gap-6 lg:max-h-[calc(100vh-140px)] lg:overflow-y-auto pr-0 lg:pr-2">
         {/* Left Panel - Current Genetic Status */}
         <div className="space-y-4">
           <motion.div
@@ -112,7 +112,7 @@ export function GeneticDiversityOptimizer({ isVisible = true }: GeneticDiversity
                 show: { opacity: 1, y: 0 },
               }}
             >
-              <div className="px-6 py-3 border border-[#b091eb]/30 bg-transparent rounded-full flex items-center gap-4">
+              <div className="px-6 py-3 border border-[#b091eb]/30 bg-transparent rounded-[32px] flex items-center gap-4">
                 <div className="w-2.5 h-2.5 bg-[#b091eb] rounded-full animate-pulse flex-shrink-0" />
                 <p className="text-sm font-['Plus_Jakarta_Sans'] leading-tight">
                   <strong className="font-bold text-[#151515]">Critical Genetic Alert:</strong>

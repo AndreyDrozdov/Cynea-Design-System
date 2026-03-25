@@ -9,13 +9,13 @@ export function CTASection() {
     <section
       className="py-20 relative"
       style={{
-        backgroundImage: `url('https://images.unsplash.com/photo-1765988491357-963f3d991da0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkZW5zZSUyMGp1bmdsZSUyMGZvcmVzdCUyMGZsb29yJTIwcGxhbnRzJTIwZ3JlZW58ZW58MXx8fHwxNzc0Mjg3MjUyfDA&ixlib=rb-4.1.0&q=80&w=1080')`,
+        backgroundImage: `url('https://images.unsplash.com/photo-1584204559709-ca7d413229eb?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D=rb-4.1.0&q=80&w=1080')`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
     >
       {/* Dark overlay */}
-      <div className="absolute inset-0 bg-[#151515]/55" />
+      <div className="absolute inset-0 bg-[#151515]/75" />
 
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
@@ -24,7 +24,7 @@ export function CTASection() {
           viewport={{ once: true }}
           className="bg-[#D0F17A] rounded-3xl p-8"
         >
-          <p className="text-[#075D44] font-semibold mb-3 font-['Plus_Jakarta_Sans'] uppercase tracking-widest text-sm">
+          <p className="text-[#075D44] font-semibold mb-2 font-['Plus_Jakarta_Sans'] uppercase tracking-widest text-sm">
             Get Involved
           </p>
           <h2 className="text-4xl md:text-5xl text-[#075D44] mb-6 tracking-tight">

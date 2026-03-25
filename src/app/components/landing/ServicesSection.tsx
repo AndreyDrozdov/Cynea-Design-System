@@ -57,16 +57,8 @@ const services = [
 
 export function ServicesSection() {
   return (
-    <section
-      className="py-16 relative"
-      style={{
-        backgroundImage: `url('https://images.unsplash.com/photo-1711519159306-8e81ef07eea3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0cm9waWNhbCUyMHJhaW5mb3Jlc3QlMjBjYW5vcHklMjBhZXJpYWwlMjBsdXNoJTIwZ3JlZW58ZW58MXx8fHwxNzc0Mjg3MDc2fDA&ixlib=rb-4.1.0&q=80&w=1080')`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    >
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-[#151515]/60" />
+    <section className="py-20 bg-white relative overflow-hidden">
+      {/* Background elements removed for cleaner architectural aesthetic */}
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Header */}
@@ -76,12 +68,12 @@ export function ServicesSection() {
           viewport={{ once: true }}
           className="mb-8"
         >
-          <p className="text-[#D0F17A] font-semibold mb-1 font-['Plus_Jakarta_Sans'] uppercase tracking-widest text-sm">
+          <p className="text-[#075D44] font-semibold mb-2 font-['Plus_Jakarta_Sans'] uppercase tracking-widest text-sm">
             Design Methods
           </p>
-          <h2 className="text-4xl md:text-5xl text-white tracking-tight">
+          <h2 className="text-4xl md:text-5xl text-[#151515] tracking-tight">
             Three Core{" "}
-            <span className="text-white">
+            <span className="text-[#151515]">
               Conservation
             </span>{" "}
             Services

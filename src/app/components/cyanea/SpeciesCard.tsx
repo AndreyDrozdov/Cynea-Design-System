@@ -52,11 +52,11 @@ export function SpeciesCard({
         </div>
 
         {/* Content Section - Image Left, Data Right */}
-        <div className="flex gap-6 items-start">
+        <div className="flex flex-col sm:flex-row gap-6 items-start">
           {imageUrl && (
             <div className={cn(
-              "flex-shrink-0 rounded-2xl overflow-hidden border border-[#075D44]/5",
-              imageSize === 36 ? "w-36 h-36" : "w-42 h-42"
+              "flex-shrink-0 rounded-2xl overflow-hidden border border-[#075D44]/5 w-full sm:w-auto",
+              imageSize === 36 ? "sm:w-36 sm:h-36 h-48" : "sm:w-42 sm:h-42 h-48"
             )}>
               <img 
                 src={imageUrl} 
@@ -66,7 +66,7 @@ export function SpeciesCard({
             </div>
           )}
           
-          <div className="flex-1 space-y-4">
+          <div className="flex-1 space-y-4 w-full">
             <ExtinctionRiskIndicator risk={extinctionRisk} timeline={timeline} />
 
             <div className="flex items-center gap-1 text-sm font-['Plus_Jakarta_Sans']">

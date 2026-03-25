@@ -40,8 +40,8 @@ export function GeneticHealthCard({
         <h3 className="text-xl font-bold font-['Dela_Gothic_One'] tracking-tight text-[#151515]">Genetic Health</h3>
       </div>
 
-      <div className="flex gap-6 items-start">
-        <div className="flex-shrink-0 w-42 h-42 rounded-2xl overflow-hidden border border-[#075D44]/5 bg-white">
+      <div className="flex flex-col md:flex-row gap-6 items-start">
+        <div className="w-full md:w-42 h-48 md:h-42 rounded-2xl overflow-hidden border border-[#075D44]/5 bg-white flex-shrink-0">
           <img 
             src="/assets/botanical/middlemist_red.png" 
             alt="Middlemist Red Camellia"
@@ -49,18 +49,18 @@ export function GeneticHealthCard({
           />
         </div>
 
-        <div className="flex-1 space-y-5">
-          <div className="grid grid-cols-2 gap-x-8 gap-y-4 pb-2">
+        <div className="flex-1 space-y-5 w-full">
+          <div className="grid grid-cols-2 gap-x-4 md:gap-x-8 gap-y-4 pb-2">
             <div>
               <p className="text-sm text-muted-foreground mb-1 font-['Plus_Jakarta_Sans'] font-medium">Diversity Score</p>
-              <div className={cn("text-3xl font-bold font-['Dela_Gothic_One'] tracking-tight leading-none", getScoreColor(diversityScore))}>
+              <div className={cn("text-2xl md:text-3xl font-bold font-['Dela_Gothic_One'] tracking-tight leading-none", getScoreColor(diversityScore))}>
                 {diversityScore}/100
               </div>
             </div>
 
             <div>
               <p className="text-sm text-muted-foreground mb-1 font-['Plus_Jakarta_Sans'] font-medium">Inbreeding</p>
-              <div className="text-3xl font-bold text-[#075D44] font-['Dela_Gothic_One'] tracking-tight leading-none">
+              <div className="text-2xl md:text-3xl font-bold text-[#075D44] font-['Dela_Gothic_One'] tracking-tight leading-none">
                 {inbreedingCoefficient}%
               </div>
             </div>

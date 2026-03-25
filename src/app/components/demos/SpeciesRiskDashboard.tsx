@@ -107,7 +107,7 @@ export function SpeciesRiskDashboard({ isVisible = true }: SpeciesRiskDashboardP
       }}
       initial="hidden"
       animate={isVisible ? "show" : "hidden"}
-      className="space-y-6 max-h-[calc(100vh-48px)] overflow-hidden"
+      className="space-y-6 lg:max-h-[calc(100vh-48px)] lg:overflow-hidden"
     >
       {/* Header */}
       <motion.div
@@ -136,7 +136,7 @@ export function SpeciesRiskDashboard({ isVisible = true }: SpeciesRiskDashboardP
               hidden: { opacity: 0, y: 20 },
               show: { opacity: 1, y: 0 },
             }}
-            className="px-6 py-3 border border-[#c0a7ef]/30 bg-transparent rounded-full flex items-center gap-4"
+            className="px-6 py-3 border border-[#c0a7ef]/30 bg-transparent rounded-[32px] flex items-center gap-4"
           >
             <div className="w-2.5 h-2.5 bg-[#c0a7ef] rounded-full animate-pulse flex-shrink-0" />
             <p className="text-sm font-['Plus_Jakarta_Sans'] leading-tight">
@@ -145,7 +145,7 @@ export function SpeciesRiskDashboard({ isVisible = true }: SpeciesRiskDashboardP
             </p>
           </motion.div>
 
-          <div className="space-y-4 max-h-[calc(100vh-240px)] overflow-y-auto pr-2">
+          <div className="space-y-4 lg:max-h-[calc(100vh-240px)] lg:overflow-y-auto pr-0 lg:pr-2">
             <AnimatePresence mode="popLayout">
               {visibleSpecies.map((species, index) => (
                 <motion.div

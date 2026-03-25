@@ -99,7 +99,7 @@ export function GlobalPoachingMap({ isVisible = true }: GlobalPoachingMapProps) 
       }}
       initial="hidden"
       animate={isVisible ? "show" : "hidden"}
-      className="space-y-4 max-h-screen overflow-hidden"
+      className="space-y-4 lg:max-h-screen lg:overflow-hidden"
     >
       {/* Header */}
       <motion.div
@@ -107,10 +107,10 @@ export function GlobalPoachingMap({ isVisible = true }: GlobalPoachingMapProps) 
           hidden: { opacity: 0, y: 20 },
           show: { opacity: 1, y: 0 },
         }}
-        className="space-y-2"
+        className="space-y-1 md:space-y-2"
       >
-        <h2 className="text-3xl font-bold">Regional Poaching Detection</h2>
-        <p className="text-muted-foreground">Live AI-driven monitoring of Southeast Asian wildlife corridors</p>
+        <h2 className="text-2xl md:text-3xl font-bold">Regional Poaching Detection</h2>
+        <p className="text-muted-foreground text-sm md:text-base">Live AI-driven monitoring of Southeast Asian wildlife corridors</p>
       </motion.div>
 
       <div className="grid lg:grid-cols-2 gap-6 max-h-[calc(100vh-140px)] overflow-y-auto pr-2">
@@ -204,21 +204,21 @@ export function GlobalPoachingMap({ isVisible = true }: GlobalPoachingMapProps) 
               </div>
 
               {/* Legend */}
-              <div className="mt-4 flex flex-wrap items-center justify-center gap-4 text-sm">
+              <div className="mt-4 grid grid-cols-2 sm:flex sm:flex-wrap items-center justify-center gap-x-4 gap-y-3 sm:gap-4 text-[10px] sm:text-xs">
                 <div className="flex items-center gap-2">
-                  <div className="w-4 h-4 rounded-full bg-[#b091eb]" />
+                  <div className="w-3 h-3 rounded-full bg-[#b091eb]" />
                   <span>Critical Alert</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-4 h-4 rounded-full bg-[#075D44]" />
+                  <div className="w-3 h-3 rounded-full bg-[#075D44]" />
                   <span>In Progress</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-4 h-4 rounded-full bg-[#D0F17A]" />
+                  <div className="w-3 h-3 rounded-full bg-[#D0F17A]" />
                   <span>Recovered</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-4 h-4 rounded-full bg-[#46014f]" />
+                  <div className="w-3 h-3 rounded-full bg-[#46014f]" />
                   <span>Intercepted</span>
                 </div>
               </div>
@@ -257,19 +257,19 @@ export function GlobalPoachingMap({ isVisible = true }: GlobalPoachingMapProps) 
                         hidden: { opacity: 0, y: 10 },
                         show: { opacity: 1, y: 0 },
                       }}
-                      className={`flex items-center gap-6 p-4 rounded-2xl border transition-all duration-500 text-[#151515] ${isActive ? "border-[#c0a7ef]/40 bg-transparent scale-[1.01]" : "border-transparent bg-transparent opacity-60 hover:opacity-100"}`}
+                      className={`flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 p-4 rounded-2xl border transition-all duration-500 text-[#151515] ${isActive ? "border-[#c0a7ef]/40 bg-transparent scale-[1.01]" : "border-transparent bg-transparent opacity-60 hover:opacity-100"}`}
                     >
-                      <div className="flex-shrink-0 w-28 text-xs font-semibold text-muted-foreground uppercase">
+                      <div className="flex-shrink-0 sm:w-28 text-[10px] sm:text-xs font-bold sm:font-semibold text-muted-foreground uppercase tracking-widest sm:tracking-normal">
                         {item.date}
                       </div>
-                      <div className="flex-1">
-                        <p className={`font-bold text-base mb-0.5 transition-colors ${isActive ? "text-[#151515]" : "text-muted-foreground"}`}>
+                      <div className="flex-1 min-w-0">
+                        <p className={`font-bold text-sm sm:text-base mb-0.5 transition-colors truncate ${isActive ? "text-[#151515]" : "text-muted-foreground"}`}>
                           {item.species}
                         </p>
-                        <p className="text-sm text-muted-foreground/80">{item.location}</p>
+                        <p className="text-xs sm:text-sm text-muted-foreground/80 truncate">{item.location}</p>
                       </div>
-                      <div className="flex items-center gap-3">
-                        <span className="text-[10px] font-bold uppercase tracking-widest opacity-40 px-2 py-1 rounded bg-black/5">
+                      <div className="flex items-center justify-between sm:justify-end gap-3 pt-2 sm:pt-0 border-t sm:border-t-0 border-[#151515]/5 mt-1 sm:mt-0">
+                        <span className="text-[10px] font-bold uppercase tracking-widest opacity-40 px-2 py-1 rounded bg-black/5 block sm:inline">
                           {item.status}
                         </span>
                         <motion.div

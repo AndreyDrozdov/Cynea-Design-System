@@ -1,5 +1,6 @@
 import { Navigation } from "./components/landing/Navigation";
 import { HeroSection } from "./components/landing/HeroSection";
+import { RescueProcessSection } from "./components/landing/RescueProcessSection";
 // import { MissionSection } from "./components/landing/MissionSection";
 import { ServicesSection } from "./components/landing/ServicesSection";
 import { ImpactSection } from "./components/landing/ImpactSection";
@@ -13,6 +14,7 @@ export default function Page() {
       <Navigation />
       {/* HeroSection starts at the top to provide background behind the floating navigation */}
       <HeroSection />
+      <RescueProcessSection />
       {/* <MissionSection /> */}
       <ServicesSection />
       <DemosSection />
