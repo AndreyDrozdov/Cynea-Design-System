@@ -68,7 +68,7 @@ export function GlobalPoachingMap({ isVisible = true }: GlobalPoachingMapProps) 
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case "alert": return "#b091eb";      // Purple
+      case "alert": return "#c0a7ef";      // Purple
       case "in-progress": return "#075D44"; // Green (Brand Emerald)
       case "recovered": return "#D0F17A";   // Yellow/Lime
       case "intercepted": return "#46014f"; // Deep Purple
@@ -206,7 +206,7 @@ export function GlobalPoachingMap({ isVisible = true }: GlobalPoachingMapProps) 
               {/* Legend */}
               <div className="mt-4 grid grid-cols-2 sm:flex sm:flex-wrap items-center justify-center gap-x-4 gap-y-3 sm:gap-4 text-[10px] sm:text-xs">
                 <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 rounded-full bg-[#b091eb]" />
+                  <div className="w-3 h-3 rounded-full bg-[#c0a7ef]" />
                   <span>Critical Alert</span>
                 </div>
                 <div className="flex items-center gap-2">
@@ -276,7 +276,7 @@ export function GlobalPoachingMap({ isVisible = true }: GlobalPoachingMapProps) 
                           animate={isActive ? { scale: [0.8, 1.2, 0.8] } : { scale: 1 }}
                           transition={isActive ? { duration: 1.5, repeat: Infinity } : { duration: 0.2 }}
                         >
-                          <div className={`w-2 h-2 rounded-full ${isActive ? 'bg-[#b091eb]' : 'bg-[#b091eb]/30'}`} />
+                          <div className={`w-2 h-2 rounded-full ${isActive ? 'bg-[#c0a7ef]' : 'bg-[#c0a7ef]/30'}`} />
                         </motion.div>
                       </div>
                     </motion.div>
@@ -323,7 +323,7 @@ export function GlobalPoachingMap({ isVisible = true }: GlobalPoachingMapProps) 
                 show: { opacity: 1, y: 0 },
               }}
             >
-              <Card className="p-5 space-y-4 rounded-[32px] border-none bg-[#b091eb]/15 h-full">
+              <Card className="p-5 space-y-4 rounded-[32px] border-none bg-[#c0a7ef]/15 h-full">
                 <div className="space-y-0.5 border-b border-[#46014f]/10 pb-3">
                   <h3 className="text-base font-bold font-['Dela_Gothic_One'] tracking-tight text-[#46014f]">
                     Most Targeted Species

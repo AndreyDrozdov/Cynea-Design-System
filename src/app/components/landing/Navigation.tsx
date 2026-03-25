@@ -45,11 +45,12 @@ export function Navigation() {
   };
 
   const navItems = [
-    { label: "Platform", href: "#platform" },
+    { label: "Platform", href: "#how-we-rescue" },
     { label: "Demos", href: "#demos" },
     { label: "Impact", href: "#impact" },
-    { label: "About Us", href: "#about" },
-    { label: "Contact", href: "#contact" }
+    { label: "Mission", href: "#hero" },
+    { label: "Partners", href: "#hero" },
+    { label: "Contact", href: "#hero" },
   ];
 
   return (
@@ -64,12 +65,15 @@ export function Navigation() {
         <div className="bg-white/95 backdrop-blur-md rounded-3xl shadow-sm px-6">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <div className="flex items-center gap-2">
-              <div className="p-2 bg-[#D0F17A] rounded-3xl">
+            <button 
+              onClick={scrollToTop}
+              className="flex items-center gap-2 hover:opacity-80 transition-opacity cursor-pointer group"
+            >
+              <div className="p-2 bg-[#D0F17A] rounded-3xl group-hover:scale-110 transition-transform">
                 <Leaf className="w-5 h-5 text-[#151515]" />
               </div>
               <span className="text-xl text-[#151515] font-['Dela_Gothic_One'] tracking-tight">Cyanea</span>
-            </div>
+            </button>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-8">
@@ -113,12 +117,18 @@ export function Navigation() {
             >
               {/* Menu Header */}
               <div className="flex items-center justify-between mb-12">
-                <div className="flex items-center gap-2">
+                <button 
+                  onClick={() => {
+                    scrollToTop();
+                    setIsOpen(false);
+                  }}
+                  className="flex items-center gap-2"
+                >
                   <div className="p-2 bg-[#D0F17A] rounded-3xl">
                     <Leaf className="w-5 h-5 text-[#151515]" />
                   </div>
                   <span className="text-xl text-[#151515] font-['Dela_Gothic_One'] tracking-tight">Cyanea</span>
-                </div>
+                </button>
                 <button
                   onClick={() => setIsOpen(false)}
                   className="p-3 bg-white rounded-3xl shadow-sm"

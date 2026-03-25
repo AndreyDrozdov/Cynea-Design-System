@@ -93,7 +93,7 @@ export function ServicesSection() {
             >
               <div className="space-y-4">
                 <h3 
-                  className={`text-3xl md:text-4xl xl:text-5xl ${service.titleColor} font-['Dela_Gothic_One'] leading-none tracking-tight`}
+                  className={`text-2xl md:text-3xl xl:text-4xl ${service.titleColor} font-['Dela_Gothic_One'] leading-none tracking-tight`}
                   dangerouslySetInnerHTML={{ __html: service.title }}
                 />
                 <p className={`text-sm ${service.subtitleColor} font-['Plus_Jakarta_Sans'] font-semibold uppercase tracking-widest`}>
@@ -126,7 +126,7 @@ export function ServicesSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
-            className="md:col-span-2 bg-[#b091eb] rounded-3xl p-8 flex flex-col md:flex-row items-start md:items-end justify-between gap-6 h-full"
+            className="md:col-span-2 bg-[#c0a7ef] rounded-3xl p-8 flex flex-col md:flex-row items-start md:items-end justify-between gap-6 h-full"
           >
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 w-full min-h-[120px] py-4 sm:py-0">
               <div className="flex flex-col justify-between h-full border-b border-[#46014f]/10 pb-4 sm:border-0 sm:pb-0">

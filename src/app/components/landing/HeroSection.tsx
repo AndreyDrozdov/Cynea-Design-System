@@ -34,7 +34,7 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section className="bg-[#E6E8EC] lg:min-h-screen lg:flex lg:flex-col lg:overflow-hidden">
+    <section id="hero" className="bg-[#E6E8EC] lg:min-h-screen lg:flex lg:flex-col lg:overflow-hidden">
       <div className="lg:flex-1 container mx-auto px-6 pt-20 pb-8 lg:pt-20 xl:pt-28 flex flex-col lg:min-h-0">
         <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-4 lg:flex-1 lg:min-h-0">
 

@@ -32,29 +32,42 @@ export function DemosSection() {
         </motion.div>
 
         <Tabs defaultValue="species-risk" className="w-full" onValueChange={setActiveTab}>
-          <TabsList className="relative flex w-full md:grid md:max-w-xl md:grid-cols-3 mb-10 h-auto p-1 bg-white/80 backdrop-blur-md rounded-[24px] border border-white overflow-hidden mx-auto">
-            {["species-risk", "genetic", "poaching"].map((tab) => (
-              <TabsTrigger
-                key={tab}
-                value={tab}
-                className="relative z-10 flex items-center justify-center py-2.5 px-2 md:px-0 rounded-[20px] text-[#151515]/60 data-[state=active]:text-white transition-colors duration-500 min-w-0 flex-1 font-bold"
-              >
-                <span className="relative z-20 text-[10px] md:text-xs uppercase tracking-wider">
-                  {tab === "species-risk" ? "Species Risk" : tab === "genetic" ? "Genetic Optimizer" : "Poaching Map"}
-                </span>
-                
-                {activeTab === tab && (
-                  <motion.div
-                    layoutId="activeTab"
-                    className="absolute inset-x-0.5 inset-y-0.5 bg-[#075D44] rounded-[19px] z-0"
-                    transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                  />
-                )}
-              </TabsTrigger>
-            ))}
-          </TabsList>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1, duration: 0.7 }}
+          >
+            <TabsList className="relative flex w-full md:grid md:max-w-xl md:grid-cols-3 mb-10 h-auto p-1 bg-white/80 backdrop-blur-md rounded-[24px] border border-white overflow-hidden mx-auto">
+              {["species-risk", "genetic", "poaching"].map((tab) => (
+                <TabsTrigger
+                  key={tab}
+                  value={tab}
+                  className="relative z-10 flex items-center justify-center py-2.5 px-2 md:px-0 rounded-[20px] text-[#151515]/60 data-[state=active]:text-white transition-colors duration-500 min-w-0 flex-1 font-bold"
+                >
+                  <span className="relative z-20 text-[10px] md:text-xs uppercase tracking-wider">
+                    {tab === "species-risk" ? "Species Risk" : tab === "genetic" ? "Genetic Optimizer" : "Poaching Map"}
+                  </span>
+                  
+                  {activeTab === tab && (
+                    <motion.div
+                      layoutId="activeTab"
+                      className="absolute inset-x-0.5 inset-y-0.5 bg-[#075D44] rounded-[19px] z-0"
+                      transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                    />
+                  )}
+                </TabsTrigger>
+              ))}
+            </TabsList>
+          </motion.div>
 
-          <div className="bg-white rounded-[32px] p-4 md:p-10 h-[890px] overflow-y-auto relative custom-scrollbar border border-white">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2, duration: 0.7 }}
+            className="bg-white rounded-[32px] p-4 md:p-10 h-[890px] overflow-y-auto relative custom-scrollbar border border-white"
+          >
             <div className="relative h-full">
               {/* Species Risk Dashboard */}
               <motion.div
@@ -110,7 +123,7 @@ export function DemosSection() {
                 <GlobalPoachingMap isVisible={activeTab === "poaching"} />
               </motion.div>
             </div>
-          </div>
+          </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}

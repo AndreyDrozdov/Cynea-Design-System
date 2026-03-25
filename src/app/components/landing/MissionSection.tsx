@@ -39,7 +39,7 @@ const steps = [
     number: "04",
     title: "Safe Future",
     description: "Plants are returned to restored habitats once populations reach viable thresholds through AI-guided programs.",
-    bg: "bg-[#b091eb]",
+    bg: "bg-[#c0a7ef]",
     numColor: "text-[#46014f]",
     titleColor: "text-[#46014f]",
     textColor: "text-[#46014f]/70",

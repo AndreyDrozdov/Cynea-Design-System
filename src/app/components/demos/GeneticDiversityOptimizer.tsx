@@ -112,8 +112,8 @@ export function GeneticDiversityOptimizer({ isVisible = true }: GeneticDiversity
                 show: { opacity: 1, y: 0 },
               }}
             >
-              <div className="px-6 py-3 border border-[#b091eb]/30 bg-transparent rounded-[32px] flex items-center gap-4">
-                <div className="w-2.5 h-2.5 bg-[#b091eb] rounded-full animate-pulse flex-shrink-0" />
+              <div className="px-6 py-3 border border-[#c0a7ef]/30 bg-transparent rounded-[32px] flex items-center gap-4">
+                <div className="w-2.5 h-2.5 bg-[#c0a7ef] rounded-full animate-pulse flex-shrink-0" />
                 <p className="text-sm font-['Plus_Jakarta_Sans'] leading-tight">
                   <strong className="font-bold text-[#151515]">Critical Genetic Alert:</strong>
                   <span className="text-muted-foreground/70 ml-2">Species has lost 70% of genetic diversity (47 → 14 alleles). Effective population size is only 4 genetically unique plants. Immediate genetic rescue required.</span>

@@ -1,6 +1,8 @@
 "use client";
 
 import { motion } from "motion/react";
+import { ArrowUpRight } from "lucide-react";
+import { cn } from "../ui/utils";
 
 const processCards = [
   {
@@ -32,6 +34,7 @@ const processCards = [
 export function RescueProcessSection() {
   return (
     <section 
+      id="how-we-rescue"
       className="py-24 relative overflow-hidden"
       style={{
         backgroundImage: `url('https://images.unsplash.com/photo-1584204559709-ca7d413229eb?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D=rb-4.1.0&q=80&w=1080')`,
@@ -62,21 +65,40 @@ export function RescueProcessSection() {
         {/* Stacked Vertical Layout as per screenshot */}
         <div className="flex flex-col gap-4 max-w-4xl mx-auto">
           {processCards.map((card, index) => (
-            <motion.div
+            <motion.a
               key={card.id}
+              href="#"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.15, duration: 0.6 }}
-              className={`${card.bg} rounded-3xl p-8 md:p-10 flex flex-col items-start gap-2 relative overflow-hidden`}
+              className={cn(
+                card.bg,
+                "group rounded-3xl p-8 md:p-10 flex flex-col items-start gap-2 relative overflow-hidden",
+                "transition-all duration-500 hover:scale-[1.015] hover:shadow-2xl hover:brightness-105"
+              )}
             >
-              <h3 className={`text-2xl md:text-2xl font-['Dela_Gothic_One'] font-bold ${card.textColor} tracking-tight leading-tight`}>
+              <div className="absolute top-8 right-8 md:top-10 md:right-10">
+                <ArrowUpRight className={cn(
+                  "w-8 h-8 transition-all duration-500",
+                  "group-hover:translate-x-1.5 group-hover:-translate-y-1.5",
+                  card.textColor
+                )} />
+              </div>
+              
+              <h3 className={cn(
+                "text-2xl md:text-2xl font-['Dela_Gothic_One'] font-bold tracking-tight leading-tight",
+                card.textColor
+              )}>
                 {card.title}
               </h3>
-              <p className={`text-base ${card.descColor} font-['Plus_Jakarta_Sans'] font-medium leading-relaxed`}>
+              <p className={cn(
+                "text-base font-['Plus_Jakarta_Sans'] font-medium leading-relaxed max-w-2xl",
+                card.descColor
+              )}>
                 {card.description}
               </p>
-            </motion.div>
+            </motion.a>
           ))}
         </div>
       </div>

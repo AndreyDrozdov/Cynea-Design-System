@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { motion, useInView, AnimatePresence } from "motion/react";
-import { Leaf, Globe, TrendingUp, Dna, Shield, TreePine } from "lucide-react";
+import { Leaf, Globe, TrendingUp, Dna, AlertTriangle, TreePine } from "lucide-react";
 
 // --- Animated counter hook ---
 function useCountUp(target: number, duration = 1400, active = false) {
@@ -74,7 +74,7 @@ function MiniBar({ label, value, max, color, textColor }: { label: string; value
         <span className={`text-sm font-['Plus_Jakarta_Sans'] ${textColor}`}>{label}</span>
         <span className={`text-sm font-['Dela_Gothic_One'] tracking-tight ${textColor} opacity-70`}>{value}</span>
       </div>
-      <div className="h-3 rounded-full overflow-hidden" style={{ backgroundColor: "rgba(0,0,0,0.1)" }}>
+      <div className="h-2 rounded-full overflow-hidden" style={{ backgroundColor: "rgba(0,0,0,0.1)" }}>
         <motion.div
           className="h-full rounded-full"
           style={{ backgroundColor: color }}
@@ -94,7 +94,7 @@ function SpeciesCard({ active }: { active: boolean }) {
 
   const tabs = [
     { key: "rescued", label: "Rescued", icon: Leaf },
-    { key: "critical", label: "Critical", icon: Shield },
+    { key: "critical", label: "Critical", icon: AlertTriangle },
     { key: "stable", label: "Stable", icon: TreePine },
   ] as const;
 
@@ -186,7 +186,7 @@ function RadialArcChart({ regions, metricIdx }: {
   const cy = height; 
   const arcColors = ["#46014f", "rgba(70,1,79,0.65)", "rgba(70,1,79,0.42)", "rgba(70,1,79,0.22)"];
   const radii = [105, 82, 60, 38];
-  const stroke = 12;
+  const stroke = 8;
   
   return (
     <svg width="100%" className="block max-w-full overflow-visible" viewBox={`0 0 ${width} ${height + stroke}`}>
@@ -366,7 +366,7 @@ export function ImpactSection() {
   }, []);
 
   return (
-    <section className="py-20 bg-white" ref={ref}>
+    <section id="impact" className="py-20 bg-white" ref={ref}>
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
