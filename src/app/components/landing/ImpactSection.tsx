@@ -72,7 +72,7 @@ function MiniBar({ label, value, max, color, textColor }: { label: string; value
     >
       <div className="flex justify-between mb-1">
         <span className={`text-sm font-['Plus_Jakarta_Sans'] ${textColor}`}>{label}</span>
-        <span className={`text-sm font-['Dela_Gothic_One'] tracking-tight ${textColor} opacity-80`}>{value}</span>
+        <span className={`text-sm font-['Dela_Gothic_One'] tracking-tight ${textColor} opacity-70`}>{value}</span>
       </div>
       <div className="h-3 rounded-full overflow-hidden" style={{ backgroundColor: "rgba(0,0,0,0.1)" }}>
         <motion.div
@@ -136,7 +136,7 @@ function SpeciesCard({ active }: { active: boolean }) {
       {/* Top: ring + counter */}
       <div className="flex flex-col justify-end">
         <p className="text-5xl text-[#075D44] font-['Dela_Gothic_One'] tracking-tight leading-none">{count}</p>
-        <p className="text-sm text-[#075D44]/70 font-['Plus_Jakarta_Sans'] mt-1">Species rescued &amp; rehabilitated</p>
+        <p className="text-base text-[#075D44]/70 font-['Plus_Jakarta_Sans'] mt-1">Species rescued &amp; rehabilitated</p>
       </div>
 
       <div className="flex flex-col gap-4">
@@ -148,8 +148,8 @@ function SpeciesCard({ active }: { active: boolean }) {
               onClick={() => setActiveTab(key)}
               className={`flex-1 flex items-center justify-center gap-1 py-1.5 rounded-xl text-sm font-['Plus_Jakarta_Sans'] font-semibold transition-all duration-200 ${
                 activeTab === key
-                  ? "bg-[#075D44] text-[#cfedcc]"
-                  : "text-[#075D44]/60 hover:text-[#075D44]"
+                   ? "bg-[#075D44] text-[#cfedcc]"
+                   : "text-[#075D44]/70 hover:text-[#075D44]"
               }`}
             >
               <Icon className="w-3 h-3" />
@@ -284,7 +284,7 @@ function InstitutionsCard({ active }: { active: boolean }) {
       <div className="flex items-center gap-4">
         <div>
           <p className="text-5xl text-[#46014f] font-['Dela_Gothic_One'] tracking-tight leading-none">{count}+</p>
-          <p className="text-sm text-[#46014f]/70 font-['Plus_Jakarta_Sans'] mt-1">Institutions supporting the network</p>
+          <p className="text-base text-[#46014f]/70 font-['Plus_Jakarta_Sans'] mt-1">Institutions supporting the network</p>
         </div>
       </div>
 
@@ -298,8 +298,8 @@ function InstitutionsCard({ active }: { active: boolean }) {
               onClick={() => setMetricIdx(i)}
               className={`flex items-center gap-1 px-2.5 py-1 rounded-xl text-sm font-['Plus_Jakarta_Sans'] font-semibold transition-all duration-200 ${
                 metricIdx === i
-                  ? "bg-[#46014f] text-[#c0a7ef]"
-                  : "bg-[#46014f]/10 text-[#46014f]/60 hover:text-[#46014f]"
+                   ? "bg-[#46014f] text-[#c0a7ef]"
+                   : "bg-[#46014f]/10 text-[#46014f]/70 hover:text-[#46014f]"
               }`}
             >
               <Icon className="w-3 h-3" />
@@ -334,7 +334,7 @@ function InstitutionsCard({ active }: { active: boolean }) {
                   transition={{ duration: 0.3 }}
                   className="text-sm text-[#46014f] font-['Dela_Gothic_One'] tracking-tight flex-shrink-0"
                 >
-                  {val}{suffix} <span className="opacity-50 text-[10px]">{pct}%</span>
+                  {val}{suffix} <span className="opacity-70 text-[10px]">{pct}%</span>
                 </motion.span>
               </div>
             );
@@ -470,7 +470,7 @@ export function ImpactSection() {
             className="bg-[#151515] rounded-3xl p-8 flex flex-col justify-between min-h-[200px]"
           >
             <p className="text-5xl text-[#D0F17A] font-['Dela_Gothic_One'] tracking-tight leading-none">18</p>
-            <p className="text-sm text-[#D0F17A]/76 font-['Plus_Jakarta_Sans'] leading-relaxed">
+            <p className="text-sm text-[#D0F17A]/70 font-['Plus_Jakarta_Sans'] leading-relaxed">
               Successful Endangered Species Rescue Operations
             </p>
           </motion.div>
@@ -484,7 +484,7 @@ export function ImpactSection() {
           >
             <div className="flex flex-col justify-between h-full">
               <p className="text-5xl text-[#cfedcc] font-['Dela_Gothic_One'] tracking-tight leading-none">$2.3M</p>
-              <p className="text-sm text-[#cfedcc]/80 font-['Plus_Jakarta_Sans'] leading-relaxed">
+              <p className="text-sm text-[#cfedcc]/70 font-['Plus_Jakarta_Sans'] leading-relaxed">
                 Total Annual Research Funding Raised Globally
               </p>
             </div>
@@ -506,19 +506,19 @@ export function ImpactSection() {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 h-full py-4 sm:py-0">
               <div className="flex flex-col justify-between h-full border-b border-[#46014f]/10 pb-4 sm:border-0 sm:pb-0">
                 <p className="text-5xl text-[#46014f] font-['Dela_Gothic_One'] tracking-tight leading-none">571</p>
-                <p className="text-sm text-[#46014f]/80 mt-1 font-['Plus_Jakarta_Sans'] leading-relaxed">
+                <p className="text-sm text-[#46014f]/70 mt-1 font-['Plus_Jakarta_Sans'] leading-relaxed">
                   Plant species extinct in last 250 years — each an irreplaceable gene pool
                 </p>
               </div>
               <div className="flex flex-col justify-between h-full border-b border-[#46014f]/10 pb-4 sm:border-0 sm:pb-0">
                 <p className="text-5xl text-[#46014f] font-['Dela_Gothic_One'] tracking-tight leading-none">3–5×</p>
-                <p className="text-sm text-[#46014f]/80 mt-1 font-['Plus_Jakarta_Sans'] leading-relaxed">
+                <p className="text-sm text-[#46014f]/70 mt-1 font-['Plus_Jakarta_Sans'] leading-relaxed">
                   More species saved with the same budget through AI-driven prioritization
                 </p>
               </div>
               <div className="flex flex-col justify-between h-full">
                 <p className="text-5xl text-[#46014f] font-['Dela_Gothic_One'] tracking-tight leading-none">60-70%</p>
-                <p className="text-sm text-[#46014f]/80 mt-1 font-['Plus_Jakarta_Sans'] leading-relaxed">
+                <p className="text-sm text-[#46014f]/70 mt-1 font-['Plus_Jakarta_Sans'] leading-relaxed">
                   Reduction in conservation costs through automated monitoring
                 </p>
               </div>

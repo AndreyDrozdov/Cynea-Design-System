@@ -119,9 +119,9 @@ export function SpeciesRiskDashboard({ isVisible = true }: SpeciesRiskDashboardP
       >
         <div className="space-y-2">
           <h2 className="text-2xl md:text-3xl font-bold">Species Risk Dashboard</h2>
-          <p className="text-muted-foreground text-sm md:text-base">Real-time extinction risk monitoring</p>
+          <p className="text-muted-foreground/70 text-sm md:text-base">Real-time extinction risk monitoring</p>
         </div>
-        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+        <div className="flex items-center gap-2 text-sm text-muted-foreground/70">
           <RefreshCw className="w-4 h-4 animate-spin" />
           <span>Last updated: {mounted ? lastUpdate.toLocaleTimeString() : "Loading..."}</span>
         </div>
@@ -141,7 +141,7 @@ export function SpeciesRiskDashboard({ isVisible = true }: SpeciesRiskDashboardP
             <div className="w-2.5 h-2.5 bg-[#c0a7ef] rounded-full animate-pulse flex-shrink-0" />
             <p className="text-sm font-['Plus_Jakarta_Sans'] leading-tight">
               <strong className="font-bold text-[#151515]">4 Species at Critical Risk:</strong>
-              <span className="text-muted-foreground ml-2">Immediate intervention required to prevent extinction</span>
+              <span className="text-muted-foreground/70 ml-2">Immediate intervention required to prevent extinction</span>
             </p>
           </motion.div>
 
@@ -216,7 +216,7 @@ export function SpeciesRiskDashboard({ isVisible = true }: SpeciesRiskDashboardP
                       <h3 className="text-base font-bold font-['Dela_Gothic_One'] tracking-tight text-[#151515]">
                         Network Statistics
                       </h3>
-                      <p className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold font-['Plus_Jakarta_Sans']">
+                      <p className="text-[10px] uppercase tracking-wider text-muted-foreground/70 font-bold font-['Plus_Jakarta_Sans']">
                         Global conservation corridor network
                       </p>
                     </div>
@@ -228,26 +228,26 @@ export function SpeciesRiskDashboard({ isVisible = true }: SpeciesRiskDashboardP
                   
                   <div className="grid grid-cols-2 gap-y-6 gap-x-8 mb-6">
                     <div>
-                      <p className="text-xs text-muted-foreground font-['Plus_Jakarta_Sans'] mb-1">Risk Coverage</p>
+                      <p className="text-xs text-muted-foreground/70 font-['Plus_Jakarta_Sans'] mb-1">Risk Coverage</p>
                       <p className="text-3xl font-bold text-[#075D44] font-['Dela_Gothic_One'] tracking-tight">{stats.totalSpecies}</p>
                     </div>
                     <div>
-                      <p className="text-xs text-muted-foreground font-['Plus_Jakarta_Sans'] mb-1">Critically Low</p>
+                      <p className="text-xs text-muted-foreground/70 font-['Plus_Jakarta_Sans'] mb-1">Critically Low</p>
                       <p className="text-3xl font-bold text-[#075D44] font-['Dela_Gothic_One'] tracking-tight">{stats.criticalCases}</p>
                     </div>
                   </div>
 
                   <div className="grid grid-cols-3 gap-6 pt-4 border-t border-[#151515]/5">
                     <div>
-                      <p className="text-[9px] uppercase tracking-widest text-muted-foreground font-bold mb-1">Active Labs</p>
+                      <p className="text-[9px] uppercase tracking-widest text-muted-foreground/70 font-bold mb-1">Active Labs</p>
                       <p className="text-lg font-bold text-[#151515] font-['Dela_Gothic_One'] tracking-tight">{stats.breedingPrograms}</p>
                     </div>
                     <div>
-                      <p className="text-[9px] uppercase tracking-widest text-muted-foreground font-bold mb-1">Institutions</p>
+                      <p className="text-[9px] uppercase tracking-widest text-muted-foreground/70 font-bold mb-1">Institutions</p>
                       <p className="text-lg font-bold text-[#151515] font-['Dela_Gothic_One'] tracking-tight">{stats.institutions}</p>
                     </div>
                     <div>
-                      <p className="text-[9px] uppercase tracking-widest text-muted-foreground font-bold mb-1">Uptime</p>
+                      <p className="text-[9px] uppercase tracking-widest text-muted-foreground/70 font-bold mb-1">Uptime</p>
                       <p className="text-lg font-bold text-[#075D44] font-['Dela_Gothic_One'] tracking-tight">99.9%</p>
                     </div>
                   </div>

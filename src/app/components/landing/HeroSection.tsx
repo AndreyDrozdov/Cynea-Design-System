@@ -83,15 +83,15 @@ export function HeroSection() {
               <div className="grid grid-cols-2 md:flex md:gap-8 gap-y-4 font-['Plus_Jakarta_Sans']">
                 <div>
                   <p className="text-2xl md:text-3xl text-[#cfedcc] font-['Dela_Gothic_One'] tracking-tight">847</p>
-                  <p className="text-[10px] md:text-sm text-[#cfedcc]/60 uppercase tracking-widest">Species Monitored</p>
+                  <p className="text-[10px] md:text-sm text-[#cfedcc]/70 uppercase tracking-widest">Species Monitored</p>
                 </div>
                 <div>
                   <p className="text-2xl md:text-3xl text-[#cfedcc] font-['Dela_Gothic_One'] tracking-tight">76</p>
-                  <p className="text-[10px] md:text-sm text-[#cfedcc]/60 uppercase tracking-widest">Partner Institutions</p>
+                  <p className="text-[10px] md:text-sm text-[#cfedcc]/70 uppercase tracking-widest">Partner Institutions</p>
                 </div>
                 <div className="col-span-2 md:col-span-1 border-t border-[#cfedcc]/10 pt-4 md:pt-0 md:border-0">
                   <p className="text-2xl md:text-3xl text-[#cfedcc] font-['Dela_Gothic_One'] tracking-tight">64%</p>
-                  <p className="text-[10px] md:text-sm text-[#cfedcc]/60 uppercase tracking-widest">Recovery Rate</p>
+                  <p className="text-[10px] md:text-sm text-[#cfedcc]/70 uppercase tracking-widest">Recovery Rate</p>
                 </div>
               </div>
             </div>

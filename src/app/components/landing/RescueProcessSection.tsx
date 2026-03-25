@@ -70,7 +70,7 @@ export function RescueProcessSection() {
               transition={{ delay: index * 0.15, duration: 0.6 }}
               className={`${card.bg} rounded-3xl p-8 md:p-10 flex flex-col items-start gap-2 relative overflow-hidden`}
             >
-              <h3 className={`text-xl md:text-xl font-['Dela_Gothic_One'] font-bold ${card.textColor} tracking-tight leading-tight`}>
+              <h3 className={`text-2xl md:text-2xl font-['Dela_Gothic_One'] font-bold ${card.textColor} tracking-tight leading-tight`}>
                 {card.title}
               </h3>
               <p className={`text-base ${card.descColor} font-['Plus_Jakarta_Sans'] font-medium leading-relaxed`}>

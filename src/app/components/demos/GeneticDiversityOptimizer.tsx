@@ -62,7 +62,7 @@ export function GeneticDiversityOptimizer({ isVisible = true }: GeneticDiversity
       {/* Header */}
       <div className="space-y-2">
         <h2 className="text-3xl font-bold">Genetic Diversity Optimizer</h2>
-        <p className="text-muted-foreground">AI-powered breeding strategy for Middlemist Red Camellia</p>
+        <p className="text-muted-foreground/70">AI-powered breeding strategy for Middlemist Red Camellia</p>
       </div>
 
       <div className="grid lg:grid-cols-2 gap-6 lg:max-h-[calc(100vh-140px)] lg:overflow-y-auto pr-0 lg:pr-2">
@@ -116,7 +116,7 @@ export function GeneticDiversityOptimizer({ isVisible = true }: GeneticDiversity
                 <div className="w-2.5 h-2.5 bg-[#b091eb] rounded-full animate-pulse flex-shrink-0" />
                 <p className="text-sm font-['Plus_Jakarta_Sans'] leading-tight">
                   <strong className="font-bold text-[#151515]">Critical Genetic Alert:</strong>
-                  <span className="text-muted-foreground ml-2">Species has lost 70% of genetic diversity (47 → 14 alleles). Effective population size is only 4 genetically unique plants. Immediate genetic rescue required.</span>
+                  <span className="text-muted-foreground/70 ml-2">Species has lost 70% of genetic diversity (47 → 14 alleles). Effective population size is only 4 genetically unique plants. Immediate genetic rescue required.</span>
                 </p>
               </div>
             </motion.div>
@@ -132,27 +132,27 @@ export function GeneticDiversityOptimizer({ isVisible = true }: GeneticDiversity
                 <h4 className="font-semibold mb-3 font-['Dela_Gothic_One'] tracking-tight">Historical Baseline Comparison</h4>
                 <div className="space-y-2">
                   <div className="flex justify-between items-center">
-                    <span className="text-sm text-muted-foreground">Allele Count</span>
+                    <span className="text-sm text-muted-foreground/70">Allele Count</span>
                     <div className="flex items-center gap-2">
                       <span className="text-[#075d44] font-semibold">14</span>
-                      <span className="text-muted-foreground">vs</span>
-                      <span className="text-muted-foreground">47 historical</span>
+                      <span className="text-muted-foreground/70">vs</span>
+                      <span className="text-muted-foreground/70">47 historical</span>
                     </div>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-sm text-muted-foreground">Inbreeding</span>
+                    <span className="text-sm text-muted-foreground/70">Inbreeding</span>
                     <div className="flex items-center gap-2">
                       <span className="text-[#075d44] font-semibold">32%</span>
-                      <span className="text-muted-foreground">vs</span>
-                      <span className="text-muted-foreground">2% historical</span>
+                      <span className="text-muted-foreground/70">vs</span>
+                      <span className="text-muted-foreground/70">2% historical</span>
                     </div>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-sm text-muted-foreground">Effective Pop Size</span>
+                    <span className="text-sm text-muted-foreground/70">Effective Pop Size</span>
                     <div className="flex items-center gap-2">
                       <span className="text-[#075d44] font-semibold">4 plants</span>
-                      <span className="text-muted-foreground">vs</span>
-                      <span className="text-muted-foreground">200+ historical</span>
+                      <span className="text-muted-foreground/70">vs</span>
+                      <span className="text-muted-foreground/70">200+ historical</span>
                     </div>
                   </div>
                 </div>
@@ -219,7 +219,7 @@ export function GeneticDiversityOptimizer({ isVisible = true }: GeneticDiversity
                 <Card className="p-8 flex items-center justify-center rounded-3xl">
                   <div className="text-center space-y-2">
                     <Dna className="w-8 h-8 text-primary mx-auto animate-pulse" />
-                    <p className="text-muted-foreground">Analyzing breeding combinations...</p>
+                    <p className="text-muted-foreground/70">Analyzing breeding combinations...</p>
                   </div>
                 </Card>
               </motion.div>

@@ -15,7 +15,7 @@ const steps = [
     bg: "bg-[#075D44]",
     numColor: "text-[#cfedcc]",
     titleColor: "text-[#cfedcc]",
-    textColor: "text-[#cfedcc]/60",
+    textColor: "text-[#cfedcc]/70",
   },
   {
     number: "02",
@@ -33,7 +33,7 @@ const steps = [
     bg: "bg-[#151515]",
     numColor: "text-[#D0F17A]",
     titleColor: "text-[#D0F17A]",
-    textColor: "text-[#D0F17A]/60",
+    textColor: "text-[#D0F17A]/70",
   },
   {
     number: "04",
@@ -42,7 +42,7 @@ const steps = [
     bg: "bg-[#b091eb]",
     numColor: "text-[#46014f]",
     titleColor: "text-[#46014f]",
-    textColor: "text-[#46014f]/60",
+    textColor: "text-[#46014f]/70",
   },
 ];
 

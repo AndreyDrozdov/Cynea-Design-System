@@ -17,8 +17,8 @@ const services = [
     ],
     bg: "bg-[#D0F17A]",
     titleColor: "text-[#075D44]",
-    subtitleColor: "text-[#075D44]/60",
-    textColor: "text-[#075D44]/80",
+    subtitleColor: "text-[#075D44]/70",
+    textColor: "text-[#075D44]/70",
     dotColor: "bg-[#075D44]",
   },
   {
@@ -33,8 +33,8 @@ const services = [
     ],
     bg: "bg-[#075D44]",
     titleColor: "text-[#cfedcc]",
-    subtitleColor: "text-[#cfedcc]/60",
-    textColor: "text-[#cfedcc]/80",
+    subtitleColor: "text-[#cfedcc]/70",
+    textColor: "text-[#cfedcc]/70",
     dotColor: "bg-[#D0F17A]",
   },
   {
@@ -49,7 +49,7 @@ const services = [
     ],
     bg: "bg-[#151515]",
     titleColor: "text-[#D0F17A]",
-    subtitleColor: "text-[#D0F17A]/60",
+    subtitleColor: "text-[#D0F17A]/70",
     textColor: "text-[#D0F17A]/70",
     dotColor: "bg-[#D0F17A]",
   },
@@ -102,7 +102,7 @@ export function ServicesSection() {
               </div>
 
               <div>
-                <p className={`text-sm ${service.textColor} font-['Plus_Jakarta_Sans'] leading-relaxed mb-6`}>
+                <p className={`text-base ${service.textColor} font-['Plus_Jakarta_Sans'] leading-relaxed mb-6`}>
                   {service.description}
                 </p>
 
@@ -133,21 +133,21 @@ export function ServicesSection() {
                 <p className="text-5xl text-[#46014f] font-['Dela_Gothic_One'] tracking-tight leading-none">847</p>
                 <div className="space-y-0.5">
                   <p className="text-sm text-[#46014f] font-['Plus_Jakarta_Sans'] font-medium">Species monitored around the clock</p>
-                  <p className="text-sm text-[#46014f] font-['Plus_Jakarta_Sans'] opacity-80">Real-time detection across 12 corridors</p>
+                  <p className="text-sm text-[#46014f] font-['Plus_Jakarta_Sans'] opacity-70">Real-time detection across 12 corridors</p>
                 </div>
               </div>
               <div className="flex flex-col justify-between h-full border-b border-[#46014f]/10 pb-4 sm:border-0 sm:pb-0">
                 <p className="text-5xl text-[#46014f] font-['Dela_Gothic_One'] tracking-tight leading-none">76</p>
                 <div className="space-y-0.5">
                   <p className="text-sm text-[#46014f] font-['Plus_Jakarta_Sans'] font-medium">Partner institutions coordinated globally</p>
-                  <p className="text-sm text-[#46014f] font-['Plus_Jakarta_Sans'] opacity-80">Bridging research with on-ground action</p>
+                  <p className="text-sm text-[#46014f] font-['Plus_Jakarta_Sans'] opacity-70">Bridging research with on-ground action</p>
                 </div>
               </div>
               <div className="flex flex-col justify-between h-full">
                 <p className="text-5xl text-[#46014f] font-['Dela_Gothic_One'] tracking-tight leading-none">64%</p>
                 <div className="space-y-0.5">
                   <p className="text-sm text-[#46014f] font-['Plus_Jakarta_Sans'] font-medium">Poaching prevention success rate</p>
-                  <p className="text-sm text-[#46014f] font-['Plus_Jakarta_Sans'] opacity-80">Calculated via predictive neural modeling</p>
+                  <p className="text-sm text-[#46014f] font-['Plus_Jakarta_Sans'] opacity-70">Calculated via predictive neural modeling</p>
                 </div>
               </div>
             </div>

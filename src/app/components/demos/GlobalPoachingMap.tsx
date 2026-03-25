@@ -110,7 +110,7 @@ export function GlobalPoachingMap({ isVisible = true }: GlobalPoachingMapProps) 
         className="space-y-1 md:space-y-2"
       >
         <h2 className="text-2xl md:text-3xl font-bold">Regional Poaching Detection</h2>
-        <p className="text-muted-foreground text-sm md:text-base">Live AI-driven monitoring of Southeast Asian wildlife corridors</p>
+        <p className="text-muted-foreground/70 text-sm md:text-base">Live AI-driven monitoring of Southeast Asian wildlife corridors</p>
       </motion.div>
 
       <div className="grid lg:grid-cols-2 gap-6 max-h-[calc(100vh-140px)] overflow-y-auto pr-2">
@@ -257,16 +257,16 @@ export function GlobalPoachingMap({ isVisible = true }: GlobalPoachingMapProps) 
                         hidden: { opacity: 0, y: 10 },
                         show: { opacity: 1, y: 0 },
                       }}
-                      className={`flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 p-4 rounded-2xl border transition-all duration-500 text-[#151515] ${isActive ? "border-[#c0a7ef]/40 bg-transparent scale-[1.01]" : "border-transparent bg-transparent opacity-60 hover:opacity-100"}`}
+                      className={`flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 p-4 rounded-2xl border transition-all duration-500 text-[#151515] ${isActive ? "border-[#c0a7ef]/40 bg-transparent scale-[1.01]" : "border-transparent bg-transparent opacity-70 hover:opacity-100"}`}
                     >
-                      <div className="flex-shrink-0 sm:w-28 text-[10px] sm:text-xs font-bold sm:font-semibold text-muted-foreground uppercase tracking-widest sm:tracking-normal">
+                      <div className="flex-shrink-0 sm:w-28 text-[10px] sm:text-xs font-bold sm:font-semibold text-muted-foreground/70 uppercase tracking-widest sm:tracking-normal">
                         {item.date}
                       </div>
                       <div className="flex-1 min-w-0">
-                        <p className={`font-bold text-sm sm:text-base mb-0.5 transition-colors truncate ${isActive ? "text-[#151515]" : "text-muted-foreground"}`}>
+                        <p className={`font-bold text-sm sm:text-base mb-0.5 transition-colors truncate ${isActive ? "text-[#151515]" : "text-muted-foreground/70"}`}>
                           {item.species}
                         </p>
-                        <p className="text-xs sm:text-sm text-muted-foreground/80 truncate">{item.location}</p>
+                        <p className="text-xs sm:text-sm text-muted-foreground/70 truncate">{item.location}</p>
                       </div>
                       <div className="flex items-center justify-between sm:justify-end gap-3 pt-2 sm:pt-0 border-t sm:border-t-0 border-[#151515]/5 mt-1 sm:mt-0">
                         <span className="text-[10px] font-bold uppercase tracking-widest opacity-40 px-2 py-1 rounded bg-black/5 block sm:inline">
@@ -328,7 +328,7 @@ export function GlobalPoachingMap({ isVisible = true }: GlobalPoachingMapProps) 
                   <h3 className="text-base font-bold font-['Dela_Gothic_One'] tracking-tight text-[#46014f]">
                     Most Targeted Species
                   </h3>
-                  <p className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold font-['Plus_Jakarta_Sans']">
+                  <p className="text-[10px] uppercase tracking-wider text-muted-foreground/70 font-bold font-['Plus_Jakarta_Sans']">
                     Monthly activity trends
                   </p>
                 </div>
@@ -342,14 +342,14 @@ export function GlobalPoachingMap({ isVisible = true }: GlobalPoachingMapProps) 
                       />
                     </div>
                     <div className="flex-1">
-                      <p className="text-xs uppercase tracking-widest text-muted-foreground opacity-60 font-medium font-['Plus_Jakarta_Sans'] mb-1 leading-none">
+                      <p className="text-xs uppercase tracking-widest text-muted-foreground/70 font-medium font-['Plus_Jakarta_Sans'] mb-1 leading-none">
                         Rothschild's Slipper Orchid
                       </p>
                       <div className="flex items-baseline gap-2">
                         <p className="text-2xl font-bold font-['Dela_Gothic_One'] tracking-tight text-[#46014f] leading-none">
                           {stats.incidents}
                         </p>
-                        <span className="text-xs uppercase tracking-widest text-muted-foreground opacity-60 font-medium font-['Plus_Jakarta_Sans']">Incidents</span>
+                        <span className="text-xs uppercase tracking-widest text-muted-foreground/70 font-medium font-['Plus_Jakarta_Sans']">Incidents</span>
                       </div>
                     </div>
                   </div>
@@ -363,14 +363,14 @@ export function GlobalPoachingMap({ isVisible = true }: GlobalPoachingMapProps) 
                       />
                     </div>
                     <div className="flex-1">
-                      <p className="text-xs uppercase tracking-widest text-muted-foreground opacity-60 font-medium font-['Plus_Jakarta_Sans'] mb-1 leading-none">
+                      <p className="text-xs uppercase tracking-widest text-muted-foreground/70 font-medium font-['Plus_Jakarta_Sans'] mb-1 leading-none">
                         Dudleya farinosa (Succulent)
                       </p>
                       <div className="flex items-baseline gap-2">
                         <p className="text-2xl font-bold font-['Dela_Gothic_One'] tracking-tight text-[#46014f] leading-none">
                           {stats.plantsRecovered}
                         </p>
-                        <span className="text-xs uppercase tracking-widest text-muted-foreground opacity-60 font-medium font-['Plus_Jakarta_Sans']">Incidents</span>
+                        <span className="text-xs uppercase tracking-widest text-muted-foreground/70 font-medium font-['Plus_Jakarta_Sans']">Incidents</span>
                       </div>
                     </div>
                   </div>
@@ -389,17 +389,17 @@ export function GlobalPoachingMap({ isVisible = true }: GlobalPoachingMapProps) 
                   <h3 className="text-base font-bold font-['Dela_Gothic_One'] tracking-tight text-[#075D44]">
                     Units Recovered
                   </h3>
-                  <p className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold font-['Plus_Jakarta_Sans']">
+                  <p className="text-[10px] uppercase tracking-wider text-muted-foreground/70 font-bold font-['Plus_Jakarta_Sans']">
                     Total specimens secure by source
                   </p>
                 </div>
                 <div className="space-y-4">
                   <div>
-                    <p className="text-xs uppercase tracking-widest text-muted-foreground opacity-60 font-medium font-['Plus_Jakarta_Sans'] mb-1">Singapore Botanic Gardens</p>
+                    <p className="text-xs uppercase tracking-widest text-muted-foreground/70 font-medium font-['Plus_Jakarta_Sans'] mb-1">Singapore Botanic Gardens</p>
                     <p className="text-2xl font-bold font-['Dela_Gothic_One'] tracking-tight text-[#075D44]">{stats.plantsRecovered}</p>
                   </div>
                   <div>
-                    <p className="text-xs uppercase tracking-widest text-muted-foreground opacity-60 font-medium font-['Plus_Jakarta_Sans'] mb-1">Kew Gardens (UK)</p>
+                    <p className="text-xs uppercase tracking-widest text-muted-foreground/70 font-medium font-['Plus_Jakarta_Sans'] mb-1">Kew Gardens (UK)</p>
                     <div className="flex items-baseline gap-2 text-[#075D44]">
                       <p className="text-2xl font-bold font-['Dela_Gothic_One'] tracking-tight">{stats.incidents}</p>
                     </div>

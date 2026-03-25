@@ -30,7 +30,7 @@ export function CTASection() {
           <h2 className="text-4xl md:text-5xl text-[#075D44] mb-6 tracking-tight">
             Join the Global Conservation Network
           </h2>
-          <p className="text-xl text-[#075D44]/75 mb-10 leading-relaxed font-['Plus_Jakarta_Sans'] max-w-2xl">
+          <p className="text-xl text-[#075D44]/70 mb-10 leading-relaxed font-['Plus_Jakarta_Sans'] max-w-2xl">
             Every day we wait, species move closer to extinction. Partner with Cyanea to
             multiply your conservation impact and save species that would otherwise be lost forever.
           </p>
@@ -52,7 +52,7 @@ export function CTASection() {
             </Button>
           </div>
 
-          <p className="mt-8 text-sm text-[#075D44]/60 font-['Plus_Jakarta_Sans']">
+          <p className="mt-8 text-sm text-[#075D44]/70 font-['Plus_Jakarta_Sans']">
             Used by 76 institutions in 34 countries · Monitoring 847 species · Preventing extinction in real-time
           </p>
         </motion.div>

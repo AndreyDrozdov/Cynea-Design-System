@@ -33,10 +33,10 @@ export function ExtinctionRiskIndicator({
         getRiskColor(risk)
       )}>
         <span className="font-['Plus_Jakarta_Sans'] text-xs">{risk}%</span>
-        <span className="text-[10px] font-['Plus_Jakarta_Sans'] whitespace-nowrap uppercase tracking-widest opacity-80">{getRiskLevel(risk)}</span>
+        <span className="text-[10px] font-['Plus_Jakarta_Sans'] whitespace-nowrap uppercase tracking-widest opacity-70">{getRiskLevel(risk)}</span>
       </div>
       {timeline && (
-        <span className="text-sm text-muted-foreground font-['Plus_Jakarta_Sans']">{timeline}</span>
+        <span className="text-sm text-muted-foreground/70 font-['Plus_Jakarta_Sans']">{timeline}</span>
       )}
     </div>
   );

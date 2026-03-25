@@ -12,7 +12,7 @@ export function RescueStrategyCard({ isVisible = true }: IntelligenceUnitProps) 
         <h4 className="text-xl font-bold font-['Dela_Gothic_One'] tracking-tight text-[#46014f]">
           Rescue Strategy
         </h4>
-        <p className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold font-['Plus_Jakarta_Sans']">
+        <p className="text-[10px] uppercase tracking-wider text-muted-foreground/70 font-bold font-['Plus_Jakarta_Sans']">
           Preservation & Mitigation Protocol
         </p>
       </div>
@@ -22,11 +22,11 @@ export function RescueStrategyCard({ isVisible = true }: IntelligenceUnitProps) 
         </p>
         <div className="space-y-2.5 pt-4">
           <div className="flex justify-between items-center text-xs">
-            <span className="uppercase tracking-widest text-muted-foreground opacity-60 font-bold">Threat Level:</span>
+            <span className="uppercase tracking-widest text-muted-foreground opacity-70 font-bold">Threat Level:</span>
             <span className="font-bold text-[#46014f]">CRITICAL (87%)</span>
           </div>
           <div className="flex justify-between items-center text-xs">
-            <span className="uppercase tracking-widest text-muted-foreground opacity-60 font-bold">Time Window:</span>
+            <span className="uppercase tracking-widest text-muted-foreground opacity-70 font-bold">Time Window:</span>
             <span className="font-bold text-[#151515]">3-5 YEARS</span>
           </div>
         </div>
@@ -42,7 +42,7 @@ export function SystemAnalysisCard({ isVisible = true }: IntelligenceUnitProps) 
         <h4 className="text-xl font-bold font-['Dela_Gothic_One'] tracking-tight text-[#075D44]">
           System Analysis
         </h4>
-        <p className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold font-['Plus_Jakarta_Sans']">
+        <p className="text-[10px] uppercase tracking-wider text-muted-foreground/70 font-bold font-['Plus_Jakarta_Sans']">
           Real-time Risk Telemetry
         </p>
       </div>
@@ -52,11 +52,11 @@ export function SystemAnalysisCard({ isVisible = true }: IntelligenceUnitProps) 
         </p>
         <div className="space-y-2.5 pt-4">
           <div className="flex justify-between items-center text-xs">
-            <span className="uppercase tracking-widest text-muted-foreground opacity-60 font-bold">Confidence:</span>
+            <span className="uppercase tracking-widest text-muted-foreground opacity-70 font-bold">Confidence:</span>
             <span className="font-bold text-[#075D44]">99.4% VERIFIED</span>
           </div>
           <div className="flex justify-between items-center text-xs">
-            <span className="uppercase tracking-widest text-muted-foreground opacity-60 font-bold">Risk verdict:</span>
+            <span className="uppercase tracking-widest text-muted-foreground opacity-70 font-bold">Risk verdict:</span>
             <span className="font-bold text-[#151515]">OPTIMIZED ALERT</span>
           </div>
         </div>
@@ -72,7 +72,7 @@ export function GeneticRescueCard({ isVisible = true }: IntelligenceUnitProps) {
         <h4 className="text-xl font-bold font-['Dela_Gothic_One'] tracking-tight text-[#46014f]">
           Genetic Rescue via Outcrossing
         </h4>
-        <p className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold font-['Plus_Jakarta_Sans']">
+        <p className="text-[10px] uppercase tracking-wider text-muted-foreground/70 font-bold font-['Plus_Jakarta_Sans']">
           Advanced Mitigation Strategy
         </p>
       </div>
@@ -82,19 +82,19 @@ export function GeneticRescueCard({ isVisible = true }: IntelligenceUnitProps) {
         </p>
         <div className="space-y-3 pt-4">
           <div className="flex justify-between items-center text-xs">
-            <span className="text-muted-foreground font-['Plus_Jakarta_Sans']">Expected Alleles Gain:</span>
+            <span className="text-muted-foreground/70 font-['Plus_Jakarta_Sans']">Expected Alleles Gain:</span>
             <span className="font-bold text-[#46014f]">+23 alleles</span>
           </div>
           <div className="flex justify-between items-center text-xs">
-            <span className="text-muted-foreground font-['Plus_Jakarta_Sans']">Diversity Recovery:</span>
+            <span className="text-muted-foreground/70 font-['Plus_Jakarta_Sans']">Diversity Recovery:</span>
             <span className="font-bold text-[#151515]">42 &rarr; 72 (+71%)</span>
           </div>
           <div className="flex justify-between items-center text-xs">
-            <span className="text-muted-foreground font-['Plus_Jakarta_Sans']">Complexity:</span>
+            <span className="text-muted-foreground/70 font-['Plus_Jakarta_Sans']">Complexity:</span>
             <span className="font-bold text-[#151515]">3-institution coordination</span>
           </div>
           <div className="flex justify-between items-center text-xs">
-            <span className="text-muted-foreground font-['Plus_Jakarta_Sans']">Timeline:</span>
+            <span className="text-muted-foreground/70 font-['Plus_Jakarta_Sans']">Timeline:</span>
             <span className="font-bold text-[#151515]">5-year multi-generation program</span>
           </div>
         </div>
