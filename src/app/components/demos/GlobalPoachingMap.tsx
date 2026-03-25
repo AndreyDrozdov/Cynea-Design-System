@@ -99,7 +99,7 @@ export function GlobalPoachingMap({ isVisible = true }: GlobalPoachingMapProps) 
       }}
       initial="hidden"
       animate={isVisible ? "show" : "hidden"}
-      className="space-y-6"
+      className="space-y-4 max-h-screen overflow-hidden"
     >
       {/* Header */}
       <motion.div
@@ -113,7 +113,7 @@ export function GlobalPoachingMap({ isVisible = true }: GlobalPoachingMapProps) 
         <p className="text-muted-foreground">Live AI-driven monitoring of Southeast Asian wildlife corridors</p>
       </motion.div>
 
-      <div className="grid lg:grid-cols-2 gap-6">
+      <div className="grid lg:grid-cols-2 gap-6 max-h-[calc(100vh-140px)] overflow-y-auto pr-2">
         {/* Map Visualization */}
         <div className="space-y-4">
           <motion.div
@@ -124,7 +124,7 @@ export function GlobalPoachingMap({ isVisible = true }: GlobalPoachingMapProps) 
           >
             <Card className="p-0 overflow-hidden relative border-none bg-transparent">
               {/* Simplified World Map Visualization */}
-              <div className="relative w-full bg-[#151515] rounded-3xl overflow-hidden" style={{ height: '400px' }}>
+              <div className="relative w-full bg-[#151515] rounded-3xl overflow-hidden" style={{ height: '320px' }}>
                 <div className="absolute inset-0 grayscale contrast-[1.2] brightness-[0.7] invert-[0.9] hue-rotate-[180deg]">
                   <iframe
                     title="Thailand/Laos Border Map"
@@ -230,12 +230,22 @@ export function GlobalPoachingMap({ isVisible = true }: GlobalPoachingMapProps) 
               show: { opacity: 1, y: 0 },
             }}
           >
-            <Card className="p-6 rounded-3xl overflow-hidden border-2 border-transparent transition-all duration-500">
-              <h3 className="font-semibold mb-6 flex items-center gap-3 font-['Plus_Jakarta_Sans'] text-xl uppercase tracking-wider">
-                <CheckCircle2 className="w-6 h-6 text-primary" />
+            <Card className="p-5 rounded-3xl overflow-hidden border border-transparent transition-all duration-500">
+              <h3 className="text-xl font-bold font-['Dela_Gothic_One'] text-[#151515] mb-6">
                 Recovery Timeline - March 2026
               </h3>
-              <div className="space-y-3">
+              <motion.div 
+                className="space-y-3"
+                variants={{
+                  hidden: { opacity: 0 },
+                  show: {
+                    opacity: 1,
+                    transition: {
+                      staggerChildren: 0.1
+                    }
+                  }
+                }}
+              >
                 {recoveryTimeline.map((item, index) => {
                   const isActive = visibleIncidents[activeIncidentIndex]?.id === item.id;
                   return (
@@ -245,9 +255,9 @@ export function GlobalPoachingMap({ isVisible = true }: GlobalPoachingMapProps) 
                         hidden: { opacity: 0, y: 10 },
                         show: { opacity: 1, y: 0 },
                       }}
-                      className={`flex items-center gap-6 p-4 rounded-2xl transition-all duration-500 text-[#151515] ${isActive ? "bg-[#c0a7ef]/10 scale-[1.01]" : "bg-transparent opacity-60 hover:opacity-100"}`}
+                      className={`flex items-center gap-6 p-4 rounded-2xl border transition-all duration-500 text-[#151515] ${isActive ? "border-[#c0a7ef]/40 bg-transparent scale-[1.01]" : "border-transparent bg-transparent opacity-60 hover:opacity-100"}`}
                     >
-                      <div className="flex-shrink-0 w-28 text-xs font-semibold text-muted-foreground uppercase tracking-tight">
+                      <div className="flex-shrink-0 w-28 text-xs font-semibold text-muted-foreground uppercase">
                         {item.date}
                       </div>
                       <div className="flex-1">
@@ -270,7 +280,7 @@ export function GlobalPoachingMap({ isVisible = true }: GlobalPoachingMapProps) 
                     </motion.div>
                   );
                 })}
-              </div>
+              </motion.div>
             </Card>
           </motion.div>
         </div>
@@ -311,10 +321,10 @@ export function GlobalPoachingMap({ isVisible = true }: GlobalPoachingMapProps) 
                 show: { opacity: 1, y: 0 },
               }}
             >
-              <Card className="p-6 space-y-5 rounded-[32px] border-none bg-[#b091eb]/15 h-full">
+              <Card className="p-5 space-y-4 rounded-[32px] border-none bg-[#b091eb]/15 h-full">
                 <div className="space-y-0.5 border-b border-[#46014f]/10 pb-3">
-                  <h3 className="text-base font-bold font-['Dela_Gothic_One'] tracking-tight text-[#46014f]">
-                    Regional Pulse
+                  <h3 className="text-base font-bold font-['Dela_Gothic_One'] text-[#46014f]">
+                    Most Targeted Species
                   </h3>
                   <p className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold font-['Plus_Jakarta_Sans']">
                     Monthly activity trends
@@ -322,12 +332,12 @@ export function GlobalPoachingMap({ isVisible = true }: GlobalPoachingMapProps) 
                 </div>
                 <div className="space-y-4">
                   <div>
-                    <p className="text-xs uppercase tracking-widest text-muted-foreground opacity-60 font-medium font-['Plus_Jakarta_Sans'] mb-1">Incidents Detected</p>
-                    <p className="text-3xl font-bold font-['Dela_Gothic_One'] text-[#46014f]">{stats.incidents}</p>
+                    <p className="text-xs uppercase tracking-widest text-muted-foreground opacity-60 font-medium font-['Plus_Jakarta_Sans'] mb-1">Rare Orchid</p>
+                    <p className="text-2xl font-bold font-['Dela_Gothic_One'] text-[#46014f]">{stats.incidents}</p>
                   </div>
                   <div>
-                    <p className="text-xs uppercase tracking-widest text-muted-foreground opacity-60 font-medium font-['Plus_Jakarta_Sans'] mb-1">Plants Recovered</p>
-                    <p className="text-3xl font-bold font-['Dela_Gothic_One'] text-[#46014f]">{stats.plantsRecovered}</p>
+                    <p className="text-xs uppercase tracking-widest text-muted-foreground opacity-60 font-medium font-['Plus_Jakarta_Sans'] mb-1">Succulent</p>
+                    <p className="text-2xl font-bold font-['Dela_Gothic_One'] text-[#46014f]">{stats.plantsRecovered}</p>
                   </div>
                 </div>
               </Card>
@@ -339,9 +349,9 @@ export function GlobalPoachingMap({ isVisible = true }: GlobalPoachingMapProps) 
                 show: { opacity: 1, y: 0 },
               }}
             >
-              <Card className="p-6 space-y-5 rounded-[32px] border-none bg-[#075d44]/10 h-full">
+              <Card className="p-5 space-y-4 rounded-[32px] border-none bg-[#075d44]/10 h-full">
                 <div className="space-y-0.5 border-b border-[#075d44]/15 pb-3">
-                  <h3 className="text-base font-bold font-['Dela_Gothic_One'] tracking-tight text-[#075D44]">
+                  <h3 className="text-base font-bold font-['Dela_Gothic_One'] text-[#075D44]">
                     Operational Status
                   </h3>
                   <p className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold font-['Plus_Jakarta_Sans']">
@@ -351,12 +361,12 @@ export function GlobalPoachingMap({ isVisible = true }: GlobalPoachingMapProps) 
                 <div className="space-y-4">
                   <div>
                     <p className="text-xs uppercase tracking-widest text-muted-foreground opacity-60 font-medium font-['Plus_Jakarta_Sans'] mb-1">Legal Actions</p>
-                    <p className="text-3xl font-bold font-['Dela_Gothic_One'] text-[#075D44]">{stats.legalActions}</p>
+                    <p className="text-2xl font-bold font-['Dela_Gothic_One'] text-[#075D44]">{stats.legalActions}</p>
                   </div>
                   <div>
                     <p className="text-xs uppercase tracking-widest text-muted-foreground opacity-60 font-medium font-['Plus_Jakarta_Sans'] mb-1">Success Rate</p>
                     <div className="flex items-baseline gap-2 text-[#075D44]">
-                      <p className="text-3xl font-bold font-['Dela_Gothic_One']">{stats.successRate}%</p>
+                      <p className="text-2xl font-bold font-['Dela_Gothic_One']">{stats.successRate}%</p>
                       <TrendingDown className="w-4 h-4" />
                     </div>
                   </div>

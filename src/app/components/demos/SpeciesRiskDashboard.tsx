@@ -103,7 +103,7 @@ export function SpeciesRiskDashboard({ isVisible = true }: SpeciesRiskDashboardP
       }}
       initial="hidden"
       animate={isVisible ? "show" : "hidden"}
-      className="space-y-6"
+      className="space-y-6 max-h-[calc(100vh-48px)] overflow-hidden"
     >
       {/* Header */}
       <motion.div
@@ -141,7 +141,7 @@ export function SpeciesRiskDashboard({ isVisible = true }: SpeciesRiskDashboardP
             </p>
           </motion.div>
 
-          <div className="space-y-4">
+          <div className="space-y-4 max-h-[calc(100vh-240px)] overflow-y-auto pr-2">
             <AnimatePresence mode="popLayout">
               {visibleSpecies.map((species, index) => (
                 <motion.div
@@ -177,45 +177,7 @@ export function SpeciesRiskDashboard({ isVisible = true }: SpeciesRiskDashboardP
             animate={isVisible ? "show" : "hidden"}
             className="grid grid-cols-1 md:grid-cols-2 gap-4"
           >
-            {/* Top Primary Stats - Green */}
-            <motion.div
-              variants={{
-                hidden: { opacity: 0, y: 20 },
-                show: { opacity: 1, y: 0 },
-              }}
-              className="md:col-span-2"
-            >
-              <Card className="p-6 space-y-5 rounded-[32px] border-none bg-[#D0F17A]/30 h-full">
-                <div className="space-y-0.5 border-b border-[#151515]/10 pb-3 mb-1">
-                  <h3 className="text-xl font-bold font-['Dela_Gothic_One'] tracking-tight text-[#151515]">
-                    Network Statistics
-                  </h3>
-                  <p className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold font-['Plus_Jakarta_Sans']">
-                    Global conservation corridor network
-                  </p>
-                </div>
-                <div className="grid grid-cols-2 gap-y-6 gap-x-4">
-                  <div>
-                    <p className="text-xs uppercase tracking-widest text-muted-foreground opacity-60 font-medium mb-1">Risk Coverage</p>
-                    <p className="text-3xl font-bold text-[#075D44] font-['Dela_Gothic_One']">{stats.totalSpecies}</p>
-                  </div>
-                  <div>
-                    <p className="text-xs uppercase tracking-widest text-muted-foreground opacity-60 font-medium mb-1">Critically Low</p>
-                    <p className="text-3xl font-bold text-[#075D44] font-['Dela_Gothic_One']">{stats.criticalCases}</p>
-                  </div>
-                  <div>
-                    <p className="text-xs uppercase tracking-widest text-muted-foreground opacity-60 font-medium mb-1">Active Labs</p>
-                    <p className="text-3xl font-bold text-[#075D44] font-['Dela_Gothic_One']">{stats.breedingPrograms}</p>
-                  </div>
-                  <div>
-                    <p className="text-xs uppercase tracking-widest text-muted-foreground opacity-60 font-medium mb-1">Institutions</p>
-                    <p className="text-3xl font-bold text-[#075D44] font-['Dela_Gothic_One']">{stats.institutions}</p>
-                  </div>
-                </div>
-              </Card>
-            </motion.div>
-
-            {/* Bottom Left Activity - Purple */}
+            {/* Diagnostics - Now at the Top */}
             <motion.div
               variants={{
                 hidden: { opacity: 0, y: 20 },
@@ -225,7 +187,6 @@ export function SpeciesRiskDashboard({ isVisible = true }: SpeciesRiskDashboardP
               <RescueStrategyCard isVisible={isVisible} />
             </motion.div>
 
-            {/* Bottom Right System Info - Gray */}
             <motion.div
               variants={{
                 hidden: { opacity: 0, y: 20 },
@@ -233,6 +194,44 @@ export function SpeciesRiskDashboard({ isVisible = true }: SpeciesRiskDashboardP
               }}
             >
               <SystemAnalysisCard isVisible={isVisible} />
+            </motion.div>
+
+            {/* Network Statistics - Now below */}
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                show: { opacity: 1, y: 0 },
+              }}
+              className="md:col-span-2"
+            >
+              <Card className="p-6 space-y-5 rounded-[32px] border-none bg-[#D0F17A]/30 h-full">
+                <div className="space-y-0.5 border-b border-[#151515]/10 pb-3 mb-5">
+                  <h3 className="text-base font-bold font-['Dela_Gothic_One'] text-[#151515]">
+                    Network Statistics
+                  </h3>
+                  <p className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold font-['Plus_Jakarta_Sans']">
+                    Global conservation corridor network
+                  </p>
+                </div>
+                  <div className="grid grid-cols-2 gap-y-6 gap-x-4">
+                    <div>
+                      <p className="text-xs text-muted-foreground font-['Plus_Jakarta_Sans'] mb-1">Risk Coverage</p>
+                      <p className="text-2xl font-bold text-[#075D44] font-['Dela_Gothic_One']">{stats.totalSpecies}</p>
+                    </div>
+                    <div>
+                      <p className="text-xs text-muted-foreground font-['Plus_Jakarta_Sans'] mb-1">Critically Low</p>
+                      <p className="text-2xl font-bold text-[#075D44] font-['Dela_Gothic_One']">{stats.criticalCases}</p>
+                    </div>
+                    <div>
+                      <p className="text-xs text-muted-foreground font-['Plus_Jakarta_Sans'] mb-1">Active Labs</p>
+                      <p className="text-2xl font-bold text-[#075D44] font-['Dela_Gothic_One']">{stats.breedingPrograms}</p>
+                    </div>
+                    <div>
+                      <p className="text-xs text-muted-foreground font-['Plus_Jakarta_Sans'] mb-1">Institutions</p>
+                      <p className="text-2xl font-bold text-[#075D44] font-['Dela_Gothic_One']">{stats.institutions}</p>
+                    </div>
+                  </div>
+              </Card>
             </motion.div>
           </motion.div>
         </div>

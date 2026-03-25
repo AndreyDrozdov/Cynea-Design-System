@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { Card } from "../ui/card";
 import { GeneticHealthCard } from "../cyanea/GeneticHealthCard";
 import { BreedingRecommendationCard } from "../cyanea/BreedingRecommendationCard";
-import { RescueStrategyCard, SystemAnalysisCard } from "../cyanea/IntelligenceUnits";
+import { GeneticRescueCard } from "../cyanea/IntelligenceUnits";
 import { motion } from "motion/react";
 import { Dna, TrendingUp } from "lucide-react";
 
@@ -58,14 +58,14 @@ export function GeneticDiversityOptimizer({ isVisible = true }: GeneticDiversity
   }, [isVisible]);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 max-h-[calc(100vh-48px)] overflow-hidden">
       {/* Header */}
       <div className="space-y-2">
         <h2 className="text-3xl font-bold">Genetic Diversity Recovery Optimizer</h2>
         <p className="text-muted-foreground">AI-powered breeding strategy for Middlemist Red Camellia</p>
       </div>
 
-      <div className="grid lg:grid-cols-2 gap-6">
+      <div className="grid lg:grid-cols-2 gap-6 max-h-[calc(100vh-140px)] overflow-y-auto pr-2">
         {/* Left Panel - Current Genetic Status */}
         <div className="space-y-4">
           <motion.div
@@ -204,17 +204,9 @@ export function GeneticDiversityOptimizer({ isVisible = true }: GeneticDiversity
                     hidden: { opacity: 0, y: 20 },
                     show: { opacity: 1, y: 0 },
                   }}
+                  className="md:col-span-2"
                 >
-                  <RescueStrategyCard isVisible={isVisible} />
-                </motion.div>
-
-                <motion.div
-                  variants={{
-                    hidden: { opacity: 0, y: 20 },
-                    show: { opacity: 1, y: 0 },
-                  }}
-                >
-                  <SystemAnalysisCard isVisible={isVisible} />
+                  <GeneticRescueCard isVisible={isVisible} />
                 </motion.div>
               </div>
             ) : (

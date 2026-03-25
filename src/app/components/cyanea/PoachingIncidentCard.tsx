@@ -56,7 +56,7 @@ export function PoachingIncidentCard({
     <Card className={cn("p-5 space-y-4 transition-all rounded-[32px] border-none bg-[#D0F17A]/30 shadow-none", className)}>
       {headerTitle && (
         <div className="space-y-0.5 border-b border-[#075D44]/10 pb-3 mb-1">
-          <h3 className="text-xl font-bold font-['Dela_Gothic_One'] tracking-tight text-[#151515]">
+          <h3 className="text-xl font-bold font-['Dela_Gothic_One'] text-[#151515]">
             {headerTitle}
           </h3>
           {headerSubtitle && (
@@ -71,7 +71,7 @@ export function PoachingIncidentCard({
         <div className="space-y-3 flex-1">
           <div className="flex items-center gap-2">
             <MapPin className="w-3.5 h-3.5 text-[#075D44]" />
-            <span className="font-bold font-['Dela_Gothic_One'] text-sm tracking-tight">{location}</span>
+            <span className="font-bold font-['Dela_Gothic_One'] text-sm">{location}</span>
           </div>
           
           <div className="space-y-1">

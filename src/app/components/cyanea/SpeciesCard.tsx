@@ -2,7 +2,7 @@ import { Card } from "../ui/card";
 import { Button } from "../ui/button";
 import { ExtinctionRiskIndicator } from "./ExtinctionRiskIndicator";
 import { Badge } from "../ui/badge";
-import { Leaf, Users } from "lucide-react";
+import { Leaf } from "lucide-react";
 import { cn } from "../ui/utils";
 
 interface SpeciesCardProps {
@@ -59,8 +59,7 @@ export function SpeciesCard({
 
         <ExtinctionRiskIndicator risk={extinctionRisk} timeline={timeline} />
 
-        <div className="flex items-center gap-2 text-sm font-['Plus_Jakarta_Sans']">
-          <Users className="w-4 h-4 text-muted-foreground" />
+        <div className="flex items-center gap-1 text-sm font-['Plus_Jakarta_Sans']">
           <span className="text-muted-foreground">Wild Population:</span>
           <span className="font-semibold">{wildPopulation}</span>
         </div>
