@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Card } from "../ui/card";
+import { Button } from "../ui/button";
 import { SpeciesCard } from "../cyanea/SpeciesCard";
 import { Activity, Database, Building2, RefreshCw, AlertTriangle } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
@@ -128,7 +129,7 @@ export function SpeciesRiskDashboard({ isVisible = true }: SpeciesRiskDashboardP
 
       <div className="grid lg:grid-cols-2 gap-6">
         {/* Main Content - Species Monitoring (Left) */}
-        <div className="space-y-6">
+        <div className="space-y-3">
           {/* Alert Banner */}
           <motion.div
             variants={{
@@ -157,6 +158,7 @@ export function SpeciesRiskDashboard({ isVisible = true }: SpeciesRiskDashboardP
                   <SpeciesCard 
                     {...species} 
                     className="bg-transparent border-none shadow-none p-0"
+                    imageSize={36}
                   />
                 </motion.div>
               ))}
@@ -208,32 +210,48 @@ export function SpeciesRiskDashboard({ isVisible = true }: SpeciesRiskDashboardP
               className="md:col-span-2"
             >
               <Card className="p-6 space-y-5 rounded-[32px] border-none bg-[#D0F17A]/30 h-full">
-                <div className="space-y-0.5 border-b border-[#151515]/10 pb-3 mb-5">
-                  <h3 className="text-base font-bold font-['Dela_Gothic_One'] text-[#151515]">
-                    Network Statistics
-                  </h3>
-                  <p className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold font-['Plus_Jakarta_Sans']">
-                    Global conservation corridor network
-                  </p>
-                </div>
-                  <div className="grid grid-cols-2 gap-y-6 gap-x-4">
+                <div>
+                  <div className="space-y-0.5 border-b border-[#151515]/10 pb-3 mb-5 flex justify-between items-end">
+                    <div>
+                      <h3 className="text-base font-bold font-['Dela_Gothic_One'] text-[#151515]">
+                        Network Statistics
+                      </h3>
+                      <p className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold font-['Plus_Jakarta_Sans']">
+                        Global conservation corridor network
+                      </p>
+                    </div>
+                    <div className="flex items-center gap-1.5 pb-1">
+                      <div className="w-1.5 h-1.5 bg-[#075D44] rounded-full animate-pulse" />
+                      <span className="text-[10px] uppercase font-bold text-[#075D44] tracking-widest">Live Connect</span>
+                    </div>
+                  </div>
+                  
+                  <div className="grid grid-cols-2 gap-y-6 gap-x-8 mb-6">
                     <div>
                       <p className="text-xs text-muted-foreground font-['Plus_Jakarta_Sans'] mb-1">Risk Coverage</p>
-                      <p className="text-2xl font-bold text-[#075D44] font-['Dela_Gothic_One']">{stats.totalSpecies}</p>
+                      <p className="text-3xl font-bold text-[#075D44] font-['Dela_Gothic_One']">{stats.totalSpecies}</p>
                     </div>
                     <div>
                       <p className="text-xs text-muted-foreground font-['Plus_Jakarta_Sans'] mb-1">Critically Low</p>
-                      <p className="text-2xl font-bold text-[#075D44] font-['Dela_Gothic_One']">{stats.criticalCases}</p>
-                    </div>
-                    <div>
-                      <p className="text-xs text-muted-foreground font-['Plus_Jakarta_Sans'] mb-1">Active Labs</p>
-                      <p className="text-2xl font-bold text-[#075D44] font-['Dela_Gothic_One']">{stats.breedingPrograms}</p>
-                    </div>
-                    <div>
-                      <p className="text-xs text-muted-foreground font-['Plus_Jakarta_Sans'] mb-1">Institutions</p>
-                      <p className="text-2xl font-bold text-[#075D44] font-['Dela_Gothic_One']">{stats.institutions}</p>
+                      <p className="text-3xl font-bold text-[#075D44] font-['Dela_Gothic_One']">{stats.criticalCases}</p>
                     </div>
                   </div>
+
+                  <div className="grid grid-cols-3 gap-6 pt-4 border-t border-[#151515]/5">
+                    <div>
+                      <p className="text-[9px] uppercase tracking-widest text-muted-foreground font-bold mb-1">Active Labs</p>
+                      <p className="text-lg font-bold text-[#151515] font-['Dela_Gothic_One']">{stats.breedingPrograms}</p>
+                    </div>
+                    <div>
+                      <p className="text-[9px] uppercase tracking-widest text-muted-foreground font-bold mb-1">Institutions</p>
+                      <p className="text-lg font-bold text-[#151515] font-['Dela_Gothic_One']">{stats.institutions}</p>
+                    </div>
+                    <div>
+                      <p className="text-[9px] uppercase tracking-widest text-muted-foreground font-bold mb-1">Uptime</p>
+                      <p className="text-lg font-bold text-[#075D44] font-['Dela_Gothic_One']">99.9%</p>
+                    </div>
+                  </div>
+                </div>
               </Card>
             </motion.div>
           </motion.div>

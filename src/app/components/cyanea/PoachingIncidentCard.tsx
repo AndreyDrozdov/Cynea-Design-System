@@ -71,7 +71,7 @@ export function PoachingIncidentCard({
         <div className="space-y-3 flex-1">
           <div className="flex items-center gap-2">
             <MapPin className="w-3.5 h-3.5 text-[#075D44]" />
-            <span className="font-bold font-['Dela_Gothic_One'] text-sm">{location}</span>
+            <span className="font-bold font-['Dela_Gothic_One'] text-base">{location}</span>
           </div>
           
           <div className="space-y-1">

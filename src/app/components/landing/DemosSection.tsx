@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import { SpeciesRiskDashboard } from "../demos/SpeciesRiskDashboard";
 import { GeneticDiversityOptimizer } from "../demos/GeneticDiversityOptimizer";
 import { GlobalPoachingMap } from "../demos/GlobalPoachingMap";
@@ -32,39 +32,84 @@ export function DemosSection() {
         </motion.div>
 
         <Tabs defaultValue="species-risk" className="w-full" onValueChange={setActiveTab}>
-          <TabsList className="flex w-full md:grid md:max-w-2xl md:grid-cols-3 mb-8 h-auto p-1 bg-white rounded-3xl">
-            <TabsTrigger
-              value="species-risk"
-              className="flex items-center justify-center py-3 px-2 md:px-0 rounded-3xl data-[state=active]:bg-[#075D44] data-[state=active]:text-[#E6E8EC] transition-all min-w-0 flex-1 data-[state=active]:flex-[2]"
-            >
-              <div className="text-[10px] md:text-xs font-semibold truncate w-full px-1">Species Risk</div>
-            </TabsTrigger>
-            <TabsTrigger
-              value="genetic"
-              className="flex items-center justify-center py-3 px-2 md:px-0 rounded-3xl data-[state=active]:bg-[#075D44] data-[state=active]:text-[#E6E8EC] transition-all min-w-0 flex-1 data-[state=active]:flex-[2]"
-            >
-              <div className="text-[10px] md:text-xs font-semibold truncate w-full px-1">Genetic Optimizer</div>
-            </TabsTrigger>
-            <TabsTrigger
-              value="poaching"
-              className="flex items-center justify-center py-3 px-2 md:px-0 rounded-3xl data-[state=active]:bg-[#075D44] data-[state=active]:text-[#E6E8EC] transition-all min-w-0 flex-1 data-[state=active]:flex-[2]"
-            >
-              <div className="text-[10px] md:text-xs font-semibold truncate w-full px-1">Poaching Map</div>
-            </TabsTrigger>
+          <TabsList className="relative flex w-full md:grid md:max-w-xl md:grid-cols-3 mb-10 h-auto p-1 bg-white/80 backdrop-blur-md rounded-[24px] border border-white overflow-hidden mx-auto">
+            {["species-risk", "genetic", "poaching"].map((tab) => (
+              <TabsTrigger
+                key={tab}
+                value={tab}
+                className="relative z-10 flex items-center justify-center py-2.5 px-2 md:px-0 rounded-[20px] text-[#151515]/60 data-[state=active]:text-white transition-colors duration-500 min-w-0 flex-1 font-bold"
+              >
+                <span className="relative z-20 text-[10px] md:text-xs uppercase tracking-wider">
+                  {tab === "species-risk" ? "Species Risk" : tab === "genetic" ? "Genetic Optimizer" : "Poaching Map"}
+                </span>
+                
+                {activeTab === tab && (
+                  <motion.div
+                    layoutId="activeTab"
+                    className="absolute inset-x-0.5 inset-y-0.5 bg-[#075D44] rounded-[19px] z-0"
+                    transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                  />
+                )}
+              </TabsTrigger>
+            ))}
           </TabsList>
 
-          <div className="bg-white rounded-3xl p-4 md:p-8 h-[890px] overflow-y-auto relative custom-scrollbar">
-            <TabsContent value="species-risk" forceMount className={cn("mt-0", activeTab !== "species-risk" && "hidden")}>
-              <SpeciesRiskDashboard isVisible={activeTab === "species-risk"} />
-            </TabsContent>
+          <div className="bg-white rounded-[32px] p-4 md:p-10 h-[890px] overflow-y-auto relative custom-scrollbar border border-white">
+            <div className="relative h-full">
+              {/* Species Risk Dashboard */}
+              <motion.div
+                initial={false}
+                animate={{ 
+                  opacity: activeTab === "species-risk" ? 1 : 0,
+                  y: activeTab === "species-risk" ? 0 : 20,
+                  scale: activeTab === "species-risk" ? 1 : 0.98,
+                  pointerEvents: activeTab === "species-risk" ? "auto" : "none"
+                }}
+                transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                className={cn(
+                  "w-full h-full",
+                  activeTab !== "species-risk" && "absolute inset-0 invisible h-0 overflow-hidden"
+                )}
+              >
+                <SpeciesRiskDashboard isVisible={activeTab === "species-risk"} />
+              </motion.div>
 
-            <TabsContent value="genetic" forceMount className={cn("mt-0", activeTab !== "genetic" && "hidden")}>
-              <GeneticDiversityOptimizer isVisible={activeTab === "genetic"} />
-            </TabsContent>
+              {/* Genetic Optimizer */}
+              <motion.div
+                initial={false}
+                animate={{ 
+                  opacity: activeTab === "genetic" ? 1 : 0,
+                  y: activeTab === "genetic" ? 0 : 20,
+                  scale: activeTab === "genetic" ? 1 : 0.98,
+                  pointerEvents: activeTab === "genetic" ? "auto" : "none"
+                }}
+                transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                className={cn(
+                  "w-full h-full",
+                  activeTab !== "genetic" && "absolute inset-0 invisible h-0 overflow-hidden"
+                )}
+              >
+                <GeneticDiversityOptimizer isVisible={activeTab === "genetic"} />
+              </motion.div>
 
-            <TabsContent value="poaching" forceMount className={cn("mt-0", activeTab !== "poaching" && "hidden")}>
-              <GlobalPoachingMap isVisible={activeTab === "poaching"} />
-            </TabsContent>
+              {/* Poaching Map */}
+              <motion.div
+                initial={false}
+                animate={{ 
+                  opacity: activeTab === "poaching" ? 1 : 0,
+                  y: activeTab === "poaching" ? 0 : 20,
+                  scale: activeTab === "poaching" ? 1 : 0.98,
+                  pointerEvents: activeTab === "poaching" ? "auto" : "none"
+                }}
+                transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                className={cn(
+                  "w-full h-full",
+                  activeTab !== "poaching" && "absolute inset-0 invisible h-0 overflow-hidden"
+                )}
+              >
+                <GlobalPoachingMap isVisible={activeTab === "poaching"} />
+              </motion.div>
+            </div>
           </div>
 
           <motion.div

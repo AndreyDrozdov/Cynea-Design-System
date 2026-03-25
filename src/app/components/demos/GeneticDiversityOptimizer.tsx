@@ -61,7 +61,7 @@ export function GeneticDiversityOptimizer({ isVisible = true }: GeneticDiversity
     <div className="space-y-6 max-h-[calc(100vh-48px)] overflow-hidden">
       {/* Header */}
       <div className="space-y-2">
-        <h2 className="text-3xl font-bold">Genetic Diversity Recovery Optimizer</h2>
+        <h2 className="text-3xl font-bold">Genetic Diversity Optimizer</h2>
         <p className="text-muted-foreground">AI-powered breeding strategy for Middlemist Red Camellia</p>
       </div>
 
@@ -134,7 +134,7 @@ export function GeneticDiversityOptimizer({ isVisible = true }: GeneticDiversity
                   <div className="flex justify-between items-center">
                     <span className="text-sm text-muted-foreground">Allele Count</span>
                     <div className="flex items-center gap-2">
-                      <span className="text-[#b091eb] font-semibold">14</span>
+                      <span className="text-[#075d44] font-semibold">14</span>
                       <span className="text-muted-foreground">vs</span>
                       <span className="text-muted-foreground">47 historical</span>
                     </div>
@@ -142,7 +142,7 @@ export function GeneticDiversityOptimizer({ isVisible = true }: GeneticDiversity
                   <div className="flex justify-between items-center">
                     <span className="text-sm text-muted-foreground">Inbreeding</span>
                     <div className="flex items-center gap-2">
-                      <span className="text-[#b091eb] font-semibold">32%</span>
+                      <span className="text-[#075d44] font-semibold">32%</span>
                       <span className="text-muted-foreground">vs</span>
                       <span className="text-muted-foreground">2% historical</span>
                     </div>
@@ -150,7 +150,7 @@ export function GeneticDiversityOptimizer({ isVisible = true }: GeneticDiversity
                   <div className="flex justify-between items-center">
                     <span className="text-sm text-muted-foreground">Effective Pop Size</span>
                     <div className="flex items-center gap-2">
-                      <span className="text-[#b091eb] font-semibold">4 plants</span>
+                      <span className="text-[#075d44] font-semibold">4 plants</span>
                       <span className="text-muted-foreground">vs</span>
                       <span className="text-muted-foreground">200+ historical</span>
                     </div>

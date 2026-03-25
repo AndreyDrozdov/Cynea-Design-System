@@ -20,10 +20,10 @@ interface Incident {
 
 const incidents: Incident[] = [
   {
-    id: "3",
-    location: "Mekong Basin",
-    species: "Medicinal ginger specimens",
-    specimenCount: 203,
+    id: "0",
+    location: "Thailand/Laos Border",
+    species: "Middlemist Red Camellia",
+    specimenCount: 847,
     detectionMethod: "Patrol Drone Auto-Alert",
     status: "recovered",
     date: "March 20, 2026",
@@ -126,17 +126,19 @@ export function GlobalPoachingMap({ isVisible = true }: GlobalPoachingMapProps) 
               {/* Simplified World Map Visualization */}
               <div className="relative w-full bg-[#151515] rounded-3xl overflow-hidden" style={{ height: '320px' }}>
                 <div className="absolute inset-0 grayscale contrast-[1.2] brightness-[0.7] invert-[0.9] hue-rotate-[180deg]">
-                  <iframe
-                    title="Thailand/Laos Border Map"
-                    width="100%"
-                    height="100%"
-                    frameBorder="0"
-                    scrolling="no"
-                    marginHeight={0}
-                    marginWidth={0}
-                    src="https://maps.google.com/maps?q=Mekong%20River%20Thailand%20Laos%20Border&t=k&z=9&ie=UTF8&iwloc=&output=embed"
-                    style={{ border: 0, opacity: 0.6 }}
-                  />
+                  <div className="absolute inset-0 scale-[1.3] pointer-events-none">
+                    <iframe
+                      title="Thailand/Laos Border Map"
+                      width="100%"
+                      height="100%"
+                      frameBorder="0"
+                      scrolling="no"
+                      marginHeight={0}
+                      marginWidth={0}
+                      src="https://maps.google.com/maps?q=Mekong%20River%20Thailand%20Laos%20Border&t=k&z=9&ie=UTF8&iwloc=&output=embed"
+                      style={{ border: 0, opacity: 0.6 }}
+                    />
+                  </div>
                 </div>
 
                 <AnimatePresence>
@@ -202,7 +204,7 @@ export function GlobalPoachingMap({ isVisible = true }: GlobalPoachingMapProps) 
               </div>
 
               {/* Legend */}
-              <div className="mt-4 flex flex-wrap items-center gap-4 text-sm">
+              <div className="mt-4 flex flex-wrap items-center justify-center gap-4 text-sm">
                 <div className="flex items-center gap-2">
                   <div className="w-4 h-4 rounded-full bg-[#b091eb]" />
                   <span>Critical Alert</span>
@@ -331,13 +333,46 @@ export function GlobalPoachingMap({ isVisible = true }: GlobalPoachingMapProps) 
                   </p>
                 </div>
                 <div className="space-y-4">
-                  <div>
-                    <p className="text-xs uppercase tracking-widest text-muted-foreground opacity-60 font-medium font-['Plus_Jakarta_Sans'] mb-1">Rare Orchid</p>
-                    <p className="text-2xl font-bold font-['Dela_Gothic_One'] text-[#46014f]">{stats.incidents}</p>
+                  <div className="flex items-center gap-4">
+                    <div className="flex-shrink-0 w-12 h-12 rounded-full overflow-hidden border border-white/20 aspect-square">
+                      <img 
+                        src="/assets/botanical/slipper_orchid.png" 
+                        alt="Rothschild's Slipper Orchid"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-xs uppercase tracking-widest text-muted-foreground opacity-60 font-medium font-['Plus_Jakarta_Sans'] mb-1 leading-none">
+                        Rothschild's Slipper Orchid
+                      </p>
+                      <div className="flex items-baseline gap-2">
+                        <p className="text-2xl font-bold font-['Dela_Gothic_One'] text-[#46014f] leading-none">
+                          {stats.incidents}
+                        </p>
+                        <span className="text-xs uppercase tracking-widest text-muted-foreground opacity-60 font-medium font-['Plus_Jakarta_Sans']">Incidents</span>
+                      </div>
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-xs uppercase tracking-widest text-muted-foreground opacity-60 font-medium font-['Plus_Jakarta_Sans'] mb-1">Succulent</p>
-                    <p className="text-2xl font-bold font-['Dela_Gothic_One'] text-[#46014f]">{stats.plantsRecovered}</p>
+
+                  <div className="flex items-center gap-4">
+                    <div className="flex-shrink-0 w-12 h-12 rounded-full overflow-hidden border border-white/20 aspect-square">
+                      <img 
+                        src="/assets/botanical/dudleya_farinosa.png" 
+                        alt="Dudleya farinosa"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-xs uppercase tracking-widest text-muted-foreground opacity-60 font-medium font-['Plus_Jakarta_Sans'] mb-1 leading-none">
+                        Dudleya farinosa (Succulent)
+                      </p>
+                      <div className="flex items-baseline gap-2">
+                        <p className="text-2xl font-bold font-['Dela_Gothic_One'] text-[#46014f] leading-none">
+                          {stats.plantsRecovered}
+                        </p>
+                        <span className="text-xs uppercase tracking-widest text-muted-foreground opacity-60 font-medium font-['Plus_Jakarta_Sans']">Incidents</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </Card>
@@ -352,22 +387,21 @@ export function GlobalPoachingMap({ isVisible = true }: GlobalPoachingMapProps) 
               <Card className="p-5 space-y-4 rounded-[32px] border-none bg-[#075d44]/10 h-full">
                 <div className="space-y-0.5 border-b border-[#075d44]/15 pb-3">
                   <h3 className="text-base font-bold font-['Dela_Gothic_One'] text-[#075D44]">
-                    Operational Status
+                    Units Recovered
                   </h3>
                   <p className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold font-['Plus_Jakarta_Sans']">
-                    Regional coordination health
+                    Total specimens secure by source
                   </p>
                 </div>
                 <div className="space-y-4">
                   <div>
-                    <p className="text-xs uppercase tracking-widest text-muted-foreground opacity-60 font-medium font-['Plus_Jakarta_Sans'] mb-1">Legal Actions</p>
-                    <p className="text-2xl font-bold font-['Dela_Gothic_One'] text-[#075D44]">{stats.legalActions}</p>
+                    <p className="text-xs uppercase tracking-widest text-muted-foreground opacity-60 font-medium font-['Plus_Jakarta_Sans'] mb-1">Singapore Botanic Gardens</p>
+                    <p className="text-2xl font-bold font-['Dela_Gothic_One'] text-[#075D44]">{stats.plantsRecovered}</p>
                   </div>
                   <div>
-                    <p className="text-xs uppercase tracking-widest text-muted-foreground opacity-60 font-medium font-['Plus_Jakarta_Sans'] mb-1">Success Rate</p>
+                    <p className="text-xs uppercase tracking-widest text-muted-foreground opacity-60 font-medium font-['Plus_Jakarta_Sans'] mb-1">Kew Gardens (UK)</p>
                     <div className="flex items-baseline gap-2 text-[#075D44]">
-                      <p className="text-2xl font-bold font-['Dela_Gothic_One']">{stats.successRate}%</p>
-                      <TrendingDown className="w-4 h-4" />
+                      <p className="text-2xl font-bold font-['Dela_Gothic_One']">{stats.incidents}</p>
                     </div>
                   </div>
                 </div>

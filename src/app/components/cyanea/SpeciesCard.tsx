@@ -15,6 +15,7 @@ interface SpeciesCardProps {
   status: "critical" | "endangered" | "at-risk" | "stable";
   className?: string;
   imageUrl?: string;
+  imageSize?: 36 | 42;
 }
 
 export function SpeciesCard({
@@ -26,7 +27,8 @@ export function SpeciesCard({
   recommendation,
   status,
   className,
-  imageUrl
+  imageUrl,
+  imageSize = 42
 }: SpeciesCardProps) {
   const statusColors = {
     critical: "bg-[#b091eb]/30 text-[#151515]",
@@ -52,7 +54,10 @@ export function SpeciesCard({
         {/* Content Section - Image Left, Data Right */}
         <div className="flex gap-6 items-start">
           {imageUrl && (
-            <div className="flex-shrink-0 w-36 h-36 rounded-2xl overflow-hidden border border-[#075D44]/5">
+            <div className={cn(
+              "flex-shrink-0 rounded-2xl overflow-hidden border border-[#075D44]/5",
+              imageSize === 36 ? "w-36 h-36" : "w-42 h-42"
+            )}>
               <img 
                 src={imageUrl} 
                 alt={commonName}

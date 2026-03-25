@@ -7,19 +7,19 @@ import { motion, AnimatePresence } from "motion/react";
 
 const plantSlides = [
   {
-    src: "https://images.unsplash.com/photo-1765988757705-0a58ce1481df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-    alt: "Monstera deliciosa",
-    label: "Monstera deliciosa",
+    src: "/assets/botanical/middlemist_red.png",
+    alt: "Middlemist Red Camellia",
+    label: "Middlemist Red Camellia",
   },
   {
-    src: "https://images.unsplash.com/photo-1765988757705-0a58ce1481df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-    alt: "Monstera deliciosa",
-    label: "Monstera deliciosa",
+    src: "/assets/botanical/slipper_orchid.png",
+    alt: "Rothschild's Slipper Orchid",
+    label: "Rothschild's Slipper Orchid",
   },
   {
-    src: "https://images.unsplash.com/photo-1765988757705-0a58ce1481df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-    alt: "Monstera deliciosa",
-    label: "Monstera deliciosa",
+    src: "/assets/botanical/dudleya_farinosa.png",
+    alt: "North Coast Dudleya",
+    label: "North Coast Dudleya",
   },
 ];
 
