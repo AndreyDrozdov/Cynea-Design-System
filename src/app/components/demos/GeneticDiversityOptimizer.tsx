@@ -63,52 +63,87 @@ export function GeneticDiversityOptimizer() {
             Current Population Genetics
           </h3>
 
-          <GeneticHealthCard
-            diversityScore={metrics.diversityScore}
-            inbreedingCoefficient={metrics.inbreedingCoefficient}
-            alleleCount={metrics.alleleCount}
-            historicalAlleleCount={47}
-          />
+          <motion.div
+            variants={{
+              hidden: { opacity: 0 },
+              show: {
+                opacity: 1,
+                transition: {
+                  staggerChildren: 0.1,
+                },
+              },
+            }}
+            initial="hidden"
+            animate="show"
+            className="space-y-4"
+          >
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                show: { opacity: 1, y: 0 },
+              }}
+            >
+              <GeneticHealthCard
+                diversityScore={metrics.diversityScore}
+                inbreedingCoefficient={metrics.inbreedingCoefficient}
+                alleleCount={metrics.alleleCount}
+                historicalAlleleCount={47}
+              />
+            </motion.div>
 
-          <Card className="p-4 border border-[#b091eb]/30 bg-transparent rounded-3xl flex items-start gap-3">
-            <div className="w-3 h-3 bg-[#b091eb] rounded-full animate-pulse flex-shrink-0 mt-1" />
-            <p className="text-sm">
-              Species has lost <strong>70% of genetic diversity</strong> (47 → 14 alleles). 
-              Effective population size is only <strong>4 genetically unique plants</strong>.
-              Immediate genetic rescue required.
-            </p>
-          </Card>
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                show: { opacity: 1, y: 0 },
+              }}
+            >
+              <div className="px-6 py-3 border border-[#b091eb]/30 bg-transparent rounded-full flex items-center gap-4">
+                <div className="w-2.5 h-2.5 bg-[#b091eb] rounded-full animate-pulse flex-shrink-0" />
+                <p className="text-sm font-['Plus_Jakarta_Sans'] leading-tight">
+                  <strong className="font-bold text-[#151515]">Critical Genetic Alert:</strong>
+                  <span className="text-muted-foreground ml-2">Species has lost 70% of genetic diversity (47 → 14 alleles). Effective population size is only 4 genetically unique plants. Immediate genetic rescue required.</span>
+                </p>
+              </div>
+            </motion.div>
 
-          {/* Baseline Comparison */}
-          <Card className="p-5 rounded-3xl">
-            <h4 className="font-semibold mb-3 font-['Dela_Gothic_One']">Historical Baseline Comparison</h4>
-            <div className="space-y-2">
-              <div className="flex justify-between items-center">
-                <span className="text-sm text-muted-foreground">Allele Count</span>
-                <div className="flex items-center gap-2">
-                  <span className="text-[#b091eb] font-semibold">14</span>
-                  <span className="text-muted-foreground">vs</span>
-                  <span className="text-muted-foreground">47 historical</span>
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                show: { opacity: 1, y: 0 },
+              }}
+            >
+              {/* Baseline Comparison */}
+              <Card className="p-5 rounded-3xl">
+                <h4 className="font-semibold mb-3 font-['Dela_Gothic_One']">Historical Baseline Comparison</h4>
+                <div className="space-y-2">
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm text-muted-foreground">Allele Count</span>
+                    <div className="flex items-center gap-2">
+                      <span className="text-[#b091eb] font-semibold">14</span>
+                      <span className="text-muted-foreground">vs</span>
+                      <span className="text-muted-foreground">47 historical</span>
+                    </div>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm text-muted-foreground">Inbreeding</span>
+                    <div className="flex items-center gap-2">
+                      <span className="text-[#b091eb] font-semibold">32%</span>
+                      <span className="text-muted-foreground">vs</span>
+                      <span className="text-muted-foreground">2% historical</span>
+                    </div>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm text-muted-foreground">Effective Pop Size</span>
+                    <div className="flex items-center gap-2">
+                      <span className="text-[#b091eb] font-semibold">4 plants</span>
+                      <span className="text-muted-foreground">vs</span>
+                      <span className="text-muted-foreground">200+ historical</span>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div className="flex justify-between items-center">
-                <span className="text-sm text-muted-foreground">Inbreeding</span>
-                <div className="flex items-center gap-2">
-                  <span className="text-[#b091eb] font-semibold">32%</span>
-                  <span className="text-muted-foreground">vs</span>
-                  <span className="text-muted-foreground">2% historical</span>
-                </div>
-              </div>
-              <div className="flex justify-between items-center">
-                <span className="text-sm text-muted-foreground">Effective Pop Size</span>
-                <div className="flex items-center gap-2">
-                  <span className="text-[#b091eb] font-semibold">4 plants</span>
-                  <span className="text-muted-foreground">vs</span>
-                  <span className="text-muted-foreground">200+ historical</span>
-                </div>
-              </div>
-            </div>
-          </Card>
+              </Card>
+            </motion.div>
+          </motion.div>
         </div>
 
         {/* Right Panel - AI Recommendations */}
@@ -119,11 +154,26 @@ export function GeneticDiversityOptimizer() {
 
           {showRecommendations ? (
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              variants={{
+                hidden: { opacity: 0 },
+                show: {
+                  opacity: 1,
+                  transition: {
+                    staggerChildren: 0.1,
+                  },
+                },
+              }}
+              initial="hidden"
+              animate="show"
               className="grid grid-cols-1 md:grid-cols-2 gap-4"
             >
-              <div className="md:col-span-2">
+              <motion.div
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  show: { opacity: 1, y: 0 },
+                }}
+                className="md:col-span-2"
+              >
                 <BreedingRecommendationCard
                   specimen1="Specimen #47"
                   specimen2="Specimen #19"
@@ -136,10 +186,25 @@ export function GeneticDiversityOptimizer() {
                   timeline="3-year breeding program"
                   className="bg-[#D0F17A]/30"
                 />
-              </div>
+              </motion.div>
 
-              <RescueStrategyCard />
-              <SystemAnalysisCard />
+              <motion.div
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  show: { opacity: 1, y: 0 },
+                }}
+              >
+                <RescueStrategyCard />
+              </motion.div>
+
+              <motion.div
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  show: { opacity: 1, y: 0 },
+                }}
+              >
+                <SystemAnalysisCard />
+              </motion.div>
             </motion.div>
           ) : (
             <Card className="p-8 flex items-center justify-center rounded-3xl">

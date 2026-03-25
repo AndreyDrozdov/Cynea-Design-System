@@ -1,6 +1,7 @@
 import { Dna, TrendingUp, TrendingDown } from "lucide-react";
 import { Card } from "../ui/card";
 import { cn } from "../ui/utils";
+import { motion } from "motion/react";
 
 interface GeneticHealthCardProps {
   diversityScore: number; // 0-100
@@ -71,9 +72,11 @@ export function GeneticHealthCard({
 
       <div className="pt-3">
         <div className="h-2 bg-[#E6E8EC] rounded-full overflow-hidden">
-          <div 
-            className={cn("h-full transition-all duration-500", getScoreBg(diversityScore))}
-            style={{ width: `${diversityScore}%` }}
+          <motion.div 
+            initial={{ width: 0 }}
+            animate={{ width: `${diversityScore}%` }}
+            transition={{ duration: 0.05, ease: "linear" }}
+            className={cn("h-full", getScoreBg(diversityScore))}
           />
         </div>
       </div>
