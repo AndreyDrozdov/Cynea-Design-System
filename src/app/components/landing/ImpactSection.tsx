@@ -106,7 +106,7 @@ function SpeciesCard({ active }: { active: boolean }) {
         const idx = keys.indexOf(prev);
         return keys[(idx + 1) % keys.length];
       });
-    }, 2500);
+    }, 2500); // Reverted to 2.5s for metrics
     return () => clearInterval(interval);
   }, []);
 
@@ -274,7 +274,7 @@ function InstitutionsCard({ active }: { active: boolean }) {
   useEffect(() => {
     const interval = setInterval(() => {
       setMetricIdx((prev) => (prev + 1) % metrics.length);
-    }, 2500);
+    }, 2500); // Reverted to 2.5s for metrics
     return () => clearInterval(interval);
   }, []);
 
@@ -361,7 +361,7 @@ export function ImpactSection() {
   useEffect(() => {
     const timer = setInterval(() => {
       setSlideIndex((prev) => (prev + 1) % impactSlides.length);
-    }, 4000);
+    }, 5000); // 5 seconds for image carousel
     return () => clearInterval(timer);
   }, []);
 

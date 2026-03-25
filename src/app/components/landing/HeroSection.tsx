@@ -29,7 +29,7 @@ export function HeroSection() {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrent((prev) => (prev + 1) % plantSlides.length);
-    }, 4000);
+    }, 5000); // 5 seconds cycle
     return () => clearInterval(timer);
   }, []);
 

@@ -132,21 +132,21 @@ export function ServicesSection() {
               <div className="flex flex-col justify-between h-full border-b border-[#46014f]/10 pb-4 sm:border-0 sm:pb-0">
                 <p className="text-5xl text-[#46014f] font-['Dela_Gothic_One'] tracking-tight leading-none">847</p>
                 <div className="space-y-0.5">
-                  <p className="text-sm text-[#46014f] font-['Plus_Jakarta_Sans'] font-medium">Species monitored around the clock</p>
+                  <p className="text-base text-[#46014f] font-['Plus_Jakarta_Sans'] font-medium">Species Monitored</p>
                   <p className="text-sm text-[#46014f] font-['Plus_Jakarta_Sans'] opacity-70">Real-time detection across 12 corridors</p>
                 </div>
               </div>
               <div className="flex flex-col justify-between h-full border-b border-[#46014f]/10 pb-4 sm:border-0 sm:pb-0">
                 <p className="text-5xl text-[#46014f] font-['Dela_Gothic_One'] tracking-tight leading-none">76</p>
                 <div className="space-y-0.5">
-                  <p className="text-sm text-[#46014f] font-['Plus_Jakarta_Sans'] font-medium">Partner institutions coordinated globally</p>
+                  <p className="text-base text-[#46014f] font-['Plus_Jakarta_Sans'] font-medium">Global Partners</p>
                   <p className="text-sm text-[#46014f] font-['Plus_Jakarta_Sans'] opacity-70">Bridging research with on-ground action</p>
                 </div>
               </div>
               <div className="flex flex-col justify-between h-full">
                 <p className="text-5xl text-[#46014f] font-['Dela_Gothic_One'] tracking-tight leading-none">64%</p>
                 <div className="space-y-0.5">
-                  <p className="text-sm text-[#46014f] font-['Plus_Jakarta_Sans'] font-medium">Poaching prevention success rate</p>
+                  <p className="text-base text-[#46014f] font-['Plus_Jakarta_Sans'] font-medium">Success Rate</p>
                   <p className="text-sm text-[#46014f] font-['Plus_Jakarta_Sans'] opacity-70">Calculated via predictive neural modeling</p>
                 </div>
               </div>

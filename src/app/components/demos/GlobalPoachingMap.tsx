@@ -126,7 +126,7 @@ export function GlobalPoachingMap({ isVisible = true }: GlobalPoachingMapProps) 
               {/* Simplified World Map Visualization */}
               <div className="relative w-full bg-[#151515] rounded-3xl overflow-hidden" style={{ height: '320px' }}>
                 <div className="absolute inset-0 grayscale contrast-[1.2] brightness-[0.7] invert-[0.9] hue-rotate-[180deg]">
-                  <div className="absolute inset-0 scale-[1.3] pointer-events-none">
+                  <div className="absolute -top-16 -left-16 -right-16 -bottom-16 scale-[1.6] pointer-events-none">
                     <iframe
                       title="Thailand/Laos Border Map"
                       width="100%"

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { SpeciesRiskDashboard } from "../demos/SpeciesRiskDashboard";
 import { GeneticDiversityOptimizer } from "../demos/GeneticDiversityOptimizer";
@@ -10,6 +10,20 @@ import { cn } from "../ui/utils";
 
 export function DemosSection() {
   const [activeTab, setActiveTab] = useState("species-risk");
+  
+  useEffect(() => {
+    const tabs = ["species-risk", "genetic", "poaching"];
+    const interval = setInterval(() => {
+      setActiveTab((current) => {
+        const currentIndex = tabs.indexOf(current);
+        const nextIndex = (currentIndex + 1) % tabs.length;
+        return tabs[nextIndex];
+      });
+    }, 2500); // 2.5 seconds (reverted from 5s as per request)
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section id="demos" className="py-20 bg-[#E6E8EC]">
       <div className="container mx-auto px-6">
@@ -23,7 +37,7 @@ export function DemosSection() {
             Live Platform
           </p>
           <h2 className="text-4xl md:text-5xl text-[#151515] tracking-tight">
-            See Cyanea in Action
+            Cyanea in Action
           </h2>
           <p className="text-lg text-[#151515]/60 max-w-3xl mt-3 font-['Plus_Jakarta_Sans']">
             Explore our three autonomous AI-powered conservation systems.
@@ -31,7 +45,7 @@ export function DemosSection() {
           </p>
         </motion.div>
 
-        <Tabs defaultValue="species-risk" className="w-full" onValueChange={setActiveTab}>
+        <Tabs value={activeTab} className="w-full" onValueChange={setActiveTab}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
