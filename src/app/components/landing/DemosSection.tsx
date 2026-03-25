@@ -1,12 +1,15 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "motion/react";
 import { SpeciesRiskDashboard } from "../demos/SpeciesRiskDashboard";
 import { GeneticDiversityOptimizer } from "../demos/GeneticDiversityOptimizer";
 import { GlobalPoachingMap } from "../demos/GlobalPoachingMap";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
+import { cn } from "../ui/utils";
 
 export function DemosSection() {
+  const [activeTab, setActiveTab] = useState("species-risk");
   return (
     <section id="demos" className="py-20 bg-[#E6E8EC]">
       <div className="container mx-auto px-6">
@@ -28,7 +31,7 @@ export function DemosSection() {
           </p>
         </motion.div>
 
-        <Tabs defaultValue="species-risk" className="w-full">
+        <Tabs defaultValue="species-risk" className="w-full" onValueChange={setActiveTab}>
           <TabsList className="flex w-full md:grid md:max-w-2xl md:grid-cols-3 mb-8 h-auto p-1 bg-white rounded-3xl">
             <TabsTrigger
               value="species-risk"
@@ -51,16 +54,16 @@ export function DemosSection() {
           </TabsList>
 
           <div className="bg-white rounded-3xl p-4 md:p-8 h-[890px] overflow-y-auto relative custom-scrollbar">
-            <TabsContent value="species-risk" className="mt-0">
-              <SpeciesRiskDashboard />
+            <TabsContent value="species-risk" forceMount className={cn("mt-0", activeTab !== "species-risk" && "hidden")}>
+              <SpeciesRiskDashboard isVisible={activeTab === "species-risk"} />
             </TabsContent>
 
-            <TabsContent value="genetic" className="mt-0">
-              <GeneticDiversityOptimizer />
+            <TabsContent value="genetic" forceMount className={cn("mt-0", activeTab !== "genetic" && "hidden")}>
+              <GeneticDiversityOptimizer isVisible={activeTab === "genetic"} />
             </TabsContent>
 
-            <TabsContent value="poaching" className="mt-0">
-              <GlobalPoachingMap />
+            <TabsContent value="poaching" forceMount className={cn("mt-0", activeTab !== "poaching" && "hidden")}>
+              <GlobalPoachingMap isVisible={activeTab === "poaching"} />
             </TabsContent>
           </div>
 

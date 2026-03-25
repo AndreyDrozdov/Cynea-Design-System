@@ -14,7 +14,11 @@ interface GeneticMetrics {
   alleleCount: number;
 }
 
-export function GeneticDiversityOptimizer() {
+interface GeneticDiversityOptimizerProps {
+  isVisible?: boolean;
+}
+
+export function GeneticDiversityOptimizer({ isVisible = true }: GeneticDiversityOptimizerProps) {
   const [metrics, setMetrics] = useState<GeneticMetrics>({
     diversityScore: 0,
     inbreedingCoefficient: 0,
@@ -23,6 +27,11 @@ export function GeneticDiversityOptimizer() {
   const [showRecommendations, setShowRecommendations] = useState(true);
 
   useEffect(() => {
+    if (!isVisible) {
+      setMetrics({ diversityScore: 0, inbreedingCoefficient: 0, alleleCount: 0 });
+      return;
+    }
+
     const animateMetrics = async () => {
       const targetMetrics = {
         diversityScore: 42,
@@ -46,7 +55,7 @@ export function GeneticDiversityOptimizer() {
     };
 
     animateMetrics();
-  }, []);
+  }, [isVisible]);
 
   return (
     <div className="space-y-6">
@@ -59,10 +68,6 @@ export function GeneticDiversityOptimizer() {
       <div className="grid lg:grid-cols-2 gap-6">
         {/* Left Panel - Current Genetic Status */}
         <div className="space-y-4">
-          <h3 className="text-xl font-semibold flex items-center gap-2">
-            Current Population Genetics
-          </h3>
-
           <motion.div
             variants={{
               hidden: { opacity: 0 },
@@ -74,9 +79,19 @@ export function GeneticDiversityOptimizer() {
               },
             }}
             initial="hidden"
-            animate="show"
+            animate={isVisible ? "show" : "hidden"}
             className="space-y-4"
           >
+            <motion.h3
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                show: { opacity: 1, y: 0 },
+              }}
+              className="text-xl font-semibold flex items-center gap-2"
+            >
+              Current Population Genetics
+            </motion.h3>
+
             <motion.div
               variants={{
                 hidden: { opacity: 0, y: 20 },
@@ -148,72 +163,87 @@ export function GeneticDiversityOptimizer() {
 
         {/* Right Panel - AI Recommendations */}
         <div className="space-y-4">
-          <h3 className="text-xl font-semibold flex items-center gap-2">
-            Recommended Breeding Pairs
-          </h3>
-
-          {showRecommendations ? (
-            <motion.div
-              variants={{
-                hidden: { opacity: 0 },
-                show: {
-                  opacity: 1,
-                  transition: {
-                    staggerChildren: 0.1,
-                  },
+          <motion.div
+            variants={{
+              hidden: { opacity: 0 },
+              show: {
+                opacity: 1,
+                transition: {
+                  staggerChildren: 0.1,
                 },
+              },
+            }}
+            initial="hidden"
+            animate={isVisible ? "show" : "hidden"}
+            className="space-y-4"
+          >
+            <motion.h3
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                show: { opacity: 1, y: 0 },
               }}
-              initial="hidden"
-              animate="show"
-              className="grid grid-cols-1 md:grid-cols-2 gap-4"
+              className="text-xl font-semibold flex items-center gap-2"
             >
-              <motion.div
-                variants={{
-                  hidden: { opacity: 0, y: 20 },
-                  show: { opacity: 1, y: 0 },
-                }}
-                className="md:col-span-2"
-              >
-                <BreedingRecommendationCard
-                  specimen1="Specimen #47"
-                  specimen2="Specimen #19"
-                  institution1="Singapore Botanic Gardens"
-                  institution2="Sydney Royal Botanic Garden"
-                  allelesGain={18}
-                  diversityImprovement={{ from: 42, to: 58, percentage: 38 }}
-                  inbreedingReduction={{ from: 32, to: 24 }}
-                  successProbability={94}
-                  timeline="3-year breeding program"
-                  className="bg-[#D0F17A]/30"
-                />
-              </motion.div>
+              Recommended Breeding Pairs
+            </motion.h3>
 
-              <motion.div
-                variants={{
-                  hidden: { opacity: 0, y: 20 },
-                  show: { opacity: 1, y: 0 },
-                }}
-              >
-                <RescueStrategyCard />
-              </motion.div>
+            {showRecommendations ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <motion.div
+                  variants={{
+                    hidden: { opacity: 0, y: 20 },
+                    show: { opacity: 1, y: 0 },
+                  }}
+                  className="md:col-span-2"
+                >
+                  <BreedingRecommendationCard
+                    specimen1="Specimen #47"
+                    specimen2="Specimen #19"
+                    institution1="Singapore Botanic Gardens"
+                    institution2="Sydney Royal Botanic Garden"
+                    allelesGain={18}
+                    diversityImprovement={{ from: 42, to: 58, percentage: 38 }}
+                    inbreedingReduction={{ from: 32, to: 24 }}
+                    successProbability={94}
+                    timeline="3-year breeding program"
+                    className="bg-[#D0F17A]/30"
+                  />
+                </motion.div>
 
-              <motion.div
-                variants={{
-                  hidden: { opacity: 0, y: 20 },
-                  show: { opacity: 1, y: 0 },
-                }}
-              >
-                <SystemAnalysisCard />
-              </motion.div>
-            </motion.div>
-          ) : (
-            <Card className="p-8 flex items-center justify-center rounded-3xl">
-              <div className="text-center space-y-2">
-                <Dna className="w-8 h-8 text-primary mx-auto animate-pulse" />
-                <p className="text-muted-foreground">Analyzing breeding combinations...</p>
+                <motion.div
+                  variants={{
+                    hidden: { opacity: 0, y: 20 },
+                    show: { opacity: 1, y: 0 },
+                  }}
+                >
+                  <RescueStrategyCard isVisible={isVisible} />
+                </motion.div>
+
+                <motion.div
+                  variants={{
+                    hidden: { opacity: 0, y: 20 },
+                    show: { opacity: 1, y: 0 },
+                  }}
+                >
+                  <SystemAnalysisCard isVisible={isVisible} />
+                </motion.div>
               </div>
-            </Card>
-          )}
+            ) : (
+              <motion.div
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  show: { opacity: 1, y: 0 },
+                }}
+              >
+                <Card className="p-8 flex items-center justify-center rounded-3xl">
+                  <div className="text-center space-y-2">
+                    <Dna className="w-8 h-8 text-primary mx-auto animate-pulse" />
+                    <p className="text-muted-foreground">Analyzing breeding combinations...</p>
+                  </div>
+                </Card>
+              </motion.div>
+            )}
+          </motion.div>
         </div>
       </div>
     </div>

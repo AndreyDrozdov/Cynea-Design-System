@@ -49,7 +49,11 @@ const networkActivity = [
   "Berlin-Dahlem Botanical Garden - Propagation successful",
 ];
 
-export function SpeciesRiskDashboard() {
+interface SpeciesRiskDashboardProps {
+  isVisible?: boolean;
+}
+
+export function SpeciesRiskDashboard({ isVisible = true }: SpeciesRiskDashboardProps) {
   const [criticalCount, setCriticalCount] = useState(4);
   const [visibleSpecies, setVisibleSpecies] = useState<SpeciesData[]>(speciesData);
   const [stats, setStats] = useState({
@@ -64,8 +68,9 @@ export function SpeciesRiskDashboard() {
 
   useEffect(() => {
     setMounted(true);
+    if (!isVisible) return;
     let isMounted = true;
-
+    
     const activityInterval = setInterval(() => {
       const randomActivity = networkActivity[Math.floor(Math.random() * networkActivity.length)];
       const timeAgo = `${Math.floor(Math.random() * 12) + 1} hours ago`;
@@ -83,12 +88,31 @@ export function SpeciesRiskDashboard() {
       clearInterval(activityInterval);
       clearInterval(refreshInterval);
     };
-  }, []);
+  }, [isVisible]);
 
   return (
-    <div className="space-y-6">
+    <motion.div
+      variants={{
+        hidden: { opacity: 0 },
+        show: {
+          opacity: 1,
+          transition: {
+            staggerChildren: 0.1,
+          },
+        },
+      }}
+      initial="hidden"
+      animate={isVisible ? "show" : "hidden"}
+      className="space-y-6"
+    >
       {/* Header */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <motion.div
+        variants={{
+          hidden: { opacity: 0, y: 20 },
+          show: { opacity: 1, y: 0 },
+        }}
+        className="flex flex-col md:flex-row md:items-center justify-between gap-4"
+      >
         <div className="space-y-2">
           <h2 className="text-2xl md:text-3xl font-bold">Species Risk Dashboard</h2>
           <p className="text-muted-foreground text-sm md:text-base">Real-time extinction risk monitoring</p>
@@ -97,24 +121,24 @@ export function SpeciesRiskDashboard() {
           <RefreshCw className="w-4 h-4 animate-spin" />
           <span>Last updated: {mounted ? lastUpdate.toLocaleTimeString() : "Loading..."}</span>
         </div>
-      </div>
+      </motion.div>
 
       <div className="grid lg:grid-cols-2 gap-6">
         {/* Main Content - Species Monitoring (Left) */}
         <div className="space-y-6">
           {/* Alert Banner */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.98 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="p-4 border border-[#c0a7ef]/30 bg-transparent rounded-3xl"
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              show: { opacity: 1, y: 0 },
+            }}
+            className="px-6 py-3 border border-[#c0a7ef]/30 bg-transparent rounded-full flex items-center gap-4"
           >
-            <div className="flex items-center gap-3">
-              <div className="w-2.5 h-2.5 bg-[#c0a7ef] rounded-full animate-pulse flex-shrink-0" />
-              <p className="text-sm font-['Plus_Jakarta_Sans'] leading-tight">
-                <strong className="font-bold text-[#151515]">4 Species at Critical Risk:</strong>
-                <span className="text-muted-foreground ml-1.5">Immediate intervention required to prevent extinction</span>
-              </p>
-            </div>
+            <div className="w-2.5 h-2.5 bg-[#c0a7ef] rounded-full animate-pulse flex-shrink-0" />
+            <p className="text-sm font-['Plus_Jakarta_Sans'] leading-tight">
+              <strong className="font-bold text-[#151515]">4 Species at Critical Risk:</strong>
+              <span className="text-muted-foreground ml-2">Immediate intervention required to prevent extinction</span>
+            </p>
           </motion.div>
 
           <div className="space-y-4">
@@ -122,9 +146,10 @@ export function SpeciesRiskDashboard() {
               {visibleSpecies.map((species, index) => (
                 <motion.div
                   key={species.id}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
+                  variants={{
+                    hidden: { opacity: 0, y: 20 },
+                    show: { opacity: 1, y: 0 },
+                  }}
                 >
                   <SpeciesCard 
                     {...species} 
@@ -139,12 +164,27 @@ export function SpeciesRiskDashboard() {
         {/* Intelligence Grid - Bento Layout (Right) */}
         <div className="space-y-4">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            variants={{
+              hidden: { opacity: 0 },
+              show: {
+                opacity: 1,
+                transition: {
+                  staggerChildren: 0.1,
+                },
+              },
+            }}
+            initial="hidden"
+            animate={isVisible ? "show" : "hidden"}
             className="grid grid-cols-1 md:grid-cols-2 gap-4"
           >
             {/* Top Primary Stats - Green */}
-            <div className="md:col-span-2">
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                show: { opacity: 1, y: 0 },
+              }}
+              className="md:col-span-2"
+            >
               <Card className="p-6 space-y-5 rounded-[32px] border-none bg-[#D0F17A]/30 h-full">
                 <h3 className="text-xl font-bold font-['Dela_Gothic_One'] tracking-tight text-[#151515]">
                   Network Pulse
@@ -168,16 +208,30 @@ export function SpeciesRiskDashboard() {
                   </div>
                 </div>
               </Card>
-            </div>
+            </motion.div>
 
             {/* Bottom Left Activity - Purple */}
-            <RescueStrategyCard />
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                show: { opacity: 1, y: 0 },
+              }}
+            >
+              <RescueStrategyCard isVisible={isVisible} />
+            </motion.div>
 
             {/* Bottom Right System Info - Gray */}
-            <SystemAnalysisCard />
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                show: { opacity: 1, y: 0 },
+              }}
+            >
+              <SystemAnalysisCard isVisible={isVisible} />
+            </motion.div>
           </motion.div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

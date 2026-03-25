@@ -43,30 +43,28 @@ const incidents: Incident[] = [
 
 const recoveryTimeline: Incident[] = incidents;
 
-export function GlobalPoachingMap() {
+interface GlobalPoachingMapProps {
+  isVisible?: boolean;
+}
+
+export function GlobalPoachingMap({ isVisible = true }: GlobalPoachingMapProps) {
   const [visibleIncidents, setVisibleIncidents] = useState<Incident[]>([]);
   const [stats, setStats] = useState({
-    incidents: 0,
-    plantsRecovered: 0,
-    legalActions: 0,
-    successRate: 0
+    incidents: 18,
+    plantsRecovered: 847,
+    legalActions: 12,
+    successRate: 64
   });
   const [selectedIncident, setSelectedIncident] = useState<Incident | null>(null);
   const [activeIncidentIndex, setActiveIncidentIndex] = useState(0);
 
   useEffect(() => {
-    // Set initial data and select first incident
+    if (!isVisible) return;
+
+    // Reset and select first incident
     setVisibleIncidents(incidents);
     setSelectedIncident(incidents[0]);
-
-    // Set statistics immediately (no animation)
-    setStats({
-      incidents: 18,
-      plantsRecovered: 847,
-      legalActions: 12,
-      successRate: 64
-    });
-  }, []);
+  }, [isVisible]);
 
   const getStatusColor = (status: string) => {
     switch (status) {
@@ -89,179 +87,216 @@ export function GlobalPoachingMap() {
   };
 
   return (
-    <div className="space-y-6">
+    <motion.div
+      variants={{
+        hidden: { opacity: 0 },
+        show: {
+          opacity: 1,
+          transition: {
+            staggerChildren: 0.1,
+          },
+        },
+      }}
+      initial="hidden"
+      animate={isVisible ? "show" : "hidden"}
+      className="space-y-6"
+    >
       {/* Header */}
-      <div className="space-y-2">
+      <motion.div
+        variants={{
+          hidden: { opacity: 0, y: 20 },
+          show: { opacity: 1, y: 0 },
+        }}
+        className="space-y-2"
+      >
         <h2 className="text-3xl font-bold">Regional Poaching Detection</h2>
         <p className="text-muted-foreground">Live AI-driven monitoring of Southeast Asian wildlife corridors</p>
-      </div>
+      </motion.div>
 
-      <div className="grid lg:grid-cols-3 gap-6">
+      <div className="grid lg:grid-cols-2 gap-6">
         {/* Map Visualization */}
-        <div className="lg:col-span-2 space-y-4">
-          <Card className="p-0 overflow-hidden relative border-none bg-transparent">
+        <div className="space-y-4">
+          <motion.div
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              show: { opacity: 1, y: 0 },
+            }}
+          >
+            <Card className="p-0 overflow-hidden relative border-none bg-transparent">
+              {/* Simplified World Map Visualization */}
+              <div className="relative w-full bg-[#151515] rounded-3xl overflow-hidden" style={{ height: '400px' }}>
+                <div className="absolute inset-0 grayscale contrast-[1.2] brightness-[0.7] invert-[0.9] hue-rotate-[180deg]">
+                  <iframe
+                    title="Thailand/Laos Border Map"
+                    width="100%"
+                    height="100%"
+                    frameBorder="0"
+                    scrolling="no"
+                    marginHeight={0}
+                    marginWidth={0}
+                    src="https://maps.google.com/maps?q=Mekong%20River%20Thailand%20Laos%20Border&t=k&z=9&ie=UTF8&iwloc=&output=embed"
+                    style={{ border: 0, opacity: 0.6 }}
+                  />
+                </div>
 
-            {/* Simplified World Map Visualization */}
-            <div className="relative w-full bg-[#151515] rounded-3xl overflow-hidden" style={{ height: '400px' }}>
-              {/* Interactive Google Map Background */}
-              <div className="absolute inset-0 grayscale contrast-[1.2] brightness-[0.7] invert-[0.9] hue-rotate-[180deg]">
-                <iframe
-                  title="Thailand/Laos Border Map"
-                  width="100%"
-                  height="100%"
-                  frameBorder="0"
-                  scrolling="no"
-                  marginHeight={0}
-                  marginWidth={0}
-                  src="https://maps.google.com/maps?q=Mekong%20River%20Thailand%20Laos%20Border&t=k&z=9&ie=UTF8&iwloc=&output=embed"
-                  style={{ border: 0, opacity: 0.6 }}
-                />
+                <AnimatePresence>
+                  {visibleIncidents.map((incident, index) => {
+                    const isActive = activeIncidentIndex === index;
+                    return (
+                      <motion.div
+                        key={incident.id}
+                        initial={{ scale: 0, opacity: 0 }}
+                        animate={{ 
+                          scale: isActive ? 1.2 : 1, 
+                          opacity: 1,
+                          zIndex: isActive ? 50 : 10
+                        }}
+                        transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                        className="absolute cursor-pointer"
+                        style={{ 
+                          left: `${incident.coordinates.x}%`, 
+                          top: `${incident.coordinates.y}%`,
+                          transform: 'translate(-50%, -50%)'
+                        }}
+                        onClick={() => {
+                          setActiveIncidentIndex(index);
+                        }}
+                      >
+                        <motion.div
+                          animate={isActive ? { 
+                            opacity: [0.6, 1, 0.6]
+                          } : {}}
+                          transition={{ duration: 2, repeat: Infinity }}
+                          className="relative"
+                        >
+                          <div 
+                            className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-500"
+                            style={{ 
+                              backgroundColor: getStatusColor(incident.status),
+                              border: isActive ? '4px solid white' : '2px solid white',
+                              transform: isActive ? 'scale(1.1)' : 'scale(1)'
+                            }}
+                          >
+                            <span style={{ color: getStatusTextColor(incident.status) }} className="text-sm font-bold">
+                              {incident.specimenCount}
+                            </span>
+                          </div>
+                          <motion.div
+                            animate={{ 
+                              scale: [1, 2.8],
+                              opacity: isActive ? [0.6, 0] : [0.3, 0]
+                            }}
+                            transition={{ 
+                              duration: 2.5, 
+                              repeat: Infinity,
+                              ease: "easeOut"
+                            }}
+                            className="absolute inset-0 rounded-full"
+                            style={{ backgroundColor: getStatusColor(incident.status) }}
+                          />
+                        </motion.div>
+                      </motion.div>
+                    );
+                  })}
+                </AnimatePresence>
               </div>
 
-              {/* Incident Markers */}
-              <AnimatePresence>
-                {visibleIncidents.map((incident, index) => {
-                  const isActive = activeIncidentIndex === index;
+              {/* Legend */}
+              <div className="mt-4 flex flex-wrap items-center gap-4 text-sm">
+                <div className="flex items-center gap-2">
+                  <div className="w-4 h-4 rounded-full bg-[#b091eb]" />
+                  <span>Critical Alert</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-4 h-4 rounded-full bg-[#075D44]" />
+                  <span>In Progress</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-4 h-4 rounded-full bg-[#D0F17A]" />
+                  <span>Recovered</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-4 h-4 rounded-full bg-[#94a3b8]" />
+                  <span>Intercepted</span>
+                </div>
+              </div>
+            </Card>
+          </motion.div>
+
+          {/* Recovery Timeline */}
+          <motion.div
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              show: { opacity: 1, y: 0 },
+            }}
+          >
+            <Card className="p-6 rounded-3xl overflow-hidden border-2 border-transparent transition-all duration-500">
+              <h3 className="font-semibold mb-6 flex items-center gap-3 font-['Plus_Jakarta_Sans'] text-xl uppercase tracking-wider">
+                <CheckCircle2 className="w-6 h-6 text-primary" />
+                Recovery Timeline - March 2026
+              </h3>
+              <div className="space-y-3">
+                {recoveryTimeline.map((item, index) => {
+                  const isActive = visibleIncidents[activeIncidentIndex]?.id === item.id;
                   return (
                     <motion.div
-                      key={incident.id}
-                      initial={{ scale: 0, opacity: 0 }}
-                      animate={{ 
-                        scale: isActive ? 1.2 : 1, 
-                        opacity: 1,
-                        zIndex: isActive ? 50 : 10
+                      key={index}
+                      variants={{
+                        hidden: { opacity: 0, y: 10 },
+                        show: { opacity: 1, y: 0 },
                       }}
-                      transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                      className="absolute cursor-pointer"
-                      style={{ 
-                        left: `${incident.coordinates.x}%`, 
-                        top: `${incident.coordinates.y}%`,
-                        transform: 'translate(-50%, -50%)'
-                      }}
-                      onClick={() => {
-                        setActiveIncidentIndex(index);
-                      }}
+                      className={`flex items-center gap-6 p-4 rounded-2xl transition-all duration-500 text-[#151515] ${isActive ? "bg-[#c0a7ef]/10 scale-[1.01]" : "bg-transparent opacity-60 hover:opacity-100"}`}
                     >
-                      <motion.div
-                        animate={isActive ? { 
-                          opacity: [0.6, 1, 0.6]
-                        } : {}}
-                        transition={{ duration: 2, repeat: Infinity }}
-                        className="relative"
-                      >
-                        <div 
-                          className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-500"
-                          style={{ 
-                            backgroundColor: getStatusColor(incident.status),
-                            border: isActive ? '4px solid white' : '2px solid white',
-                            transform: isActive ? 'scale(1.1)' : 'scale(1)'
-                          }}
-                        >
-                          <span style={{ color: getStatusTextColor(incident.status) }} className="text-sm font-bold">
-                            {incident.specimenCount}
-                          </span>
-                        </div>
-                        
-                        {/* Pulse effect */}
+                      <div className="flex-shrink-0 w-28 text-xs font-semibold text-muted-foreground uppercase tracking-tight">
+                        {item.date}
+                      </div>
+                      <div className="flex-1">
+                        <p className={`font-bold text-base mb-0.5 transition-colors ${isActive ? "text-[#151515]" : "text-muted-foreground"}`}>
+                          {item.species}
+                        </p>
+                        <p className="text-sm text-muted-foreground/80">{item.location}</p>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <span className="text-[10px] font-bold uppercase tracking-widest opacity-40 px-2 py-1 rounded bg-black/5">
+                          {item.status}
+                        </span>
                         <motion.div
-                          animate={{ 
-                            scale: [1, 2.8],
-                            opacity: isActive ? [0.6, 0] : [0.3, 0]
-                          }}
-                          transition={{ 
-                            duration: 2.5, 
-                            repeat: Infinity,
-                            ease: "easeOut"
-                          }}
-                          className="absolute inset-0 rounded-full"
-                          style={{ backgroundColor: getStatusColor(incident.status) }}
-                        />
-                      </motion.div>
+                          animate={isActive ? { scale: [0.8, 1.2, 0.8] } : { scale: 1 }}
+                          transition={isActive ? { duration: 1.5, repeat: Infinity } : { duration: 0.2 }}
+                        >
+                          <div className={`w-2 h-2 rounded-full ${isActive ? 'bg-[#b091eb]' : 'bg-[#b091eb]/30'}`} />
+                        </motion.div>
+                      </div>
                     </motion.div>
                   );
                 })}
-              </AnimatePresence>
-            </div>
-
-            {/* Legend */}
-            <div className="mt-4 flex flex-wrap items-center gap-4 text-sm">
-              <div className="flex items-center gap-2">
-                <div className="w-4 h-4 rounded-full bg-[#b091eb]" />
-                <span>Critical Alert</span>
               </div>
-              <div className="flex items-center gap-2">
-                <div className="w-4 h-4 rounded-full bg-[#075D44]" />
-                <span>In Progress</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-4 h-4 rounded-full bg-[#D0F17A]" />
-                <span>Recovered</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-4 h-4 rounded-full bg-[#94a3b8]" />
-                <span>Intercepted</span>
-              </div>
-            </div>
-          </Card>
-
-          {/* Recovery Timeline */}
-          <Card className="p-6 rounded-3xl overflow-hidden border-2 border-transparent transition-all duration-500">
-            <h3 className="font-semibold mb-6 flex items-center gap-3 font-['Plus_Jakarta_Sans'] text-xl uppercase tracking-wider">
-              <CheckCircle2 className="w-6 h-6 text-primary" />
-              Recovery Timeline - March 2026
-            </h3>
-            <div className="space-y-3">
-              {recoveryTimeline.map((item, index) => {
-                const isActive = visibleIncidents[activeIncidentIndex]?.id === item.id;
-                return (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ 
-                      opacity: 1, 
-                      y: 0,
-                      backgroundColor: isActive ? "rgba(176, 145, 235, 0.08)" : "transparent",
-                      borderColor: isActive ? "rgba(176, 145, 235, 0.2)" : "transparent"
-                    }}
-                    className={`flex items-center gap-6 p-4 rounded-2xl transition-all duration-500 text-[#151515] ${isActive ? "bg-[#c0a7ef]/10 scale-[1.01]" : "bg-transparent opacity-60 hover:opacity-100"}`}
-                  >
-                    <div className="flex-shrink-0 w-28 text-xs font-semibold text-muted-foreground uppercase tracking-tight">
-                      {item.date}
-                    </div>
-                    <div className="flex-1">
-                      <p className={`font-bold text-base mb-0.5 transition-colors ${isActive ? "text-[#151515]" : "text-muted-foreground"}`}>
-                        {item.species}
-                      </p>
-                      <p className="text-sm text-muted-foreground/80">{item.location}</p>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <span className="text-[10px] font-bold uppercase tracking-widest opacity-40 px-2 py-1 rounded bg-black/5">
-                        {item.status}
-                      </span>
-                      <motion.div
-                        animate={isActive ? { scale: [0.8, 1.2, 0.8] } : { scale: 1 }}
-                        transition={isActive ? { duration: 1.5, repeat: Infinity } : { duration: 0.2 }}
-                      >
-                        <div className={`w-2 h-2 rounded-full ${isActive ? 'bg-[#b091eb]' : 'bg-[#b091eb]/30'}`} />
-                      </motion.div>
-                    </div>
-                  </motion.div>
-                );
-              })}
-            </div>
-          </Card>
+            </Card>
+          </motion.div>
         </div>
 
         <div className="space-y-4">
-          <div className="flex items-center justify-between gap-3">
+          <motion.div
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              show: { opacity: 1, y: 0 },
+            }}
+            className="flex items-center justify-between gap-3"
+          >
             <h3 className="text-xl font-semibold font-['Dela_Gothic_One'] tracking-tight">Active Incidents</h3>
             <div className="flex items-center gap-1.5 px-2 py-1 bg-[#b091eb]/5 border border-[#b091eb]/20 rounded-full">
               <Activity className="w-3 h-3 animate-pulse text-[#b091eb]" />
               <span className="text-[10px] uppercase tracking-widest font-bold text-[#b091eb]">Live</span>
             </div>
-          </div>
+          </motion.div>
           {/* Incident Detail (Dynamic) */}
-          <div className="relative min-h-[220px]">
+          <motion.div
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              show: { opacity: 1, y: 0 },
+            }}
+            className="relative min-h-[220px]"
+          >
             <AnimatePresence mode="wait">
               {selectedIncident && (
                 <motion.div
@@ -275,38 +310,45 @@ export function GlobalPoachingMap() {
                 </motion.div>
               )}
             </AnimatePresence>
-          </div>
+          </motion.div>
 
           {/* Monthly Statistics */}
-          <Card className="p-5 space-y-4 rounded-3xl">
-            <div className="space-y-4">
-              <div>
-                <p className="text-sm text-muted-foreground mb-1">Incidents Detected</p>
-                <p className="text-3xl font-bold text-[#075D44] font-['Dela_Gothic_One']">{stats.incidents}</p>
-              </div>
-              
-              <div>
-                <p className="text-sm text-muted-foreground mb-1">Plants Recovered</p>
-                <p className="text-3xl font-bold text-[#075D44] font-['Dela_Gothic_One']">{stats.plantsRecovered}</p>
-              </div>
-              
-              <div>
-                <p className="text-sm text-muted-foreground mb-1">Legal Actions</p>
-                <p className="text-3xl font-bold text-[#075D44] font-['Dela_Gothic_One']">{stats.legalActions}</p>
-              </div>
-              
-              <div>
-                <p className="text-sm text-muted-foreground mb-1">Success Rate</p>
-                <div className="flex items-baseline gap-2">
-                  <p className="text-3xl font-bold text-[#075D44] font-['Dela_Gothic_One']">{stats.successRate}%</p>
-                  <TrendingDown className="w-5 h-5 text-[#075D44]" />
+          <motion.div
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              show: { opacity: 1, y: 0 },
+            }}
+          >
+            <Card className="p-5 space-y-4 rounded-3xl">
+              <div className="space-y-4">
+                <div>
+                  <p className="text-sm text-muted-foreground mb-1">Incidents Detected</p>
+                  <p className="text-3xl font-bold text-[#075D44] font-['Dela_Gothic_One']">{stats.incidents}</p>
                 </div>
-                <p className="text-xs text-muted-foreground mt-1">Poaching declining month-over-month</p>
+                
+                <div>
+                  <p className="text-sm text-muted-foreground mb-1">Plants Recovered</p>
+                  <p className="text-3xl font-bold text-[#075D44] font-['Dela_Gothic_One']">{stats.plantsRecovered}</p>
+                </div>
+                
+                <div>
+                  <p className="text-sm text-muted-foreground mb-1">Legal Actions</p>
+                  <p className="text-3xl font-bold text-[#075D44] font-['Dela_Gothic_One']">{stats.legalActions}</p>
+                </div>
+                
+                <div>
+                  <p className="text-sm text-muted-foreground mb-1">Success Rate</p>
+                  <div className="flex items-baseline gap-2">
+                    <p className="text-3xl font-bold text-[#075D44] font-['Dela_Gothic_One']">{stats.successRate}%</p>
+                    <TrendingDown className="w-5 h-5 text-[#075D44]" />
+                  </div>
+                  <p className="text-xs text-muted-foreground mt-1">Poaching declining month-over-month</p>
+                </div>
               </div>
-            </div>
-          </Card>
+            </Card>
+          </motion.div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

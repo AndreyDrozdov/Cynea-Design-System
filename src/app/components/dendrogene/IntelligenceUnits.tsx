@@ -1,8 +1,11 @@
-"use client";
-
+import { useEffect, useState } from "react";
 import { Card } from "../ui/card";
 
-export function RescueStrategyCard() {
+interface IntelligenceUnitProps {
+  isVisible?: boolean;
+}
+
+export function RescueStrategyCard({ isVisible = true }: IntelligenceUnitProps) {
   return (
     <Card className="p-5 space-y-4 rounded-[32px] border-none bg-[#b091eb]/15 h-full">
       <h4 className="text-base font-medium font-['Dela_Gothic_One'] tracking-tight text-[#46014f]">
@@ -27,7 +30,7 @@ export function RescueStrategyCard() {
   );
 }
 
-export function SystemAnalysisCard() {
+export function SystemAnalysisCard({ isVisible = true }: IntelligenceUnitProps) {
   return (
     <Card className="p-5 space-y-4 rounded-[32px] border-none bg-[#075d44]/10 h-full flex flex-col justify-between">
       <h4 className="text-base font-medium font-['Dela_Gothic_One'] tracking-tight text-[#075D44]">
