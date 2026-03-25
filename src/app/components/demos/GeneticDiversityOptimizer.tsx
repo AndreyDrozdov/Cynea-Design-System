@@ -2,9 +2,9 @@
 
 import { useEffect, useState } from "react";
 import { Card } from "../ui/card";
-import { GeneticHealthCard } from "../dendrogene/GeneticHealthCard";
-import { BreedingRecommendationCard } from "../dendrogene/BreedingRecommendationCard";
-import { RescueStrategyCard, SystemAnalysisCard } from "../dendrogene/IntelligenceUnits";
+import { GeneticHealthCard } from "../cyanea/GeneticHealthCard";
+import { BreedingRecommendationCard } from "../cyanea/BreedingRecommendationCard";
+import { RescueStrategyCard, SystemAnalysisCard } from "../cyanea/IntelligenceUnits";
 import { motion } from "motion/react";
 import { Dna, TrendingUp } from "lucide-react";
 
@@ -177,16 +177,6 @@ export function GeneticDiversityOptimizer({ isVisible = true }: GeneticDiversity
             animate={isVisible ? "show" : "hidden"}
             className="space-y-4"
           >
-            <motion.h3
-              variants={{
-                hidden: { opacity: 0, y: 20 },
-                show: { opacity: 1, y: 0 },
-              }}
-              className="text-xl font-semibold flex items-center gap-2"
-            >
-              Recommended Breeding Pairs
-            </motion.h3>
-
             {showRecommendations ? (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <motion.div
@@ -206,7 +196,6 @@ export function GeneticDiversityOptimizer({ isVisible = true }: GeneticDiversity
                     inbreedingReduction={{ from: 32, to: 24 }}
                     successProbability={94}
                     timeline="3-year breeding program"
-                    className="bg-[#D0F17A]/30"
                   />
                 </motion.div>
 

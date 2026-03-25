@@ -51,9 +51,9 @@ export function SpeciesCard({
       )}
       
       <div className="p-5 space-y-4">
-        <div className="flex flex-col sm:flex-row items-start justify-between gap-3 sm:gap-4">
+        <div className="flex flex-col sm:flex-row items-start justify-between gap-3 sm:gap-4 border-b border-[#075D44]/10 pb-3">
           <div className="space-y-1 flex-1">
-              <h3 className="text-lg font-['Dela_Gothic_One']">{commonName}</h3>
+              <h3 className="text-lg font-bold font-['Dela_Gothic_One']">{commonName}</h3>
           </div>
         </div>
 
@@ -70,7 +70,7 @@ export function SpeciesCard({
           <p className="text-sm font-['Plus_Jakarta_Sans']">{recommendation}</p>
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-2 pt-2">
+        <div className="flex flex-col sm:flex-row gap-2 pt-4 border-t border-[#075D44]/5">
           <Button variant="default" size="sm" className="flex-1 bg-[#075D44] hover:bg-[#075D44]/90 text-[#E6E8EC] rounded-3xl h-10 w-full sm:w-auto">
             View Full Analysis
           </Button>

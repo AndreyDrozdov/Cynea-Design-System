@@ -14,6 +14,8 @@ interface BreedingRecommendationCardProps {
   successProbability: number;
   timeline: string;
   className?: string;
+  headerTitle?: string;
+  headerSubtitle?: string;
 }
 
 export function BreedingRecommendationCard({
@@ -26,19 +28,31 @@ export function BreedingRecommendationCard({
   inbreedingReduction,
   successProbability,
   timeline,
-  className
+  className,
+  headerTitle,
+  headerSubtitle
 }: BreedingRecommendationCardProps) {
   return (
-    <div className={cn("p-4 space-y-4 rounded-3xl", className)}>
-      <div className="flex items-center gap-2">
-        <div className="flex-1">
-          <p className="text-xl font-bold font-['Dela_Gothic_One']">{specimen1} × {specimen2}</p>
-          {institution1 && institution2 && (
-            <p className="text-xs text-muted-foreground font-['Plus_Jakarta_Sans']">
-              {institution1} • {institution2}
+    <div className={cn("p-6 space-y-6 rounded-[32px] bg-[#D0F17A]/30", className)}>
+      {headerTitle && (
+        <div className="space-y-0.5 border-b border-[#075D44]/10 pb-3">
+          <h3 className="text-xl font-bold font-['Dela_Gothic_One'] tracking-tight text-[#151515]">
+            {headerTitle}
+          </h3>
+          {headerSubtitle && (
+            <p className="text-[10px] uppercase tracking-wider text-muted-foreground font-semibold font-['Plus_Jakarta_Sans']">
+              {headerSubtitle}
             </p>
           )}
         </div>
+      )}
+      <div className="space-y-0.5 border-b border-[#075D44]/10 pb-3 mb-5">
+        <p className="text-xl font-bold font-['Dela_Gothic_One'] tracking-tight text-[#151515]">{specimen1} × {specimen2}</p>
+        {institution1 && institution2 && (
+          <p className="text-[10px] uppercase tracking-wider text-muted-foreground font-semibold font-['Plus_Jakarta_Sans']">
+            {institution1} <span className="mx-0.5 font-normal opacity-50">•</span> {institution2}
+          </p>
+        )}
       </div>
 
       <div className="grid grid-cols-2 gap-3">
@@ -76,13 +90,15 @@ export function BreedingRecommendationCard({
         </div>
       </div>
 
-      <div className="flex items-center gap-2 text-sm">
-        <span className="text-muted-foreground font-['Plus_Jakarta_Sans'] uppercase tracking-widest text-[10px] opacity-60">{timeline}</span>
-      </div>
+      <div className="space-y-4 pt-4 border-t border-[#075D44]/5">
+        <div className="flex items-center gap-2 text-sm">
+          <span className="text-muted-foreground font-['Plus_Jakarta_Sans'] uppercase tracking-widest text-[10px] opacity-60 font-bold">{timeline}</span>
+        </div>
 
-      <Button className="w-full bg-[#075D44] hover:bg-[#075D44]/90 text-[#E6E8EC] rounded-3xl" size="sm">
-        Schedule Cross
-      </Button>
+        <Button className="w-full bg-[#075D44] hover:bg-[#075D44]/90 text-[#E6E8EC] rounded-3xl" size="sm">
+          Schedule Cross
+        </Button>
+      </div>
     </div>
   );
 }

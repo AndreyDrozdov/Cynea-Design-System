@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Card } from "../ui/card";
-import { PoachingIncidentCard } from "../dendrogene/PoachingIncidentCard";
+import { PoachingIncidentCard } from "../cyanea/PoachingIncidentCard";
 import { Badge } from "../ui/badge";
 import { motion, AnimatePresence } from "motion/react";
 import { MapPin, AlertCircle, CheckCircle2, TrendingDown, Activity } from "lucide-react";
@@ -276,19 +276,6 @@ export function GlobalPoachingMap({ isVisible = true }: GlobalPoachingMapProps) 
         </div>
 
         <div className="space-y-4">
-          <motion.div
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              show: { opacity: 1, y: 0 },
-            }}
-            className="flex items-center justify-between gap-3"
-          >
-            <h3 className="text-xl font-semibold font-['Dela_Gothic_One'] tracking-tight">Active Incidents</h3>
-            <div className="flex items-center gap-1.5 px-2 py-1 bg-[#b091eb]/5 border border-[#b091eb]/20 rounded-full">
-              <Activity className="w-3 h-3 animate-pulse text-[#b091eb]" />
-              <span className="text-[10px] uppercase tracking-widest font-bold text-[#b091eb]">Live</span>
-            </div>
-          </motion.div>
           {/* Incident Detail (Dynamic) */}
           <motion.div
             variants={{
@@ -306,47 +293,77 @@ export function GlobalPoachingMap({ isVisible = true }: GlobalPoachingMapProps) 
                   exit={{ opacity: 0, x: -20 }}
                   transition={{ duration: 0.5 }}
                 >
-                  <PoachingIncidentCard {...selectedIncident} />
+                  <PoachingIncidentCard 
+                    {...selectedIncident} 
+                    headerTitle="Active Incidents" 
+                    headerSubtitle="Real-time regional monitoring network"
+                  />
                 </motion.div>
               )}
             </AnimatePresence>
           </motion.div>
 
-          {/* Monthly Statistics */}
-          <motion.div
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              show: { opacity: 1, y: 0 },
-            }}
-          >
-            <Card className="p-5 space-y-4 rounded-3xl">
-              <div className="space-y-4">
-                <div>
-                  <p className="text-sm text-muted-foreground mb-1">Incidents Detected</p>
-                  <p className="text-3xl font-bold text-[#075D44] font-['Dela_Gothic_One']">{stats.incidents}</p>
+          {/* Monthly Statistics - Reorganized into themed bento cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                show: { opacity: 1, y: 0 },
+              }}
+            >
+              <Card className="p-6 space-y-5 rounded-[32px] border-none bg-[#b091eb]/15 h-full">
+                <div className="space-y-0.5 border-b border-[#46014f]/10 pb-3">
+                  <h3 className="text-base font-bold font-['Dela_Gothic_One'] tracking-tight text-[#46014f]">
+                    Regional Pulse
+                  </h3>
+                  <p className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold font-['Plus_Jakarta_Sans']">
+                    Monthly activity trends
+                  </p>
                 </div>
-                
-                <div>
-                  <p className="text-sm text-muted-foreground mb-1">Plants Recovered</p>
-                  <p className="text-3xl font-bold text-[#075D44] font-['Dela_Gothic_One']">{stats.plantsRecovered}</p>
-                </div>
-                
-                <div>
-                  <p className="text-sm text-muted-foreground mb-1">Legal Actions</p>
-                  <p className="text-3xl font-bold text-[#075D44] font-['Dela_Gothic_One']">{stats.legalActions}</p>
-                </div>
-                
-                <div>
-                  <p className="text-sm text-muted-foreground mb-1">Success Rate</p>
-                  <div className="flex items-baseline gap-2">
-                    <p className="text-3xl font-bold text-[#075D44] font-['Dela_Gothic_One']">{stats.successRate}%</p>
-                    <TrendingDown className="w-5 h-5 text-[#075D44]" />
+                <div className="space-y-4">
+                  <div>
+                    <p className="text-xs uppercase tracking-widest text-muted-foreground opacity-60 font-medium font-['Plus_Jakarta_Sans'] mb-1">Incidents Detected</p>
+                    <p className="text-3xl font-bold font-['Dela_Gothic_One'] text-[#46014f]">{stats.incidents}</p>
                   </div>
-                  <p className="text-xs text-muted-foreground mt-1">Poaching declining month-over-month</p>
+                  <div>
+                    <p className="text-xs uppercase tracking-widest text-muted-foreground opacity-60 font-medium font-['Plus_Jakarta_Sans'] mb-1">Plants Recovered</p>
+                    <p className="text-3xl font-bold font-['Dela_Gothic_One'] text-[#46014f]">{stats.plantsRecovered}</p>
+                  </div>
                 </div>
-              </div>
-            </Card>
-          </motion.div>
+              </Card>
+            </motion.div>
+
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                show: { opacity: 1, y: 0 },
+              }}
+            >
+              <Card className="p-6 space-y-5 rounded-[32px] border-none bg-[#075d44]/10 h-full">
+                <div className="space-y-0.5 border-b border-[#075d44]/15 pb-3">
+                  <h3 className="text-base font-bold font-['Dela_Gothic_One'] tracking-tight text-[#075D44]">
+                    Operational Status
+                  </h3>
+                  <p className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold font-['Plus_Jakarta_Sans']">
+                    Regional coordination health
+                  </p>
+                </div>
+                <div className="space-y-4">
+                  <div>
+                    <p className="text-xs uppercase tracking-widest text-muted-foreground opacity-60 font-medium font-['Plus_Jakarta_Sans'] mb-1">Legal Actions</p>
+                    <p className="text-3xl font-bold font-['Dela_Gothic_One'] text-[#075D44]">{stats.legalActions}</p>
+                  </div>
+                  <div>
+                    <p className="text-xs uppercase tracking-widest text-muted-foreground opacity-60 font-medium font-['Plus_Jakarta_Sans'] mb-1">Success Rate</p>
+                    <div className="flex items-baseline gap-2 text-[#075D44]">
+                      <p className="text-3xl font-bold font-['Dela_Gothic_One']">{stats.successRate}%</p>
+                      <TrendingDown className="w-4 h-4" />
+                    </div>
+                  </div>
+                </div>
+              </Card>
+            </motion.div>
+          </div>
         </div>
       </div>
     </motion.div>

@@ -8,9 +8,14 @@ interface IntelligenceUnitProps {
 export function RescueStrategyCard({ isVisible = true }: IntelligenceUnitProps) {
   return (
     <Card className="p-5 space-y-4 rounded-[32px] border-none bg-[#b091eb]/15 h-full">
-      <h4 className="text-base font-medium font-['Dela_Gothic_One'] tracking-tight text-[#46014f]">
-        Rescue Strategy
-      </h4>
+      <div className="space-y-0.5 border-b border-[#46014f]/10 pb-3 mb-1">
+        <h4 className="text-base font-bold font-['Dela_Gothic_One'] tracking-tight text-[#46014f]">
+          Rescue Strategy
+        </h4>
+        <p className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold font-['Plus_Jakarta_Sans']">
+          Genetic improvement projections
+        </p>
+      </div>
       <div className="space-y-4">
         <p className="text-sm font-['Plus_Jakarta_Sans'] leading-tight text-[#151515]">
           <strong className="font-bold">Outbreed:</strong> Kew Gardens Related Population
@@ -33,9 +38,14 @@ export function RescueStrategyCard({ isVisible = true }: IntelligenceUnitProps) 
 export function SystemAnalysisCard({ isVisible = true }: IntelligenceUnitProps) {
   return (
     <Card className="p-5 space-y-4 rounded-[32px] border-none bg-[#075d44]/10 h-full flex flex-col justify-between">
-      <h4 className="text-base font-medium font-['Dela_Gothic_One'] tracking-tight text-[#075D44]">
-        System Analysis
-      </h4>
+      <div className="space-y-0.5 border-b border-[#075d44]/15 pb-3 mb-1">
+        <h4 className="text-base font-bold font-['Dela_Gothic_One'] tracking-tight text-[#075D44]">
+          System Analysis
+        </h4>
+        <p className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold font-['Plus_Jakarta_Sans']">
+          Correlated verification network
+        </p>
+      </div>
       <div className="space-y-4">
         <p className="text-sm font-['Plus_Jakarta_Sans'] leading-tight text-[#151515]">
           <strong className="font-bold">Deep Ancestry:</strong> Predictive Verification (v2.1)

@@ -14,7 +14,7 @@ import {
   BreedingRecommendationCard,
   PoachingIncidentCard,
   StatCard 
-} from "./dendrogene";
+} from "./cyanea";
 import { 
   Leaf, Database, AlertTriangle, TrendingUp, 
   Users, CheckCircle2, Settings, Search 

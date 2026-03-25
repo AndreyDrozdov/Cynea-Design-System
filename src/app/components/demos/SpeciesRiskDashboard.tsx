@@ -2,10 +2,10 @@
 
 import { useEffect, useState } from "react";
 import { Card } from "../ui/card";
-import { SpeciesCard } from "../dendrogene/SpeciesCard";
+import { SpeciesCard } from "../cyanea/SpeciesCard";
 import { Activity, Database, Building2, RefreshCw, AlertTriangle } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
-import { RescueStrategyCard, SystemAnalysisCard } from "../dendrogene/IntelligenceUnits";
+import { RescueStrategyCard, SystemAnalysisCard } from "../cyanea/IntelligenceUnits";
 
 interface SpeciesData {
   id: string;
@@ -186,9 +186,14 @@ export function SpeciesRiskDashboard({ isVisible = true }: SpeciesRiskDashboardP
               className="md:col-span-2"
             >
               <Card className="p-6 space-y-5 rounded-[32px] border-none bg-[#D0F17A]/30 h-full">
-                <h3 className="text-xl font-bold font-['Dela_Gothic_One'] tracking-tight text-[#151515]">
-                  Network Pulse
-                </h3>
+                <div className="space-y-0.5 border-b border-[#151515]/10 pb-3 mb-1">
+                  <h3 className="text-xl font-bold font-['Dela_Gothic_One'] tracking-tight text-[#151515]">
+                    Network Statistics
+                  </h3>
+                  <p className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold font-['Plus_Jakarta_Sans']">
+                    Global conservation corridor network
+                  </p>
+                </div>
                 <div className="grid grid-cols-2 gap-y-6 gap-x-4">
                   <div>
                     <p className="text-xs uppercase tracking-widest text-muted-foreground opacity-60 font-medium mb-1">Risk Coverage</p>
