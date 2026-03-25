@@ -16,6 +16,7 @@ interface SpeciesData {
   wildPopulation: string;
   recommendation: string;
   status: "critical" | "endangered" | "at-risk" | "stable";
+  imageUrl?: string;
 }
 
 const speciesData: SpeciesData[] = [
@@ -28,6 +29,7 @@ const speciesData: SpeciesData[] = [
     wildPopulation: "2 known plants",
     recommendation: "Initiate genetic rescue breeding program immediately",
     status: "critical",
+    imageUrl: "/assets/botanical/middlemist_red.png"
   },
   {
     id: "2",
@@ -38,6 +40,7 @@ const speciesData: SpeciesData[] = [
     wildPopulation: "<50 plants",
     recommendation: "Establish anti-poaching patrols and increase habitat protection",
     status: "endangered",
+    imageUrl: "/assets/botanical/slipper_orchid.png"
   },
 ];
 

@@ -468,6 +468,9 @@
   .mb-1 {
     margin-bottom: calc(var(--spacing) * 1);
   }
+  .mb-1\.5 {
+    margin-bottom: calc(var(--spacing) * 1.5);
+  }
   .mb-2 {
     margin-bottom: calc(var(--spacing) * 2);
   }
@@ -630,6 +633,9 @@
   }
   .h-10 {
     height: calc(var(--spacing) * 10);
+  }
+  .h-11 {
+    height: calc(var(--spacing) * 11);
   }
   .h-12 {
     height: calc(var(--spacing) * 12);
@@ -795,6 +801,12 @@
   }
   .w-28 {
     width: calc(var(--spacing) * 28);
+  }
+  .w-32 {
+    width: calc(var(--spacing) * 32);
+  }
+  .w-36 {
+    width: calc(var(--spacing) * 36);
   }
   .w-48 {
     width: calc(var(--spacing) * 48);
@@ -1461,6 +1473,9 @@
   .bg-\[\#E6E8EC\]\/50 {
     background-color: color-mix(in oklab, #E6E8EC 50%, transparent);
   }
+  .bg-\[\#E6E8EC\]\/80 {
+    background-color: color-mix(in oklab, #E6E8EC 80%, transparent);
+  }
   .bg-\[\#E6E8EC\]\/98 {
     background-color: color-mix(in oklab, #E6E8EC 98%, transparent);
   }
@@ -1748,6 +1763,9 @@
   }
   .pr-8 {
     padding-right: calc(var(--spacing) * 8);
+  }
+  .pb-1 {
+    padding-bottom: calc(var(--spacing) * 1);
   }
   .pb-3 {
     padding-bottom: calc(var(--spacing) * 3);
@@ -2772,6 +2790,13 @@
     &:hover {
       @media (hover: hover) {
         background-color: color-mix(in oklab, #D04D4D 10%, transparent);
+      }
+    }
+  }
+  .hover\:bg-\[\#E6E8EC\] {
+    &:hover {
+      @media (hover: hover) {
+        background-color: #E6E8EC;
       }
     }
   }
@@ -4245,6 +4270,16 @@
       display: none;
     }
   }
+  .md\:h-auto {
+    @media (width >= 48rem) {
+      height: auto;
+    }
+  }
+  .md\:w-\[40\%\] {
+    @media (width >= 48rem) {
+      width: 40%;
+    }
+  }
   .md\:w-\[var\(--radix-navigation-menu-viewport-width\)\] {
     @media (width >= 48rem) {
       width: var(--radix-navigation-menu-viewport-width);
@@ -4299,6 +4334,11 @@
     @media (width >= 48rem) {
       border-style: var(--tw-border-style);
       border-width: 0px;
+    }
+  }
+  .md\:p-6 {
+    @media (width >= 48rem) {
+      padding: calc(var(--spacing) * 6);
     }
   }
   .md\:p-8 {

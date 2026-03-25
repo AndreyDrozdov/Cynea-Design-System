@@ -37,43 +37,52 @@ export function SpeciesCard({
 
   return (
     <Card className={cn(
-      "overflow-hidden hover:shadow-lg transition-all duration-300",
+      "overflow-hidden hover:shadow-lg transition-all duration-300 bg-white",
       className
     )}>
-      {imageUrl && (
-        <div className="w-full h-48 overflow-hidden">
-          <img 
-            src={imageUrl} 
-            alt={commonName}
-            className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-          />
+      <div className="p-5 flex flex-col h-full space-y-4">
+        {/* Header Section - 100% Wide */}
+        <div className="space-y-3 pb-1">
+          <h3 className="text-xl font-bold font-['Dela_Gothic_One'] text-[#151515]">
+            {commonName}
+          </h3>
+          <div className="h-px w-full bg-[#075D44]/10" />
         </div>
-      )}
-      
-      <div className="p-5 space-y-4">
-        <div className="flex flex-col sm:flex-row items-start justify-between gap-3 sm:gap-4 border-b border-[#075D44]/10 pb-3">
-          <div className="space-y-1 flex-1">
-              <h3 className="text-lg font-bold font-['Dela_Gothic_One']">{commonName}</h3>
+
+        {/* Content Section - Image Left, Data Right */}
+        <div className="flex gap-6 items-start">
+          {imageUrl && (
+            <div className="flex-shrink-0 w-36 h-36 rounded-2xl overflow-hidden border border-[#075D44]/5">
+              <img 
+                src={imageUrl} 
+                alt={commonName}
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+          )}
+          
+          <div className="flex-1 space-y-4">
+            <ExtinctionRiskIndicator risk={extinctionRisk} timeline={timeline} />
+
+            <div className="flex items-center gap-1 text-sm font-['Plus_Jakarta_Sans']">
+              <span className="text-muted-foreground">Wild Population:</span>
+              <span className="font-semibold">{wildPopulation}</span>
+            </div>
+
+            {/* AI Recommendation moved here */}
+            <div className="bg-[#E6E8EC]/30 p-3 rounded-2xl">
+              <p className="text-[10px] uppercase tracking-widest text-muted-foreground mb-1 font-bold font-['Plus_Jakarta_Sans']">AI RECOMMENDATION</p>
+              <p className="text-xs font-['Plus_Jakarta_Sans'] leading-relaxed">{recommendation}</p>
+            </div>
           </div>
         </div>
 
-        <ExtinctionRiskIndicator risk={extinctionRisk} timeline={timeline} />
-
-        <div className="flex items-center gap-1 text-sm font-['Plus_Jakarta_Sans']">
-          <span className="text-muted-foreground">Wild Population:</span>
-          <span className="font-semibold">{wildPopulation}</span>
-        </div>
-
-        <div className="bg-[#E6E8EC]/30 p-3 rounded-3xl">
-          <p className="text-xs text-muted-foreground mb-1 font-['Plus_Jakarta_Sans']">AI RECOMMENDATION</p>
-          <p className="text-sm font-['Plus_Jakarta_Sans']">{recommendation}</p>
-        </div>
-
-        <div className="flex flex-col sm:flex-row gap-2 pt-4 border-t border-[#075D44]/5">
-          <Button variant="default" size="sm" className="flex-1 bg-[#075D44] hover:bg-[#075D44]/90 text-[#E6E8EC] rounded-3xl h-10 w-full sm:w-auto">
+        {/* Footer Buttons - 100% Wide */}
+        <div className="flex flex-col sm:flex-row gap-3 pt-2 mt-auto">
+          <Button variant="default" size="sm" className="flex-1 bg-[#075D44] hover:bg-[#075D44]/90 text-[#E6E8EC] rounded-3xl h-11 text-sm font-semibold">
             View Full Analysis
           </Button>
-          <Button size="sm" className="flex-1 rounded-3xl bg-[#E6E8EC] text-[#075D44] hover:bg-[#E6E8EC]/80 h-10 w-full sm:w-auto">
+          <Button size="sm" className="flex-1 rounded-3xl bg-[#E6E8EC]/80 text-[#075D44] hover:bg-[#E6E8EC] h-11 text-sm font-semibold">
             Request Collaboration
           </Button>
         </div>
