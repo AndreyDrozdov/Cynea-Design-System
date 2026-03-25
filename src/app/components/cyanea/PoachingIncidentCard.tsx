@@ -43,7 +43,7 @@ export function PoachingIncidentCard({
       label: "RECOVERED"
     },
     intercepted: {
-      color: "bg-[#E6E8EC] text-[#151515]",
+      color: "bg-[#46014f] text-white",
       icon: CheckCircle2,
       label: "INTERCEPTED"
     }
@@ -56,7 +56,7 @@ export function PoachingIncidentCard({
     <Card className={cn("p-5 space-y-4 transition-all rounded-[32px] border-none bg-[#D0F17A]/30 shadow-none", className)}>
       {headerTitle && (
         <div className="space-y-0.5 border-b border-[#075D44]/10 pb-3 mb-1">
-          <h3 className="text-xl font-bold font-['Dela_Gothic_One'] text-[#151515]">
+          <h3 className="text-xl font-bold font-['Dela_Gothic_One'] tracking-tight text-[#151515]">
             {headerTitle}
           </h3>
           {headerSubtitle && (
@@ -71,14 +71,14 @@ export function PoachingIncidentCard({
         <div className="space-y-3 flex-1">
           <div className="flex items-center gap-2">
             <MapPin className="w-3.5 h-3.5 text-[#075D44]" />
-            <span className="font-bold font-['Dela_Gothic_One'] text-base">{location}</span>
+            <span className="font-bold font-['Dela_Gothic_One'] tracking-tight text-base">{location}</span>
           </div>
           
           <div className="space-y-1">
             <p className="text-[11px] uppercase tracking-widest text-[#075D44] font-bold font-['Plus_Jakarta_Sans'] opacity-70">
               {species}
             </p>
-            <p className="text-3xl font-bold text-[#075D44] font-['Dela_Gothic_One'] leading-none">
+            <p className="text-3xl font-bold text-[#075D44] font-['Dela_Gothic_One'] tracking-tight leading-none">
               {specimenCount} <span className="text-xl">plants</span>
             </p>
           </div>

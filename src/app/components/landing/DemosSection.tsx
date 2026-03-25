@@ -22,7 +22,7 @@ export function DemosSection() {
           <p className="text-[#075D44] font-semibold mb-2 font-['Plus_Jakarta_Sans'] uppercase tracking-widest text-sm">
             Live Platform
           </p>
-          <h2 className="text-4xl md:text-5xl text-[#151515]">
+          <h2 className="text-4xl md:text-5xl text-[#151515] tracking-tight">
             See Cyanea in Action
           </h2>
           <p className="text-lg text-[#151515]/60 max-w-3xl mt-3 font-['Plus_Jakarta_Sans']">

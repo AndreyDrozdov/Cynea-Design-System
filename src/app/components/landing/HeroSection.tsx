@@ -46,14 +46,14 @@ export function HeroSection() {
             className="bg-[#075D44] rounded-3xl p-8 flex flex-col justify-between overflow-hidden"
           >
             <div className="space-y-4">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#D0F17A] rounded-3xl">
-                <Leaf className="w-4 h-4 text-[#075D44]" />
-                <span className="text-[#075D44] text-sm font-['Plus_Jakarta_Sans'] font-semibold">
+              <div className="inline-flex items-center gap-2 px-4 py-2 border border-[#D0F17A] rounded-3xl">
+                <Leaf className="w-4 h-4 text-[#D0F17A]" />
+                <span className="text-[#D0F17A] text-sm font-['Plus_Jakarta_Sans'] font-semibold">
                   AI-Powered Plant Conservation
                 </span>
               </div>
 
-              <h1 className="text-4xl md:text-6xl xl:text-7xl text-[#cfedcc] leading-tight">
+              <h1 className="text-4xl md:text-6xl xl:text-7xl text-[#cfedcc] leading-tight tracking-tight">
                 Protecting Rare Plants, Restoring Biodiversity
               </h1>
 
@@ -82,15 +82,15 @@ export function HeroSection() {
 
               <div className="grid grid-cols-2 md:flex md:gap-8 gap-y-4 font-['Plus_Jakarta_Sans']">
                 <div>
-                  <p className="text-2xl md:text-3xl text-[#cfedcc] font-['Dela_Gothic_One']">847</p>
+                  <p className="text-2xl md:text-3xl text-[#cfedcc] font-['Dela_Gothic_One'] tracking-tight">847</p>
                   <p className="text-[10px] md:text-sm text-[#cfedcc]/60 uppercase tracking-widest">Species Monitored</p>
                 </div>
                 <div>
-                  <p className="text-2xl md:text-3xl text-[#cfedcc] font-['Dela_Gothic_One']">76</p>
+                  <p className="text-2xl md:text-3xl text-[#cfedcc] font-['Dela_Gothic_One'] tracking-tight">76</p>
                   <p className="text-[10px] md:text-sm text-[#cfedcc]/60 uppercase tracking-widest">Partner Institutions</p>
                 </div>
                 <div className="col-span-2 md:col-span-1 border-t border-[#cfedcc]/10 pt-4 md:pt-0 md:border-0">
-                  <p className="text-2xl md:text-3xl text-[#cfedcc] font-['Dela_Gothic_One']">64%</p>
+                  <p className="text-2xl md:text-3xl text-[#cfedcc] font-['Dela_Gothic_One'] tracking-tight">64%</p>
                   <p className="text-[10px] md:text-sm text-[#cfedcc]/60 uppercase tracking-widest">Recovery Rate</p>
                 </div>
               </div>
@@ -160,7 +160,7 @@ export function HeroSection() {
                 transition={{ duration: 0.7, delay: 0.3 }}
                 className="bg-[#D0F17A] w-full rounded-3xl p-6 sm:p-8 flex flex-col justify-between h-auto min-h-[140px] sm:h-40 lg:h-48"
               >
-                <p className="text-5xl text-[#075D44] font-['Dela_Gothic_One'] leading-none">2,400+</p>
+                <p className="text-5xl text-[#075D44] font-['Dela_Gothic_One'] tracking-tight leading-none">2,400+</p>
                 <p className="text-sm text-[#075D44] font-['Plus_Jakarta_Sans'] leading-relaxed">
                   Unique Genetic Samples Stored in Global Vaults
                 </p>
@@ -172,7 +172,7 @@ export function HeroSection() {
                 transition={{ duration: 0.7, delay: 0.45 }}
                 className="bg-[#c0a7ef] w-full rounded-3xl p-6 sm:p-8 flex flex-col justify-between h-auto min-h-[140px] sm:h-40 lg:h-48"
               >
-                <p className="text-5xl text-[#46014f] font-['Dela_Gothic_One'] leading-none">312</p>
+                <p className="text-5xl text-[#46014f] font-['Dela_Gothic_One'] tracking-tight leading-none">312</p>
                 <p className="text-sm text-[#46014f] font-['Plus_Jakarta_Sans'] leading-relaxed">
                   Active Global Breeding Programs Managed
                 </p>

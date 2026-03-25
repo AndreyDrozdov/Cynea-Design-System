@@ -11,7 +11,7 @@ export function Footer() {
               <div className="p-2 bg-[#D0F17A] rounded-3xl">
                 <Leaf className="w-6 h-6 text-[#075D44]" />
               </div>
-              <span className="text-2xl font-bold font-['Dela_Gothic_One'] text-[#151515]">Cyanea</span>
+              <span className="text-2xl font-bold font-['Dela_Gothic_One'] tracking-tight text-[#151515]">Cyanea</span>
             </div>
             <p className="text-[#151515]/60 text-sm leading-relaxed font-['Plus_Jakarta_Sans']">
               AI-powered plant conservation software preventing extinction through predictive 
@@ -21,7 +21,7 @@ export function Footer() {
 
           {/* Platform */}
           <div>
-            <h4 className="font-bold mb-4 font-['Dela_Gothic_One'] text-[#151515]">Platform</h4>
+            <h4 className="font-bold mb-4 font-['Dela_Gothic_One'] tracking-tight text-[#151515]">Platform</h4>
             <ul className="space-y-2 text-sm text-[#151515]/60 font-['Plus_Jakarta_Sans']">
               <li><a href="#" className="hover:text-[#151515] transition-colors">Species Risk Dashboard</a></li>
               <li><a href="#" className="hover:text-[#151515] transition-colors">Genetic Optimizer</a></li>
@@ -33,7 +33,7 @@ export function Footer() {
 
           {/* Resources */}
           <div>
-            <h4 className="font-bold mb-4 font-['Dela_Gothic_One'] text-[#151515]">Resources</h4>
+            <h4 className="font-bold mb-4 font-['Dela_Gothic_One'] tracking-tight text-[#151515]">Resources</h4>
             <ul className="space-y-2 text-sm text-[#151515]/60 font-['Plus_Jakarta_Sans']">
               <li><a href="#" className="hover:text-[#151515] transition-colors">Documentation</a></li>
               <li><a href="#" className="hover:text-[#151515] transition-colors">API Reference</a></li>
@@ -45,7 +45,7 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="font-bold mb-4 font-['Dela_Gothic_One'] text-[#151515]">Contact</h4>
+            <h4 className="font-bold mb-4 font-['Dela_Gothic_One'] tracking-tight text-[#151515]">Contact</h4>
             <ul className="space-y-3 text-sm text-[#151515]/60 font-['Plus_Jakarta_Sans']">
               <li className="flex items-start gap-2">
                 <Mail className="w-4 h-4 mt-0.5 flex-shrink-0" />

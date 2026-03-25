@@ -72,7 +72,7 @@ function MiniBar({ label, value, max, color, textColor }: { label: string; value
     >
       <div className="flex justify-between mb-1">
         <span className={`text-sm font-['Plus_Jakarta_Sans'] ${textColor}`}>{label}</span>
-        <span className={`text-sm font-['Dela_Gothic_One'] ${textColor} opacity-80`}>{value}</span>
+        <span className={`text-sm font-['Dela_Gothic_One'] tracking-tight ${textColor} opacity-80`}>{value}</span>
       </div>
       <div className="h-3 rounded-full overflow-hidden" style={{ backgroundColor: "rgba(0,0,0,0.1)" }}>
         <motion.div
@@ -135,7 +135,7 @@ function SpeciesCard({ active }: { active: boolean }) {
     <div className="bg-[#D0F17A] rounded-3xl p-6 flex flex-col justify-between h-full gap-4 min-h-[460px]">
       {/* Top: ring + counter */}
       <div className="flex flex-col justify-end">
-        <p className="text-5xl text-[#075D44] font-['Dela_Gothic_One'] leading-none">{count}</p>
+        <p className="text-5xl text-[#075D44] font-['Dela_Gothic_One'] tracking-tight leading-none">{count}</p>
         <p className="text-sm text-[#075D44]/70 font-['Plus_Jakarta_Sans'] mt-1">Species rescued &amp; rehabilitated</p>
       </div>
 
@@ -283,7 +283,7 @@ function InstitutionsCard({ active }: { active: boolean }) {
       {/* Top: counter + ring */}
       <div className="flex items-center gap-4">
         <div>
-          <p className="text-5xl text-[#46014f] font-['Dela_Gothic_One'] leading-none">{count}+</p>
+          <p className="text-5xl text-[#46014f] font-['Dela_Gothic_One'] tracking-tight leading-none">{count}+</p>
           <p className="text-sm text-[#46014f]/70 font-['Plus_Jakarta_Sans'] mt-1">Institutions supporting the network</p>
         </div>
       </div>
@@ -332,7 +332,7 @@ function InstitutionsCard({ active }: { active: boolean }) {
                   initial={{ opacity: 0, y: 5 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3 }}
-                  className="text-sm text-[#46014f] font-['Dela_Gothic_One'] flex-shrink-0"
+                  className="text-sm text-[#46014f] font-['Dela_Gothic_One'] tracking-tight flex-shrink-0"
                 >
                   {val}{suffix} <span className="opacity-50 text-[10px]">{pct}%</span>
                 </motion.span>
@@ -377,9 +377,9 @@ export function ImpactSection() {
           <p className="text-[#075D44] font-semibold mb-2 font-['Plus_Jakarta_Sans'] uppercase tracking-widest text-sm">
             Our Impact
           </p>
-          <h2 className="text-4xl md:text-5xl text-[#151515]">
+          <h2 className="text-4xl md:text-5xl text-[#151515] tracking-tight">
             Impact in{" "}
-            <span className="text-[#D0F17A]">
+            <span className="text-[#151515]">
               Numbers
             </span>
           </h2>
@@ -469,7 +469,7 @@ export function ImpactSection() {
             transition={{ delay: 0.2 }}
             className="bg-[#151515] rounded-3xl p-8 flex flex-col justify-between min-h-[200px]"
           >
-            <p className="text-5xl text-[#D0F17A] font-['Dela_Gothic_One'] leading-none">18</p>
+            <p className="text-5xl text-[#D0F17A] font-['Dela_Gothic_One'] tracking-tight leading-none">18</p>
             <p className="text-sm text-[#D0F17A]/76 font-['Plus_Jakarta_Sans'] leading-relaxed">
               Successful Endangered Species Rescue Operations
             </p>
@@ -483,7 +483,7 @@ export function ImpactSection() {
             className="md:col-span-1 lg:col-span-2 bg-[#075D44] rounded-3xl p-8 flex items-start justify-between min-h-[200px]"
           >
             <div className="flex flex-col justify-between h-full">
-              <p className="text-5xl text-[#cfedcc] font-['Dela_Gothic_One'] leading-none">$2.3M</p>
+              <p className="text-5xl text-[#cfedcc] font-['Dela_Gothic_One'] tracking-tight leading-none">$2.3M</p>
               <p className="text-sm text-[#cfedcc]/80 font-['Plus_Jakarta_Sans'] leading-relaxed">
                 Total Annual Research Funding Raised Globally
               </p>
@@ -505,19 +505,19 @@ export function ImpactSection() {
           >
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 h-full py-4 sm:py-0">
               <div className="flex flex-col justify-between h-full border-b border-[#46014f]/10 pb-4 sm:border-0 sm:pb-0">
-                <p className="text-5xl text-[#46014f] font-['Dela_Gothic_One'] leading-none">571</p>
+                <p className="text-5xl text-[#46014f] font-['Dela_Gothic_One'] tracking-tight leading-none">571</p>
                 <p className="text-sm text-[#46014f]/80 mt-1 font-['Plus_Jakarta_Sans'] leading-relaxed">
                   Plant species extinct in last 250 years — each an irreplaceable gene pool
                 </p>
               </div>
               <div className="flex flex-col justify-between h-full border-b border-[#46014f]/10 pb-4 sm:border-0 sm:pb-0">
-                <p className="text-5xl text-[#46014f] font-['Dela_Gothic_One'] leading-none">3–5×</p>
+                <p className="text-5xl text-[#46014f] font-['Dela_Gothic_One'] tracking-tight leading-none">3–5×</p>
                 <p className="text-sm text-[#46014f]/80 mt-1 font-['Plus_Jakarta_Sans'] leading-relaxed">
                   More species saved with the same budget through AI-driven prioritization
                 </p>
               </div>
               <div className="flex flex-col justify-between h-full">
-                <p className="text-5xl text-[#46014f] font-['Dela_Gothic_One'] leading-none">60-70%</p>
+                <p className="text-5xl text-[#46014f] font-['Dela_Gothic_One'] tracking-tight leading-none">60-70%</p>
                 <p className="text-sm text-[#46014f]/80 mt-1 font-['Plus_Jakarta_Sans'] leading-relaxed">
                   Reduction in conservation costs through automated monitoring
                 </p>
@@ -532,7 +532,7 @@ export function ImpactSection() {
             transition={{ delay: 0.35 }}
             className="bg-[#D0F17A] rounded-3xl p-8 flex flex-col justify-between h-full"
           >
-            <p className="text-[#075D44] font-['Dela_Gothic_One'] text-2xl">Measurable Conservation Success</p>
+            <p className="text-[#075D44] font-['Dela_Gothic_One'] tracking-tight text-2xl">Measurable Conservation Success</p>
             <p className="text-sm text-[#075D44] font-['Plus_Jakarta_Sans'] mt-3 leading-relaxed">
               Verified outcomes across 76 partner institutions worldwide.
             </p>

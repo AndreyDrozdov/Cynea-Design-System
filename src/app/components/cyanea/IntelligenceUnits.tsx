@@ -9,7 +9,7 @@ export function RescueStrategyCard({ isVisible = true }: IntelligenceUnitProps) 
   return (
     <Card className="p-5 space-y-4 rounded-[32px] border-none bg-[color-mix(in_oklab,#c0a7ef_15%,transparent)] h-full">
       <div className="space-y-0.5 border-b border-[#46014f]/10 pb-3 mb-5">
-        <h4 className="text-xl font-bold font-['Dela_Gothic_One'] text-[#46014f]">
+        <h4 className="text-xl font-bold font-['Dela_Gothic_One'] tracking-tight text-[#46014f]">
           Rescue Strategy
         </h4>
         <p className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold font-['Plus_Jakarta_Sans']">
@@ -39,7 +39,7 @@ export function SystemAnalysisCard({ isVisible = true }: IntelligenceUnitProps) 
   return (
     <Card className="p-5 space-y-4 rounded-[32px] border-none bg-[#075d44]/10 h-full flex flex-col justify-between">
       <div className="space-y-0.5 border-b border-[#075d44]/15 pb-3 mb-5">
-        <h4 className="text-xl font-bold font-['Dela_Gothic_One'] text-[#075D44]">
+        <h4 className="text-xl font-bold font-['Dela_Gothic_One'] tracking-tight text-[#075D44]">
           System Analysis
         </h4>
         <p className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold font-['Plus_Jakarta_Sans']">
@@ -69,7 +69,7 @@ export function GeneticRescueCard({ isVisible = true }: IntelligenceUnitProps) {
   return (
     <Card className="p-6 space-y-4 rounded-[32px] border-none bg-[#c0a7ef]/15 h-full">
       <div className="space-y-0.5 border-b border-[#151515]/10 pb-3 mb-5">
-        <h4 className="text-xl font-bold font-['Dela_Gothic_One'] text-[#46014f]">
+        <h4 className="text-xl font-bold font-['Dela_Gothic_One'] tracking-tight text-[#46014f]">
           Genetic Rescue via Outcrossing
         </h4>
         <p className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold font-['Plus_Jakarta_Sans']">

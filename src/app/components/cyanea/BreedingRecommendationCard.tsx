@@ -60,14 +60,14 @@ export function BreedingRecommendationCard({
           <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
             <span className="font-['Plus_Jakarta_Sans'] uppercase tracking-widest opacity-60">Alleles Gain</span>
           </div>
-          <p className="text-2xl md:text-3xl font-bold text-[#075D44] font-['Dela_Gothic_One']">+{allelesGain}</p>
+          <p className="text-2xl md:text-3xl font-bold text-[#075D44] font-['Dela_Gothic_One'] tracking-tight">+{allelesGain}</p>
         </div>
 
         <div className="space-y-1">
           <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
             <span className="font-['Plus_Jakarta_Sans'] uppercase tracking-widest opacity-60">Diversity</span>
           </div>
-          <p className="text-2xl md:text-3xl font-bold text-[#075D44] font-['Dela_Gothic_One']">
+          <p className="text-2xl md:text-3xl font-bold text-[#075D44] font-['Dela_Gothic_One'] tracking-tight">
             {diversityImprovement.from} → {diversityImprovement.to}
           </p>
           <p className="text-xs text-[#075D44] font-['Plus_Jakarta_Sans']">
@@ -77,14 +77,14 @@ export function BreedingRecommendationCard({
 
         <div className="space-y-1">
           <p className="text-xs text-muted-foreground font-['Plus_Jakarta_Sans']">Inbreeding</p>
-          <p className="text-xl md:text-2xl font-semibold font-['Dela_Gothic_One']">
+          <p className="text-xl md:text-2xl font-semibold font-['Dela_Gothic_One'] tracking-tight">
             {inbreedingReduction.from}% → {inbreedingReduction.to}%
           </p>
         </div>
 
         <div className="space-y-1">
           <p className="text-xs text-muted-foreground font-['Plus_Jakarta_Sans']">Success Rate</p>
-          <p className="text-xl md:text-2xl font-semibold font-['Dela_Gothic_One']">
+          <p className="text-xl md:text-2xl font-semibold font-['Dela_Gothic_One'] tracking-tight">
             {successProbability}%
           </p>
         </div>

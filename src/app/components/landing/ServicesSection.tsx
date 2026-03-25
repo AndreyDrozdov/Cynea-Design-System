@@ -79,9 +79,9 @@ export function ServicesSection() {
           <p className="text-[#D0F17A] font-semibold mb-1 font-['Plus_Jakarta_Sans'] uppercase tracking-widest text-sm">
             Design Methods
           </p>
-          <h2 className="text-4xl md:text-5xl text-white">
+          <h2 className="text-4xl md:text-5xl text-white tracking-tight">
             Three Core{" "}
-            <span className="text-[#D0F17A]">
+            <span className="text-white">
               Conservation
             </span>{" "}
             Services
@@ -101,7 +101,7 @@ export function ServicesSection() {
             >
               <div className="space-y-4">
                 <h3 
-                  className={`text-3xl md:text-4xl xl:text-5xl ${service.titleColor} font-['Dela_Gothic_One'] leading-none tracking-tighter`}
+                  className={`text-3xl md:text-4xl xl:text-5xl ${service.titleColor} font-['Dela_Gothic_One'] leading-none tracking-tight`}
                   dangerouslySetInnerHTML={{ __html: service.title }}
                 />
                 <p className={`text-sm ${service.subtitleColor} font-['Plus_Jakarta_Sans'] font-semibold uppercase tracking-widest`}>
@@ -138,21 +138,21 @@ export function ServicesSection() {
           >
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 w-full min-h-[120px] py-4 sm:py-0">
               <div className="flex flex-col justify-between h-full border-b border-[#46014f]/10 pb-4 sm:border-0 sm:pb-0">
-                <p className="text-5xl text-[#46014f] font-['Dela_Gothic_One'] leading-none">847</p>
+                <p className="text-5xl text-[#46014f] font-['Dela_Gothic_One'] tracking-tight leading-none">847</p>
                 <div className="space-y-0.5">
                   <p className="text-sm text-[#46014f] font-['Plus_Jakarta_Sans'] font-medium">Species monitored around the clock</p>
                   <p className="text-sm text-[#46014f] font-['Plus_Jakarta_Sans'] opacity-80">Real-time detection across 12 corridors</p>
                 </div>
               </div>
               <div className="flex flex-col justify-between h-full border-b border-[#46014f]/10 pb-4 sm:border-0 sm:pb-0">
-                <p className="text-5xl text-[#46014f] font-['Dela_Gothic_One'] leading-none">76</p>
+                <p className="text-5xl text-[#46014f] font-['Dela_Gothic_One'] tracking-tight leading-none">76</p>
                 <div className="space-y-0.5">
                   <p className="text-sm text-[#46014f] font-['Plus_Jakarta_Sans'] font-medium">Partner institutions coordinated globally</p>
                   <p className="text-sm text-[#46014f] font-['Plus_Jakarta_Sans'] opacity-80">Bridging research with on-ground action</p>
                 </div>
               </div>
               <div className="flex flex-col justify-between h-full">
-                <p className="text-5xl text-[#46014f] font-['Dela_Gothic_One'] leading-none">64%</p>
+                <p className="text-5xl text-[#46014f] font-['Dela_Gothic_One'] tracking-tight leading-none">64%</p>
                 <div className="space-y-0.5">
                   <p className="text-sm text-[#46014f] font-['Plus_Jakarta_Sans'] font-medium">Poaching prevention success rate</p>
                   <p className="text-sm text-[#46014f] font-['Plus_Jakarta_Sans'] opacity-80">Calculated via predictive neural modeling</p>
@@ -168,7 +168,7 @@ export function ServicesSection() {
             transition={{ delay: 0.4 }}
             className="bg-[#E6E8EC] rounded-3xl p-8 flex flex-col justify-between h-full"
           >
-            <p className="text-[#46014f] font-['Dela_Gothic_One'] text-xl leading-snug mb-4">
+            <p className="text-[#46014f] font-['Dela_Gothic_One'] tracking-tight text-xl leading-snug mb-4">
               AI-powered tools working together to prevent extinction
             </p>
             <Button

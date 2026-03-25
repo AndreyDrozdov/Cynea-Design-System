@@ -129,7 +129,7 @@ export function GeneticDiversityOptimizer({ isVisible = true }: GeneticDiversity
             >
               {/* Baseline Comparison */}
               <Card className="p-5 rounded-3xl">
-                <h4 className="font-semibold mb-3 font-['Dela_Gothic_One']">Historical Baseline Comparison</h4>
+                <h4 className="font-semibold mb-3 font-['Dela_Gothic_One'] tracking-tight">Historical Baseline Comparison</h4>
                 <div className="space-y-2">
                   <div className="flex justify-between items-center">
                     <span className="text-sm text-muted-foreground">Allele Count</span>

@@ -60,9 +60,9 @@ export function MissionSection() {
           <p className="text-[#075D44] font-semibold mb-1 font-['Plus_Jakarta_Sans'] uppercase tracking-widest text-sm">
             How We Rescue
           </p>
-          <h2 className="text-4xl md:text-5xl text-[#151515]">
+          <h2 className="text-4xl md:text-5xl text-[#151515] tracking-tight">
             How We Rescue{" "}
-            <span className="text-[#D0F17A]">
+            <span className="text-[#151515]">
               Plants
             </span>
           </h2>
@@ -95,10 +95,10 @@ export function MissionSection() {
                 className={`${step.bg} rounded-3xl p-8 flex flex-col justify-between h-64 lg:h-72`}
               >
                 <div className="space-y-4">
-                  <span className={`text-5xl ${step.numColor} font-['Dela_Gothic_One'] leading-none block`}>
+                  <span className={`text-5xl ${step.numColor} font-['Dela_Gothic_One'] tracking-tight leading-none block`}>
                     {step.number}
                   </span>
-                  <h3 className={`text-base ${step.titleColor} font-['Dela_Gothic_One'] uppercase tracking-wide`}>
+                  <h3 className={`text-base ${step.titleColor} font-['Dela_Gothic_One'] tracking-tight uppercase tracking-wide`}>
                     {step.title}
                   </h3>
                 </div>
@@ -123,10 +123,10 @@ export function MissionSection() {
                 className={`${step.bg} rounded-3xl p-8 flex flex-col justify-between h-64 lg:h-72`}
               >
                 <div className="space-y-4">
-                  <span className={`text-5xl ${step.numColor} font-['Dela_Gothic_One'] leading-none block`}>
+                  <span className={`text-5xl ${step.numColor} font-['Dela_Gothic_One'] tracking-tight leading-none block`}>
                     {step.number}
                   </span>
-                  <h3 className={`text-base ${step.titleColor} font-['Dela_Gothic_One'] uppercase tracking-wide`}>
+                  <h3 className={`text-base ${step.titleColor} font-['Dela_Gothic_One'] tracking-tight uppercase tracking-wide`}>
                     {step.title}
                   </h3>
                 </div>

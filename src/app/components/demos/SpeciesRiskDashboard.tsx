@@ -213,7 +213,7 @@ export function SpeciesRiskDashboard({ isVisible = true }: SpeciesRiskDashboardP
                 <div>
                   <div className="space-y-0.5 border-b border-[#151515]/10 pb-3 mb-5 flex justify-between items-end">
                     <div>
-                      <h3 className="text-base font-bold font-['Dela_Gothic_One'] text-[#151515]">
+                      <h3 className="text-base font-bold font-['Dela_Gothic_One'] tracking-tight text-[#151515]">
                         Network Statistics
                       </h3>
                       <p className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold font-['Plus_Jakarta_Sans']">
@@ -229,26 +229,26 @@ export function SpeciesRiskDashboard({ isVisible = true }: SpeciesRiskDashboardP
                   <div className="grid grid-cols-2 gap-y-6 gap-x-8 mb-6">
                     <div>
                       <p className="text-xs text-muted-foreground font-['Plus_Jakarta_Sans'] mb-1">Risk Coverage</p>
-                      <p className="text-3xl font-bold text-[#075D44] font-['Dela_Gothic_One']">{stats.totalSpecies}</p>
+                      <p className="text-3xl font-bold text-[#075D44] font-['Dela_Gothic_One'] tracking-tight">{stats.totalSpecies}</p>
                     </div>
                     <div>
                       <p className="text-xs text-muted-foreground font-['Plus_Jakarta_Sans'] mb-1">Critically Low</p>
-                      <p className="text-3xl font-bold text-[#075D44] font-['Dela_Gothic_One']">{stats.criticalCases}</p>
+                      <p className="text-3xl font-bold text-[#075D44] font-['Dela_Gothic_One'] tracking-tight">{stats.criticalCases}</p>
                     </div>
                   </div>
 
                   <div className="grid grid-cols-3 gap-6 pt-4 border-t border-[#151515]/5">
                     <div>
                       <p className="text-[9px] uppercase tracking-widest text-muted-foreground font-bold mb-1">Active Labs</p>
-                      <p className="text-lg font-bold text-[#151515] font-['Dela_Gothic_One']">{stats.breedingPrograms}</p>
+                      <p className="text-lg font-bold text-[#151515] font-['Dela_Gothic_One'] tracking-tight">{stats.breedingPrograms}</p>
                     </div>
                     <div>
                       <p className="text-[9px] uppercase tracking-widest text-muted-foreground font-bold mb-1">Institutions</p>
-                      <p className="text-lg font-bold text-[#151515] font-['Dela_Gothic_One']">{stats.institutions}</p>
+                      <p className="text-lg font-bold text-[#151515] font-['Dela_Gothic_One'] tracking-tight">{stats.institutions}</p>
                     </div>
                     <div>
                       <p className="text-[9px] uppercase tracking-widest text-muted-foreground font-bold mb-1">Uptime</p>
-                      <p className="text-lg font-bold text-[#075D44] font-['Dela_Gothic_One']">99.9%</p>
+                      <p className="text-lg font-bold text-[#075D44] font-['Dela_Gothic_One'] tracking-tight">99.9%</p>
                     </div>
                   </div>
                 </div>

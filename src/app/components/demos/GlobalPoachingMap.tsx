@@ -71,7 +71,7 @@ export function GlobalPoachingMap({ isVisible = true }: GlobalPoachingMapProps) 
       case "alert": return "#b091eb";      // Purple
       case "in-progress": return "#075D44"; // Green (Brand Emerald)
       case "recovered": return "#D0F17A";   // Yellow/Lime
-      case "intercepted": return "#94a3b8"; // Gray
+      case "intercepted": return "#46014f"; // Deep Purple
       default: return "#717182";
     }
   };
@@ -81,7 +81,7 @@ export function GlobalPoachingMap({ isVisible = true }: GlobalPoachingMapProps) 
       case "alert": return "#ffffff";
       case "in-progress": return "#ffffff";
       case "recovered": return "#075D44";
-      case "intercepted": return "#151515";
+      case "intercepted": return "#ffffff";
       default: return "#ffffff";
     }
   };
@@ -218,7 +218,7 @@ export function GlobalPoachingMap({ isVisible = true }: GlobalPoachingMapProps) 
                   <span>Recovered</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-4 h-4 rounded-full bg-[#94a3b8]" />
+                  <div className="w-4 h-4 rounded-full bg-[#46014f]" />
                   <span>Intercepted</span>
                 </div>
               </div>
@@ -233,7 +233,7 @@ export function GlobalPoachingMap({ isVisible = true }: GlobalPoachingMapProps) 
             }}
           >
             <Card className="p-5 rounded-3xl overflow-hidden border border-transparent transition-all duration-500">
-              <h3 className="text-xl font-bold font-['Dela_Gothic_One'] text-[#151515] mb-6">
+              <h3 className="text-xl font-bold font-['Dela_Gothic_One'] tracking-tight text-[#151515] mb-6">
                 Recovery Timeline - March 2026
               </h3>
               <motion.div 
@@ -325,7 +325,7 @@ export function GlobalPoachingMap({ isVisible = true }: GlobalPoachingMapProps) 
             >
               <Card className="p-5 space-y-4 rounded-[32px] border-none bg-[#b091eb]/15 h-full">
                 <div className="space-y-0.5 border-b border-[#46014f]/10 pb-3">
-                  <h3 className="text-base font-bold font-['Dela_Gothic_One'] text-[#46014f]">
+                  <h3 className="text-base font-bold font-['Dela_Gothic_One'] tracking-tight text-[#46014f]">
                     Most Targeted Species
                   </h3>
                   <p className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold font-['Plus_Jakarta_Sans']">
@@ -346,7 +346,7 @@ export function GlobalPoachingMap({ isVisible = true }: GlobalPoachingMapProps) 
                         Rothschild's Slipper Orchid
                       </p>
                       <div className="flex items-baseline gap-2">
-                        <p className="text-2xl font-bold font-['Dela_Gothic_One'] text-[#46014f] leading-none">
+                        <p className="text-2xl font-bold font-['Dela_Gothic_One'] tracking-tight text-[#46014f] leading-none">
                           {stats.incidents}
                         </p>
                         <span className="text-xs uppercase tracking-widest text-muted-foreground opacity-60 font-medium font-['Plus_Jakarta_Sans']">Incidents</span>
@@ -367,7 +367,7 @@ export function GlobalPoachingMap({ isVisible = true }: GlobalPoachingMapProps) 
                         Dudleya farinosa (Succulent)
                       </p>
                       <div className="flex items-baseline gap-2">
-                        <p className="text-2xl font-bold font-['Dela_Gothic_One'] text-[#46014f] leading-none">
+                        <p className="text-2xl font-bold font-['Dela_Gothic_One'] tracking-tight text-[#46014f] leading-none">
                           {stats.plantsRecovered}
                         </p>
                         <span className="text-xs uppercase tracking-widest text-muted-foreground opacity-60 font-medium font-['Plus_Jakarta_Sans']">Incidents</span>
@@ -386,7 +386,7 @@ export function GlobalPoachingMap({ isVisible = true }: GlobalPoachingMapProps) 
             >
               <Card className="p-5 space-y-4 rounded-[32px] border-none bg-[#075d44]/10 h-full">
                 <div className="space-y-0.5 border-b border-[#075d44]/15 pb-3">
-                  <h3 className="text-base font-bold font-['Dela_Gothic_One'] text-[#075D44]">
+                  <h3 className="text-base font-bold font-['Dela_Gothic_One'] tracking-tight text-[#075D44]">
                     Units Recovered
                   </h3>
                   <p className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold font-['Plus_Jakarta_Sans']">
@@ -396,12 +396,12 @@ export function GlobalPoachingMap({ isVisible = true }: GlobalPoachingMapProps) 
                 <div className="space-y-4">
                   <div>
                     <p className="text-xs uppercase tracking-widest text-muted-foreground opacity-60 font-medium font-['Plus_Jakarta_Sans'] mb-1">Singapore Botanic Gardens</p>
-                    <p className="text-2xl font-bold font-['Dela_Gothic_One'] text-[#075D44]">{stats.plantsRecovered}</p>
+                    <p className="text-2xl font-bold font-['Dela_Gothic_One'] tracking-tight text-[#075D44]">{stats.plantsRecovered}</p>
                   </div>
                   <div>
                     <p className="text-xs uppercase tracking-widest text-muted-foreground opacity-60 font-medium font-['Plus_Jakarta_Sans'] mb-1">Kew Gardens (UK)</p>
                     <div className="flex items-baseline gap-2 text-[#075D44]">
-                      <p className="text-2xl font-bold font-['Dela_Gothic_One']">{stats.incidents}</p>
+                      <p className="text-2xl font-bold font-['Dela_Gothic_One'] tracking-tight">{stats.incidents}</p>
                     </div>
                   </div>
                 </div>

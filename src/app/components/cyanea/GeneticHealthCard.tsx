@@ -37,7 +37,7 @@ export function GeneticHealthCard({
   return (
     <Card className={cn("p-5 space-y-4 rounded-3xl", className)}>
       <div className="flex items-center gap-2 border-b border-[#075D44]/10 pb-3 mb-2">
-        <h3 className="text-xl font-bold font-['Dela_Gothic_One'] text-[#151515]">Genetic Health</h3>
+        <h3 className="text-xl font-bold font-['Dela_Gothic_One'] tracking-tight text-[#151515]">Genetic Health</h3>
       </div>
 
       <div className="flex gap-6 items-start">
@@ -53,14 +53,14 @@ export function GeneticHealthCard({
           <div className="grid grid-cols-2 gap-x-8 gap-y-4 pb-2">
             <div>
               <p className="text-sm text-muted-foreground mb-1 font-['Plus_Jakarta_Sans'] font-medium">Diversity Score</p>
-              <div className={cn("text-3xl font-bold font-['Dela_Gothic_One'] leading-none", getScoreColor(diversityScore))}>
+              <div className={cn("text-3xl font-bold font-['Dela_Gothic_One'] tracking-tight leading-none", getScoreColor(diversityScore))}>
                 {diversityScore}/100
               </div>
             </div>
 
             <div>
               <p className="text-sm text-muted-foreground mb-1 font-['Plus_Jakarta_Sans'] font-medium">Inbreeding</p>
-              <div className="text-3xl font-bold text-[#075D44] font-['Dela_Gothic_One'] leading-none">
+              <div className="text-3xl font-bold text-[#075D44] font-['Dela_Gothic_One'] tracking-tight leading-none">
                 {inbreedingCoefficient}%
               </div>
             </div>
@@ -68,7 +68,7 @@ export function GeneticHealthCard({
             <div className="col-span-2">
               <p className="text-sm text-muted-foreground mb-1 font-['Plus_Jakarta_Sans'] font-medium">Unique Alleles</p>
               <div className="flex items-baseline gap-2">
-                <span className="text-2xl font-bold font-['Dela_Gothic_One'] leading-none">{alleleCount}</span>
+                <span className="text-2xl font-bold font-['Dela_Gothic_One'] tracking-tight leading-none">{alleleCount}</span>
                 {historicalAlleleCount && (
                   <div className="flex items-center gap-1 text-sm">
                     <span className="text-muted-foreground font-['Plus_Jakarta_Sans']">

@@ -68,7 +68,7 @@ export function Navigation() {
               <div className="p-2 bg-[#D0F17A] rounded-3xl">
                 <Leaf className="w-5 h-5 text-[#151515]" />
               </div>
-              <span className="text-xl text-[#151515] font-['Dela_Gothic_One']">Cyanea</span>
+              <span className="text-xl text-[#151515] font-['Dela_Gothic_One'] tracking-tight">Cyanea</span>
             </div>
 
             {/* Desktop Navigation */}
@@ -117,7 +117,7 @@ export function Navigation() {
                   <div className="p-2 bg-[#D0F17A] rounded-3xl">
                     <Leaf className="w-5 h-5 text-[#151515]" />
                   </div>
-                  <span className="text-xl text-[#151515] font-['Dela_Gothic_One']">Cyanea</span>
+                  <span className="text-xl text-[#151515] font-['Dela_Gothic_One'] tracking-tight">Cyanea</span>
                 </div>
                 <button
                   onClick={() => setIsOpen(false)}
@@ -136,7 +136,7 @@ export function Navigation() {
                     transition={{ delay: 0.1 + i * 0.05 }}
                     key={item.label}
                     href={item.href}
-                    className="text-4xl text-[#151515] font-['Dela_Gothic_One'] hover:text-[#075D44] transition-colors text-center"
+                    className="text-4xl text-[#151515] font-['Dela_Gothic_One'] tracking-tight hover:text-[#075D44] transition-colors text-center"
                     onClick={() => setIsOpen(false)}
                   >
                     {item.label}
@@ -146,7 +146,7 @@ export function Navigation() {
 
               {/* Menu Footer */}
               <div className="mt-auto space-y-6">
-                <Button className="w-full bg-[#075D44] text-[#E6E8EC] py-8 text-xl rounded-3xl font-['Dela_Gothic_One']">
+                <Button className="w-full bg-[#075D44] text-[#E6E8EC] py-8 text-xl rounded-3xl font-['Dela_Gothic_One'] tracking-tight">
                   Request Demo
                 </Button>
                 <p className="text-center text-sm text-[#151515]/60 font-['Plus_Jakarta_Sans']">

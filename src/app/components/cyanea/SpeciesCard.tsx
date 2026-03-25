@@ -45,7 +45,7 @@ export function SpeciesCard({
       <div className="p-5 flex flex-col h-full space-y-4">
         {/* Header Section - 100% Wide */}
         <div className="space-y-3 pb-1">
-          <h3 className="text-xl font-bold font-['Dela_Gothic_One'] text-[#151515]">
+          <h3 className="text-xl font-bold font-['Dela_Gothic_One'] tracking-tight text-[#151515]">
             {commonName}
           </h3>
           <div className="h-px w-full bg-[#075D44]/10" />

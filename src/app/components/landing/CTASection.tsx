@@ -27,7 +27,7 @@ export function CTASection() {
           <p className="text-[#075D44] font-semibold mb-3 font-['Plus_Jakarta_Sans'] uppercase tracking-widest text-sm">
             Get Involved
           </p>
-          <h2 className="text-4xl md:text-5xl text-[#075D44] mb-6">
+          <h2 className="text-4xl md:text-5xl text-[#075D44] mb-6 tracking-tight">
             Join the Global Conservation Network
           </h2>
           <p className="text-xl text-[#075D44]/75 mb-10 leading-relaxed font-['Plus_Jakarta_Sans'] max-w-2xl">
