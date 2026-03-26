@@ -300,6 +300,8 @@ export function ComponentShowcase() {
                 inbreedingCoefficient={32}
                 alleleCount={14}
                 historicalAlleleCount={47}
+                commonName="Aetheria Lumina"
+                imageUrl="https://images.unsplash.com/photo-1725912196296-bfda8fffaff6?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               />
 
               <GeneticHealthCard
@@ -307,29 +309,33 @@ export function ComponentShowcase() {
                 inbreedingCoefficient={12}
                 alleleCount={38}
                 historicalAlleleCount={41}
+                commonName="Crimson Fernelia"
+                imageUrl="https://images.unsplash.com/photo-1560369073-233ebcda63a1?q=80&w=1635&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               />
             </div>
 
             {/* Species Cards */}
             <div className="grid md:grid-cols-2 gap-4">
               <SpeciesCard
-                commonName="Middlemist Red Camellia"
-                scientificName="Camellia middlemistii"
+                commonName="Aetheria Lumina"
+                scientificName="Aetheria luminosa"
                 extinctionRisk={87}
                 timeline="3-5 years"
                 wildPopulation="2 known plants"
                 recommendation="Initiate genetic rescue breeding program immediately"
                 status="critical"
+                imageUrl="https://images.unsplash.com/photo-1725912196296-bfda8fffaff6?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               />
 
               <SpeciesCard
-                commonName="Rothschild's Slipper Orchid"
-                scientificName="Paphiopedilum rothschildianum"
+                commonName="Crimson Fernelia"
+                scientificName="Fernelia erythros"
                 extinctionRisk={62}
                 timeline="10-15 years"
                 wildPopulation="<50 plants"
                 recommendation="Establish anti-poaching patrols and increase habitat protection"
                 status="endangered"
+                imageUrl="https://images.unsplash.com/photo-1560369073-233ebcda63a1?q=80&w=1635&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               />
             </div>
 
@@ -364,7 +370,7 @@ export function ComponentShowcase() {
             <div className="grid md:grid-cols-3 gap-4">
               <PoachingIncidentCard
                 location="Thailand/Laos Border"
-                species="Paphiopedilum rothschildianum"
+                species="Crimson Fernelia"
                 specimenCount={127}
                 detectionMethod="Satellite + Dark Web"
                 status="alert"

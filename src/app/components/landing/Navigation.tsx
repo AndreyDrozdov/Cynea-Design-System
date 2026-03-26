@@ -45,12 +45,11 @@ export function Navigation() {
   };
 
   const navItems = [
-    { label: "Platform", href: "#how-we-rescue" },
-    { label: "Demos", href: "#demos" },
-    { label: "Impact", href: "#impact" },
-    { label: "Mission", href: "#hero" },
-    { label: "Partners", href: "#hero" },
-    { label: "Contact", href: "#hero" },
+    { label: "Platform", href: "/#how-we-rescue" },
+    { label: "Demos", href: "/#demos" },
+    { label: "Impact", href: "/#impact" },
+    { label: "System", href: "/design-system" },
+    { label: "Contact", href: "/#hero" },
   ];
 
   return (
@@ -67,12 +66,13 @@ export function Navigation() {
             {/* Logo */}
             <button 
               onClick={scrollToTop}
-              className="flex items-center gap-2 hover:opacity-80 transition-opacity cursor-pointer group"
+              className="flex items-center gap-2 cursor-pointer group"
             >
-              <div className="p-2 bg-[#D0F17A] rounded-3xl group-hover:scale-110 transition-transform">
-                <Leaf className="w-5 h-5 text-[#151515]" />
-              </div>
-              <span className="text-xl text-[#151515] font-['Dela_Gothic_One'] tracking-tight">Cyanea</span>
+              <img 
+                src="/cyanea_logo.svg" 
+                alt="Cyanea Logo" 
+                className="h-8 w-auto group-hover:scale-105 transition-transform" 
+              />
             </button>
 
             {/* Desktop Navigation */}
@@ -124,10 +124,11 @@ export function Navigation() {
                   }}
                   className="flex items-center gap-2"
                 >
-                  <div className="p-2 bg-[#D0F17A] rounded-3xl">
-                    <Leaf className="w-5 h-5 text-[#151515]" />
-                  </div>
-                  <span className="text-xl text-[#151515] font-['Dela_Gothic_One'] tracking-tight">Cyanea</span>
+                  <img 
+                    src="/cyanea_logo.svg" 
+                    alt="Cyanea Logo" 
+                    className="h-10 w-auto" 
+                  />
                 </button>
                 <button
                   onClick={() => setIsOpen(false)}

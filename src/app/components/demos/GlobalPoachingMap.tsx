@@ -22,7 +22,7 @@ const incidents: Incident[] = [
   {
     id: "0",
     location: "Thailand/Laos Border",
-    species: "Middlemist Red Camellia",
+    species: "Aetheria Lumina",
     specimenCount: 847,
     detectionMethod: "Patrol Drone Auto-Alert",
     status: "recovered",
@@ -32,7 +32,7 @@ const incidents: Incident[] = [
   {
     id: "1",
     location: "Khao Yai North",
-    species: "Thai Rosewood (Dalbergia)",
+    species: "Crimson Fernelia",
     specimenCount: 14,
     detectionMethod: "Acoustic Sensor #47A",
     status: "alert",
@@ -336,14 +336,14 @@ export function GlobalPoachingMap({ isVisible = true }: GlobalPoachingMapProps) 
                   <div className="flex items-center gap-4">
                     <div className="flex-shrink-0 w-12 h-12 rounded-full overflow-hidden border border-white/20 aspect-square">
                       <img 
-                        src="/assets/botanical/slipper_orchid.png" 
-                        alt="Rothschild's Slipper Orchid"
+                        src="https://images.unsplash.com/photo-1560369073-233ebcda63a1?q=80&w=1635&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                        alt="Crimson Fernelia"
                         className="w-full h-full object-cover"
                       />
                     </div>
                     <div className="flex-1">
                       <p className="text-xs uppercase tracking-widest text-muted-foreground/70 font-medium font-['Plus_Jakarta_Sans'] mb-1 leading-none">
-                        Rothschild's Slipper Orchid
+                        Crimson Fernelia
                       </p>
                       <div className="flex items-baseline gap-2">
                         <p className="text-2xl font-bold font-['Dela_Gothic_One'] tracking-tight text-[#46014f] leading-none">
@@ -357,18 +357,18 @@ export function GlobalPoachingMap({ isVisible = true }: GlobalPoachingMapProps) 
                   <div className="flex items-center gap-4">
                     <div className="flex-shrink-0 w-12 h-12 rounded-full overflow-hidden border border-white/20 aspect-square">
                       <img 
-                        src="/assets/botanical/dudleya_farinosa.png" 
-                        alt="Dudleya farinosa"
+                        src="https://images.unsplash.com/photo-1725912196296-bfda8fffaff6?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                        alt="Aetheria Lumina"
                         className="w-full h-full object-cover"
                       />
                     </div>
                     <div className="flex-1">
                       <p className="text-xs uppercase tracking-widest text-muted-foreground/70 font-medium font-['Plus_Jakarta_Sans'] mb-1 leading-none">
-                        Dudleya farinosa (Succulent)
+                        Aetheria Lumina
                       </p>
                       <div className="flex items-baseline gap-2">
                         <p className="text-2xl font-bold font-['Dela_Gothic_One'] tracking-tight text-[#46014f] leading-none">
-                          {stats.plantsRecovered}
+                          847
                         </p>
                         <span className="text-xs uppercase tracking-widest text-muted-foreground/70 font-medium font-['Plus_Jakarta_Sans']">Incidents</span>
                       </div>
@@ -390,7 +390,7 @@ export function GlobalPoachingMap({ isVisible = true }: GlobalPoachingMapProps) 
                     Units Recovered
                   </h3>
                   <p className="text-[10px] uppercase tracking-wider text-muted-foreground/70 font-bold font-['Plus_Jakarta_Sans']">
-                    Total specimens secure by source
+                   Crimson Fernelia secure by source
                   </p>
                 </div>
                 <div className="space-y-4">

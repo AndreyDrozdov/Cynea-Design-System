@@ -23,34 +23,34 @@ interface SpeciesData {
 const speciesData: SpeciesData[] = [
   {
     id: "1",
-    commonName: "Middlemist Red Camellia",
-    scientificName: "Camellia middlemistii",
+    commonName: "Aetheria Lumina",
+    scientificName: "Aetheria luminosa",
     extinctionRisk: 87,
     timeline: "3-5 years",
     wildPopulation: "2 known plants",
     recommendation: "Initiate genetic rescue breeding program immediately",
     status: "critical",
-    imageUrl: "/assets/botanical/middlemist_red.png"
+    imageUrl: "https://images.unsplash.com/photo-1725912196296-bfda8fffaff6?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
     id: "2",
-    commonName: "Rothschild's Slipper Orchid",
-    scientificName: "Paphiopedilum rothschildianum",
+    commonName: "Crimson Fernelia",
+    scientificName: "Fernelia erythros",
     extinctionRisk: 62,
     timeline: "10-15 years",
     wildPopulation: "<50 plants",
     recommendation: "Establish anti-poaching patrols and increase habitat protection",
     status: "endangered",
-    imageUrl: "/assets/botanical/slipper_orchid.png"
+    imageUrl: "https://images.unsplash.com/photo-1560369073-233ebcda63a1?q=80&w=1635&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
 ];
 
 const networkActivity = [
-  "Singapore Botanic Gardens - Camellia breeding pairs selected",
-  "Royal Botanic Gardens, Kew - Seed viability test completed",
-  "Peru Conservation Reserve - Population census updated",
-  "Missouri Botanical Garden - Genetic analysis completed",
-  "Berlin-Dahlem Botanical Garden - Propagation successful",
+  "Aetheria Breeding Center - Pollination successful",
+  "Global Seed Vault - Aetheria genetic backup secured",
+  "Crimson Fernelia Habitat - Population census updated",
+  "Cyanea Analytics Lab - Genetic analysis completed",
+  "Sydney Botanic Labs - Crimson Fernelia propagation successful",
 ];
 
 interface SpeciesRiskDashboardProps {

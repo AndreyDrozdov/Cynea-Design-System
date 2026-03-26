@@ -62,7 +62,7 @@ export function GeneticDiversityOptimizer({ isVisible = true }: GeneticDiversity
       {/* Header */}
       <div className="space-y-2">
         <h2 className="text-3xl font-bold">Genetic Diversity Optimizer</h2>
-        <p className="text-muted-foreground/70">AI-powered breeding strategy for Middlemist Red Camellia</p>
+        <p className="text-muted-foreground/70">AI-powered breeding strategy for Aetheria Lumina</p>
       </div>
 
       <div className="grid lg:grid-cols-2 gap-6 lg:max-h-[calc(100vh-140px)] lg:overflow-y-auto pr-0 lg:pr-2">
@@ -103,6 +103,8 @@ export function GeneticDiversityOptimizer({ isVisible = true }: GeneticDiversity
                 inbreedingCoefficient={metrics.inbreedingCoefficient}
                 alleleCount={metrics.alleleCount}
                 historicalAlleleCount={47}
+                commonName="Aetheria Lumina"
+                imageUrl="https://images.unsplash.com/photo-1725912196296-bfda8fffaff6?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               />
             </motion.div>
 

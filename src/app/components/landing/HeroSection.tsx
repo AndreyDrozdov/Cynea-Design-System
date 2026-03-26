@@ -7,19 +7,19 @@ import { motion, AnimatePresence } from "motion/react";
 
 const plantSlides = [
   {
-    src: "/assets/botanical/middlemist_red.png",
-    alt: "Middlemist Red Camellia",
-    label: "Middlemist Red Camellia",
+    src: "https://images.unsplash.com/photo-1725912196296-bfda8fffaff6?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    alt: "Aetheria Lumina",
+    label: "Aetheria Lumina",
   },
   {
-    src: "/assets/botanical/slipper_orchid.png",
-    alt: "Rothschild's Slipper Orchid",
-    label: "Rothschild's Slipper Orchid",
+    src: "https://images.unsplash.com/photo-1560369073-233ebcda63a1?q=80&w=1635&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    alt: "Crimson Fernelia",
+    label: "Crimson Fernelia",
   },
   {
-    src: "/assets/botanical/dudleya_farinosa.png",
-    alt: "North Coast Dudleya",
-    label: "North Coast Dudleya",
+    src: "https://images.unsplash.com/photo-1754920098558-63ab73cd213b?q=80&w=1586&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    alt: "Cyanea Spectra",
+    label: "Cyanea Spectra",
   },
 ];
 

@@ -78,7 +78,7 @@ export function GeneticRescueCard({ isVisible = true }: IntelligenceUnitProps) {
       </div>
       <div className="space-y-5">
         <p className="text-sm font-['Plus_Jakarta_Sans'] leading-relaxed text-[#151515]">
-          <strong className="font-bold">Maximum recovery strategy:</strong> Outbreed with related Camellia population at Kew Gardens
+          <strong className="font-bold">Maximum recovery strategy:</strong> Outbreed with related Aetheria population at Global Seed Vault
         </p>
         <div className="space-y-3 pt-4">
           <div className="flex justify-between items-center text-xs">

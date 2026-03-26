@@ -37,13 +37,13 @@ export function RescueProcessSection() {
       id="how-we-rescue"
       className="py-24 relative overflow-hidden"
       style={{
-        backgroundImage: `url('https://images.unsplash.com/photo-1584204559709-ca7d413229eb?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D=rb-4.1.0&q=80&w=1080')`,
+        backgroundImage: `url('https://images.unsplash.com/photo-1520302630591-fd1c66edc19d?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
     >
       {/* Dark overlay */}
-      <div className="absolute inset-0 bg-[#000000]/60" />
+      <div className="absolute inset-0 bg-[#000000]/65" />
       
       <div className="container mx-auto px-6 relative z-10">
         {/* Header */}

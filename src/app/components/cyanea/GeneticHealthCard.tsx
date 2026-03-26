@@ -8,6 +8,8 @@ interface GeneticHealthCardProps {
   inbreedingCoefficient: number; // percentage
   alleleCount: number;
   historicalAlleleCount?: number;
+  imageUrl?: string;
+  commonName?: string;
   className?: string;
 }
 
@@ -16,6 +18,8 @@ export function GeneticHealthCard({
   inbreedingCoefficient,
   alleleCount,
   historicalAlleleCount,
+  imageUrl,
+  commonName,
   className
 }: GeneticHealthCardProps) {
   const getScoreColor = (score: number) => {
@@ -37,14 +41,16 @@ export function GeneticHealthCard({
   return (
     <Card className={cn("p-5 space-y-4 rounded-3xl", className)}>
       <div className="flex items-center gap-2 border-b border-[#075D44]/10 pb-3 mb-2">
-        <h3 className="text-xl font-bold font-['Dela_Gothic_One'] tracking-tight text-[#151515]">Genetic Health</h3>
+        <h3 className="text-xl font-bold font-['Dela_Gothic_One'] tracking-tight text-[#151515]">
+          {commonName || "Genetic Health"}
+        </h3>
       </div>
 
       <div className="flex flex-col md:flex-row gap-6 items-start">
-        <div className="w-full md:w-42 h-48 md:h-42 rounded-2xl overflow-hidden border border-[#075D44]/5 bg-white flex-shrink-0">
+        <div className="w-full md:w-42 h-48 md:h-42 rounded-2xl overflow-hidden border border-[#075D44]/5 bg-[#f5fbf6] flex-shrink-0">
           <img 
-            src="/assets/botanical/middlemist_red.png" 
-            alt="Middlemist Red Camellia"
+            src={imageUrl || "/assets/botanical/middlemist_red.png"} 
+            alt={commonName || "Botanical Specimen"}
             className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
           />
         </div>

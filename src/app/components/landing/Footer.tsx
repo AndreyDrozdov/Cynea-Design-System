@@ -8,10 +8,11 @@ export function Footer() {
           {/* Brand */}
           <div className="space-y-4">
             <div className="flex items-center gap-2">
-              <div className="p-2 bg-[#D0F17A] rounded-3xl">
-                <Leaf className="w-6 h-6 text-[#075D44]" />
-              </div>
-              <span className="text-2xl font-bold font-['Dela_Gothic_One'] tracking-tight text-[#151515]">Cyanea</span>
+              <img 
+                src="/cyanea_logo.svg" 
+                alt="Cyanea Logo" 
+                className="h-8 w-auto" 
+              />
             </div>
             <p className="text-[#151515]/70 text-sm leading-relaxed font-['Plus_Jakarta_Sans']">
               AI-powered plant conservation software preventing extinction through predictive 
